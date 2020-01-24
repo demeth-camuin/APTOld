@@ -159,7 +159,7 @@ public class ContractsPage extends Base {
 	
 	public void clickResetButton() throws Exception {
 		CommonFunctions.clickElement(button_Reset);
-		CommonFunctions.pause(15000, false);
+		CommonFunctions.pause(7500, false);
 	}
 	
 	public void clickStatusColumnHeader() throws Exception {

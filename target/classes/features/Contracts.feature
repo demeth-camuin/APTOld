@@ -3728,7 +3728,7 @@ Feature: APT - Contracts
 		When user changes the status of the contract to "Internal Sale Only"
 		Then user sees error message "Contract cannot be put on sale as it does not have a valid Price."
 
-	@RegressionRerun @RegressionContractCostPage
+	@Regression @RegressionContractCostPage
 	Scenario: APT-2560: 01a. Load and display ADD CONTRACT COSTS page
 		# Additional Scenario: APT-2625: 06a. Add new costs in Add Contract Costs page
 		# Additional Scenario: APT-2628: 07a. Add new costs in Update Contract Costs page
@@ -3793,7 +3793,8 @@ Feature: APT - Contracts
 		Then user is on "Contracts" page
 		# Scenario for Contract Type "Cruise":
 		Given user is on "Contracts" page
-		When user searches for contracts with type "Cruise" and on loading status
+		When user resets the search filters
+		And user searches for contracts with type "Cruise" and on loading status
 		And user updates the contract
 		And user opens the add contract costs page
 		Then user is on "Add Contract Costs" page
@@ -3830,7 +3831,8 @@ Feature: APT - Contracts
 		Then user is on "Contracts" page
 		# Scenario for Contract Type "Foreign Operator / Land":
 		Given user is on "Contracts" page
-		When user searches for contracts with type "Foreign Operator / Land" and on loading status
+		When user resets the search filters
+		And user searches for contracts with type "Foreign Operator / Land" and on loading status
 		And user updates the contract
 		And user opens the add contract costs page
 		Then user is on "Add Contract Costs" page
@@ -3867,7 +3869,8 @@ Feature: APT - Contracts
 		# Scenario for Contract Type "Hotel":
 		Given user is on "Contracts" page
 		# Contract ID 53 with type Hotel
-		When user searches for a contract by id
+		When user resets the search filters
+		And user searches for a contract by id
 		And user updates the contract
 		And user opens the add contract costs page
 		Then user is on "Add Contract Costs" page
@@ -3954,7 +3957,8 @@ Feature: APT - Contracts
 		Then user is on "Contracts" page
 		# Scenario for Contract Type "Miscellaneous":
 		Given user is on "Contracts" page
-		When user searches for contracts with type "Miscellaneous" and on loading status
+		When user resets the search filters
+		And user searches for contracts with type "Miscellaneous" and on loading status
 		And user updates the contract
 		And user opens the add contract costs page
 		Then user is on "Add Contract Costs" page
@@ -3993,7 +3997,8 @@ Feature: APT - Contracts
 		Then user is on "Contracts" page
 		# Scenario for Contract Type "Rail":
 		Given user is on "Contracts" page
-		When user searches for contracts with type "Rail" and on loading status
+		When user resets the search filters
+		And user searches for contracts with type "Rail" and on loading status
 		And user updates the contract
 		And user opens the add contract costs page
 		Then user is on "Add Contract Costs" page
@@ -4030,7 +4035,8 @@ Feature: APT - Contracts
 		Then user is on "Contracts" page
 		# Scenario for Contract Type "Transfer":
 		Given user is on "Contracts" page
-		When user searches for contracts with type "Transfer" and on loading status
+		When user resets the search filters
+		And user searches for contracts with type "Transfer" and on loading status
 		And user updates the contract
 		And user opens the add contract costs page
 		Then user is on "Add Contract Costs" page

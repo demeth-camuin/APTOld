@@ -9,9 +9,9 @@ import cucumber.api.junit.Cucumber;
 	plugin = { "com.cucumber.listener.ExtentCucumberFormatter:reports\\Extent-Report.html" }, monochrome = true, // For code readability.
 	strict = true, // Always set to true to check every undefined/pending steps.
 	dryRun = false, // Checking of steps if implemented or not.
-	// tags = { "@Regression" },
+	tags = { "@Regression" },
 	// tags = { "@Regression-Slow" },
-	tags = { "@RegressionRerun" },
+	// tags = { "@RegressionRerun" },
 	// tags = { "@WIP" },
 	// features = "src/main/resources/features/"
 	// features = "src/main/resources/features/Air.feature"
