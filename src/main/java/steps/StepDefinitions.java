@@ -1,5 +1,6 @@
 package steps;
 
+import static org.junit.Assert.assertTrue;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import org.junit.Assert;
@@ -282,7 +283,7 @@ public class StepDefinitions extends Base {
 	@When("^user navigates to promotions page$")
 	public void user_navigates_to_promotions_page() throws Throwable {
 		homePage.clickHamburgerAccordion();
-//		homePage.clickModulesAccordion();
+		// homePage.clickModulesAccordion();
 		
 		promotionsPage = homePage.clickPromotionsLink();
 	}
@@ -298,7 +299,7 @@ public class StepDefinitions extends Base {
 	@When("^user navigates to suppliers page$")
 	public void user_navigates_to_suppliers_page() throws Throwable {
 		homePage.clickHamburgerAccordion();
-//		homePage.clickModulesAccordion();
+		// homePage.clickModulesAccordion();
 		
 		suppliersPage = homePage.clickSuppliersLink();
 	}
@@ -306,7 +307,7 @@ public class StepDefinitions extends Base {
 	@When("^user navigates to customers page$")
 	public void user_navigates_to_customers_page() throws Throwable {
 		homePage.clickHamburgerAccordion();
-//		homePage.clickModulesAccordion();
+		// homePage.clickModulesAccordion();
 		
 		customersPage = homePage.clickCustomersLink();
 	}
@@ -314,7 +315,7 @@ public class StepDefinitions extends Base {
 	@When("^user navigates to commissions page$")
 	public void user_navigates_to_commissions_page() throws Throwable {
 		homePage.clickHamburgerAccordion();
-//		homePage.clickModulesAccordion();
+		// homePage.clickModulesAccordion();
 		
 		commissionsPage = homePage.clickCommissionsLink();
 	}
@@ -328,7 +329,7 @@ public class StepDefinitions extends Base {
 	@When("^user navigates to contracts page$")
 	public void user_navigates_to_contracts_page() throws Throwable {
 		homePage.clickHamburgerAccordion();
-//		homePage.clickModulesAccordion();
+		// homePage.clickModulesAccordion();
 		homePage.clickContractsAccordion();
 		
 		contractsPage = homePage.clickContractsLink();
@@ -337,7 +338,7 @@ public class StepDefinitions extends Base {
 	@When("^user opens the air accordion$")
 	public void user_opens_the_air_accordion() throws Throwable {
 		homePage.clickHamburgerAccordion();
-//		homePage.clickModulesAccordion();
+		// homePage.clickModulesAccordion();
 		homePage.clickAirAccordion();
 	}
 	
@@ -352,7 +353,7 @@ public class StepDefinitions extends Base {
 	@When("^user navigates to recommended itinerary page$")
 	public void user_navigates_to_recommended_itinerary_page() throws Throwable {
 		homePage.clickHamburgerAccordion();
-//		homePage.clickModulesAccordion();
+		// homePage.clickModulesAccordion();
 		homePage.clickAirAccordion();
 		
 		recommendedItinerariesPage = homePage.clickRecommendedItineraryLink();
@@ -361,7 +362,7 @@ public class StepDefinitions extends Base {
 	@When("^user navigates to queue place setting page$")
 	public void user_navigates_to_queue_place_setting_page() throws Throwable {
 		homePage.clickHamburgerAccordion();
-//		homePage.clickModulesAccordion();
+		// homePage.clickModulesAccordion();
 		homePage.clickAirAccordion();
 		
 		queuePlaceSettingsPage = homePage.clickQueuePlaceSettingLink();
@@ -370,7 +371,7 @@ public class StepDefinitions extends Base {
 	@When("^user navigates to mark up rule page$")
 	public void user_navigates_to_mark_up_rule_page() throws Throwable {
 		homePage.clickHamburgerAccordion();
-//		homePage.clickModulesAccordion();
+		// homePage.clickModulesAccordion();
 		homePage.clickAirAccordion();
 		
 		markupRulesPage = homePage.clickMarkupRuleLink();
@@ -379,7 +380,7 @@ public class StepDefinitions extends Base {
 	@When("^user navigates to ticketing time limit page$")
 	public void user_navigates_to_ticketing_time_limit_page() throws Throwable {
 		homePage.clickHamburgerAccordion();
-//		homePage.clickModulesAccordion();
+		// homePage.clickModulesAccordion();
 		homePage.clickAirAccordion();
 		
 		ticketingTimeLimitsPage = homePage.clickTicketingTimeLimitLink();
@@ -388,21 +389,21 @@ public class StepDefinitions extends Base {
 	@Then("^user sees the contracts accordion and its sub-menu links$")
 	public void user_sees_the_contracts_accordion_and_its_sub_menu_links() throws Throwable {
 		homePage.clickHamburgerAccordion();
-//		homePage.clickModulesAccordion();
+		// homePage.clickModulesAccordion();
 		homePage.displayedContractsAccordion();
 		homePage.clickContractsAccordion();
 		homePage.displayedContractsLink();
 		homePage.displayedUploadCostLink();
 		homePage.displayedUploadPriceLink();
 		homePage.clickContractsAccordion();
-//		homePage.clickModulesAccordion();
+		// homePage.clickModulesAccordion();
 		homePage.clickUserFullNameAccordion();
 	}
 	
 	@When("^user navigates to upload costs page$")
 	public void user_navigates_to_upload_costs_page() throws Throwable {
 		homePage.clickHamburgerAccordion();
-//		homePage.clickModulesAccordion();
+		// homePage.clickModulesAccordion();
 		homePage.clickContractsAccordion();
 		
 		uploadCostsPage = homePage.clickUploadCostLink();
@@ -411,7 +412,7 @@ public class StepDefinitions extends Base {
 	@When("^user navigates to price maintenance page$")
 	public void user_navigates_to_price_maintenance_page() throws Throwable {
 		homePage.clickHamburgerAccordion();
-//		homePage.clickModulesAccordion();
+		// homePage.clickModulesAccordion();
 		homePage.clickContractsAccordion();
 		
 		priceMaintenancePage = homePage.clickPriceMaintenanceLink();
@@ -430,14 +431,14 @@ public class StepDefinitions extends Base {
 	@When("^user expands contracts accordion$")
 	public void user_expands_contracts_accordion() throws Throwable {
 		homePage.clickHamburgerAccordion();
-//		homePage.clickModulesAccordion();
+		// homePage.clickModulesAccordion();
 		homePage.clickContractsAccordion();
 	}
 	
 	@When("^user collapses contracts accordion$")
 	public void user_collapses_contracts_accordion() throws Throwable {
 		homePage.clickContractsAccordion();
-//		homePage.clickModulesAccordion();
+		// homePage.clickModulesAccordion();
 		homePage.clickUserFullNameAccordion();
 	}
 	
@@ -7474,13 +7475,13 @@ public class StepDefinitions extends Base {
 	public void user_decides_to_delete_a_row_of_costs() throws Throwable {
 		CommonFunctions.clickElement(driver.findElement(By.xpath("(//div[contains(@id, 'ContractCostContainer')]//div[@class = 'deleteRowDiv']//span)[2]")));
 		CommonFunctions.pause(10000, false);
-//		CommonFunctions.switchFrameByXPath("//*[text() = 'Are you sure you want to delete the dates 01 Sep 2019 - 31 Aug 2020 across all Guest Configurations in Harbour View Room and BB?']");
+		// CommonFunctions.switchFrameByXPath("//*[text() = 'Are you sure you want to delete the dates 01 Sep 2019 - 31 Aug 2020 across all Guest Configurations in Harbour View Room and BB?']");
 		CommonFunctions.switchFrameByXPath("//*[text() = 'Price exists that overlaps other cost records. Are you sure you want to delete the selected cost record(s) followed by adjusting the price dates manually?']");
 	}
 	
 	@Then("^user sees a confirmation message for the deletion of the row of costs$")
 	public void user_sees_a_confirmation_message_for_the_deletion_of_the_row_of_costs() throws Throwable {
-//		CommonFunctions.textVisibleInPage("Are you sure you want to delete the dates 01 Sep 2019 - 31 Aug 2020 across all Guest Configurations in Harbour View Room and BB?");
+		// CommonFunctions.textVisibleInPage("Are you sure you want to delete the dates 01 Sep 2019 - 31 Aug 2020 across all Guest Configurations in Harbour View Room and BB?");
 		CommonFunctions.textVisibleInPage("Price exists that overlaps other cost records. Are you sure you want to delete the selected cost record(s) followed by adjusting the price dates manually?");
 	}
 	
@@ -7509,7 +7510,7 @@ public class StepDefinitions extends Base {
 	public void user_deletes_the_contract_cost() throws Throwable {
 		CommonFunctions.clickElement(driver.findElement(By.xpath("(//div[contains(@id, 'ContractCostContainer')]//div[@ref = 'eBodyViewport']//div[@class = 'AGGridMainDiv'])[1]//div[@class = 'AGGridRightDiv']//span[@title = 'Delete Cost']")));
 		CommonFunctions.pause(5000, false);
-//		CommonFunctions.switchFrameByXPath("//*[text() = 'Are you sure you want to delete this cost record?");
+		// CommonFunctions.switchFrameByXPath("//*[text() = 'Are you sure you want to delete this cost record?");
 		CommonFunctions.switchFrameByXPath("//*[text() = 'Price exists that overlaps other cost records. Are you sure you want to delete the selected cost record(s) followed by adjusting the price dates manually?']");
 	}
 	
@@ -7553,7 +7554,7 @@ public class StepDefinitions extends Base {
 	
 	@When("^user chooses to delete the guest configuration for the cost category only$")
 	public void user_chooses_to_delete_the_guest_configuration_for_the_cost_category_only() throws Throwable {
-//		CommonFunctions.switchFrameByXPath("//*[text() = 'Do you wish to remove costs of this guest configuration from all Harbour View Room configurations?']");
+		// CommonFunctions.switchFrameByXPath("//*[text() = 'Do you wish to remove costs of this guest configuration from all Harbour View Room configurations?']");
 		CommonFunctions.clickElement(driver.findElement(By.xpath("//input[@value = 'This Configuration Only']")));
 	}
 	
@@ -7565,7 +7566,7 @@ public class StepDefinitions extends Base {
 	
 	@When("^user chooses to delete the guest configuration for all cost categories$")
 	public void user_chooses_to_delete_the_guest_configuration_for_all_cost_categories() throws Throwable {
-//		CommonFunctions.switchFrameByXPath("//*[text() = 'Do you wish to remove costs of this guest configuration from all Harbour View Room configurations?']");
+		// CommonFunctions.switchFrameByXPath("//*[text() = 'Do you wish to remove costs of this guest configuration from all Harbour View Room configurations?']");
 		CommonFunctions.clickElement(driver.findElement(By.xpath("//input[@value = 'All Configurations']")));
 	}
 	
@@ -7579,7 +7580,7 @@ public class StepDefinitions extends Base {
 	public void user_decides_to_delete_a_contract_cost_category() throws Throwable {
 		CommonFunctions.clickElement(driver.findElement(By.xpath("(//div[contains(@id, 'ContractCostContainer')]//a[contains(@id, 'DeleteCostLink')])[1]")));
 		CommonFunctions.pause(5000, false);
-//		CommonFunctions.switchFrameByXPath("//*[contains(text(), 'Are you sure you want to delete cost records for')]");
+		// CommonFunctions.switchFrameByXPath("//*[contains(text(), 'Are you sure you want to delete cost records for')]");
 		CommonFunctions.switchFrameByXPath("//*[text() = 'Price exists that overlaps other cost records. Are you sure you want to delete the selected cost record(s) followed by adjusting the price dates manually?']");
 	}
 	
@@ -12945,7 +12946,7 @@ public class StepDefinitions extends Base {
 		
 	}
 	
-	@Then("^user inputs batch number with effective future$")
+	@When("^user inputs batch number with effective future$")
 	public void user_inputs_batch_number_with_effective_future() throws Throwable {
 		priceMaintenancePage.clickRadioFuture();
 		priceMaintenancePage.clickBatchNumber();
@@ -12955,7 +12956,7 @@ public class StepDefinitions extends Base {
 		CommonFunctions.pause(5000, false);
 	}
 	
-	@Then("^user inputs batch number with effective processed$")
+	@When("^user inputs batch number with effective processed$")
 	public void user_inputs_batch_number_with_effective_processed() throws Throwable {
 		priceMaintenancePage.clickRadioProcess();
 		priceMaintenancePage.clickBatchNumber();
@@ -12968,7 +12969,7 @@ public class StepDefinitions extends Base {
 		priceMaintenancePage.validateBatchNumberProcessed();
 	}
 	
-	@Then("^user inputs a Contract ID from dropdown list$")
+	@When("^user inputs a Contract ID from dropdown list$")
 	public void user_inputs_a_Contract_ID_from_dropdown_list() throws Throwable {
 		priceMaintenancePage.clickContractId();
 		priceMaintenancePage.setInputSearchContractIdProcessed();
@@ -13015,7 +13016,7 @@ public class StepDefinitions extends Base {
 		priceMaintenancePage.disabledDeleteButton();
 	}
 	
-	@Then("^user inputs contract id with effect future$")
+	@When("^user inputs contract id with effect future$")
 	public void user_inputs_contract_id_with_effect_future() throws Throwable {
 		priceMaintenancePage.clickRadioFuture();
 		CommonFunctions.pause(3000, false);
@@ -13026,7 +13027,7 @@ public class StepDefinitions extends Base {
 		CommonFunctions.pause(3000, false);
 	}
 	
-	@Then("^user inputs contract id with effect processed$")
+	@When("^user inputs contract id with effect processed$")
 	public void user_inputs_contract_id_with_effect_processed() throws Throwable {
 		priceMaintenancePage.clickRadioProcess();
 		CommonFunctions.pause(3000, false);
@@ -13037,7 +13038,7 @@ public class StepDefinitions extends Base {
 		CommonFunctions.pause(3000, false);
 	}
 	
-	@Then("^user inputs batch number and contract id with effect future$")
+	@When("^user inputs batch number and contract id with effect future$")
 	public void user_inputs_batch_number_and_contract_id_with_effect_future() throws Throwable {
 		priceMaintenancePage.clickRadioFuture();
 		CommonFunctions.pause(3000, false);
@@ -13051,7 +13052,7 @@ public class StepDefinitions extends Base {
 		CommonFunctions.pause(3000, false);
 	}
 	
-	@Then("^user inputs batch number and contract id with effect processed$")
+	@When("^user inputs batch number and contract id with effect processed$")
 	public void user_inputs_batch_number_and_contract_id_with_effect_processed() throws Throwable {
 		priceMaintenancePage.clickRadioProcess();
 		CommonFunctions.pause(3000, false);
@@ -13129,7 +13130,7 @@ public class StepDefinitions extends Base {
 		priceMaintenancePage.CheckPriceFieldValidationMessage();
 	}
 	
-	@Then("^user enter negative value in the price fields$")
+	@When("^user enter negative value in the price fields$")
 	public void user_enter_negative_value_in_the_price_fields() throws Throwable {
 		CommonFunctions.pause(5000, false);
 		CommonFunctions.clearThenEnterElementValue(driver.findElement(By.xpath("//input[contains(@id,'TwinInput')]")), "-1");
@@ -13180,10 +13181,250 @@ public class StepDefinitions extends Base {
 		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//div[@class = 'tooltipster-content']")));
 	}
 	
-	@Then("^user searches for the entered batch number and contract id$")
+	@When("^user searches for the entered batch number and contract id$")
 	public void user_searches_for_the_entered_batch_number_and_contract_id() throws Throwable {
 		priceMaintenancePage.clickPriceFind();
 		CommonFunctions.pause(5000, false);
+	}
+	
+	@Then("^user check the price maintenance table value is in decimal format$")
+	public void user_check_the_price_maintenance_table_value_is_in_decimal_format() throws Throwable {
+		String substr1 = "";
+		String var1 = driver.findElement(By.xpath("(//tbody//td[@class='PriceRow0 BatchNo20200114091218'])[5]//span[@class= 'alignedright']")).getText();
+		substr1 = var1.substring(var1.indexOf("."), var1.length());
+		int count1 = substr1.length();
+		
+		assertTrue(count1 == 3);
+		
+		String substr2 = "";
+		String var2 = driver.findElement(By.xpath("(//tbody//td[@class='PriceRow0 BatchNo20200114091218'])[6]//span[@class= 'alignedright']")).getText();
+		substr2 = var2.substring(var2.indexOf("."), var2.length());
+		int count2 = substr2.length();
+		
+		assertTrue(count2 == 3);
+		
+		String substr3 = "";
+		String var3 = driver.findElement(By.xpath("(//tbody//td[@class='PriceRow0 BatchNo20200114091218'])[7]//span[@class= 'alignedright']")).getText();
+		substr3 = var3.substring(var3.indexOf("."), var3.length());
+		int count3 = substr3.length();
+		
+		assertTrue(count3 == 3);
+		
+		String substr4 = "";
+		String var4 = driver.findElement(By.xpath("(//tbody//td[@class='PriceRow0 BatchNo20200114091218'])[8]//span[@class= 'alignedright']")).getText();
+		substr4 = var4.substring(var4.indexOf("."), var4.length());
+		int count4 = substr4.length();
+		
+		assertTrue(count4 == 3);
+		
+		String substr5 = "";
+		String var5 = driver.findElement(By.xpath("(//tbody//td[@class='PriceRow0 BatchNo20200114091218'])[9]//span[@class= 'alignedright']")).getText();
+		substr5 = var5.substring(var5.indexOf("."), var5.length());
+		int count5 = substr5.length();
+		
+		assertTrue(count5 == 3);
+	}
+	
+	@Then("^user check the price maintenance table value is in right alignment$")
+	public void user_check_the_price_maintenance_table_value_is_in_right_alignment() throws Throwable {
+		priceMaintenancePage.alignPriceContentRight();
+	}
+	
+	@Then("^user check the price format in the edit price maintenance popup$")
+	public void user_check_the_price_format_in_the_edit_price_maintenance_popup() throws Throwable {
+		CommonFunctions.clickElement(driver.findElement(By.xpath("//table[contains(@id,'PriceMaintenanceTable')]//a[contains(@id,'EditLink')]")));
+		CommonFunctions.pause(5000, false);
+		CommonFunctions.switchFrameByXPath("//*[text() = 'Update Effective Date and Time']");
+		
+		String substr1 = "";
+		String var1 = driver.findElement(By.xpath("//div[contains(@id,'twin')]")).getText();
+		substr1 = var1.substring(var1.indexOf("."), var1.length());
+		int count1 = substr1.length();
+		
+		assertTrue(count1 == 3);
+		
+		String substr2 = "";
+		String var2 = driver.findElement(By.xpath("//div[contains(@id,'Single')]")).getText();
+		substr2 = var2.substring(var2.indexOf("."), var2.length());
+		int count2 = substr2.length();
+		
+		assertTrue(count2 == 3);
+		
+		String substr3 = "";
+		String var3 = driver.findElement(By.xpath("//div[contains(@id,'Triple')]")).getText();
+		substr3 = var3.substring(var3.indexOf("."), var3.length());
+		int count3 = substr3.length();
+		
+		assertTrue(count3 == 3);
+		
+		String substr4 = "";
+		String var4 = driver.findElement(By.xpath("//div[contains(@id,'child')]")).getText();
+		substr4 = var4.substring(var4.indexOf("."), var4.length());
+		int count4 = substr4.length();
+		
+		assertTrue(count4 == 3);
+		
+		String substr5 = "";
+		String var5 = driver.findElement(By.xpath("//div[contains(@id,'Pensioner')]")).getText();
+		substr5 = var5.substring(var5.indexOf("."), var5.length());
+		int count5 = substr5.length();
+		
+		assertTrue(count5 == 3);
+		
+		String substr6 = "";
+		String var6 = driver.findElement(By.xpath("(//span[contains(@id,'PriceTableAjaxRfrsh')]//td)[3]//div")).getText();
+		substr6 = var6.substring(var6.indexOf("."), var6.length());
+		int count6 = substr6.length();
+		
+		assertTrue(count6 == 3);
+		
+		String substr7 = "";
+		String var7 = driver.findElement(By.xpath("(//span[contains(@id,'PriceTableAjaxRfrsh')]//td)[4]//div")).getText();
+		substr7 = var7.substring(var7.indexOf("."), var7.length());
+		int count7 = substr7.length();
+		
+		assertTrue(count7 == 3);
+	}
+	
+	@When("^user open accordion for twenty five Seater cost$")
+	public void user_open_accordion_for_twenty_five_Seater_cost() throws Throwable {
+		CommonFunctions.clickElement(driver.findElement(By.xpath("(//div[contains(@id,'ContractCostContainer')]//div[@class='AccordionExpandable_header'])[4]//span[@class='fa fa-fw fa-angle-down']")));
+		
+	}
+	
+	@Given("^user clicks delete icon cost by row for twenty five Seater$")
+	public void user_clicks_delete_icon_cost_by_row_for_twenty_five_Seater() throws Throwable {
+		CommonFunctions.clickElement(driver.findElement(By.xpath("(//div[contains(@id, 'ContractCostContainer')]//div[@class = 'deleteRowDiv']//span)[6]")));
+		CommonFunctions.pause(10000, false);
+		
+	}
+	
+	@Then("^user sees message for delete cost by row for twenty five Seater$")
+	public void user_sees_message_for_delete_cost_by_row_for_twenty_five_Seater() throws Throwable {
+		CommonFunctions.switchFrameByXPath("//*[text() = 'Are you sure you want to delete the dates 01 Jan 2022 - 31 Dec 2023 across all Guest Configurations in 25 Seater and Adult?']");
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//*[text() = 'Are you sure you want to delete the dates 01 Jan 2022 - 31 Dec 2023 across all Guest Configurations in 25 Seater and Adult?']")));
+		
+	}
+	
+	@When("^user sees message for delete cost by row with price for twenty five Seater$")
+	public void user_sees_message_for_delete_cost_by_row_with_price_for_twenty_five_Seater() throws Throwable {
+		CommonFunctions.switchFrameByXPath("//*[text() = 'Price exists. Are you sure you want to delete the selected cost record(s) and associated Prices?']");
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//*[text() = 'Price exists. Are you sure you want to delete the selected cost record(s) and associated Prices?']")));
+		
+	}
+	
+	@When("^user sees message for delete cost by row with overlapping price date for twenty five Seater$")
+	public void user_sees_message_for_delete_cost_by_row_with_overlapping_price_date_for_twenty_five_Seater() throws Throwable {
+		CommonFunctions.switchFrameByXPath("//*[text() = 'Price exists that overlaps other cost records. Are you sure you want to delete the selected cost record(s) followed by adjusting the price dates manually?']");
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//*[text() = 'Price exists that overlaps other cost records. Are you sure you want to delete the selected cost record(s) followed by adjusting the price dates manually?']")));
+	}
+	
+	@Then("^user clicks on Cancel button in the delete row popup$")
+	public void user_clicks_on_Cancel_button_in_the_delete_row_popup() throws Throwable {
+		CommonFunctions.clickElement(driver.findElement(By.xpath("//input[@value='Cancel']")));
+	}
+	
+	@Given("^user clicks on delete icon by column$")
+	public void user_clicks_on_delete_icon_by_column() throws Throwable {
+		CommonFunctions.clickElement(driver.findElement(By.xpath("(//div[contains(@id, 'ContractCostContainer')]//i[@title='Delete'])[4]")));
+		CommonFunctions.pause(5000, false);
+	}
+	
+	@When("^user sees message for delete cost by column for twenty five Seater$")
+	public void user_sees_message_for_delete_cost_by_column_for_twenty_five_Seater() throws Throwable {
+		CommonFunctions.switchFrameByXPath("//*[text() = 'Do you wish to remove costs for 25 Seater from all Pax type records?']");
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//*[text() = 'Do you wish to remove costs for 25 Seater from all Pax type records?']")));
+	}
+	
+	@When("^user sees message for delete cost by column with overlapping price date for twenty five Seater$")
+	public void user_sees_message_for_delete_cost_by_column_with_overlapping_price_date_for_twenty_five_Seater() throws Throwable {
+		CommonFunctions.switchFrameByXPath("//*[text() = 'Do you wish to remove costs for 25 Seater from all Pax type records?']");
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//*[text() = 'Do you wish to remove costs for 25 Seater from all Pax type records?']")));
+	}
+	
+	@When("^user sees message for delete cost by column with price for twenty five Seater$")
+	public void user_sees_message_for_delete_cost_by_column_with_price_for_twenty_five_Seater() throws Throwable {
+		CommonFunctions.switchFrameByXPath("//*[text() = 'Do you wish to remove costs for 25 Seater from all Pax type records?']");
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//*[text() = 'Do you wish to remove costs for 25 Seater from all Pax type records?']")));
+	}
+	
+	@When("^user sees All Pax Types button in the popup$")
+	public void user_sees_All_Pax_Types_button_in_the_popup() throws Throwable {
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//input[@value='All Pax Types']")));
+	}
+	
+	@When("^user sees This Pax Type Only button in the popup$")
+	public void user_sees_This_Pax_Type_Only_button_in_the_popup() throws Throwable {
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//input[@value='This Pax Type Only']")));
+	}
+	
+	@Then("^user clicks on close icon in the delete column popup$")
+	public void user_clicks_on_close_icon_in_the_delete_column_popup() throws Throwable {
+		CommonFunctions.clickElement(driver.findElement(By.xpath("//div[contains(@id,'ClosePlaceholder')]//span[@class='fas fa-fw fas fa-times']")));
+	}
+	
+	@Given("^user clicks on delete icon cost by cell for twenty five Seater$")
+	public void user_clicks_on_delete_icon_cost_by_cell_for_twenty_five_Seater() throws Throwable {
+		CommonFunctions.hoverElement(driver.findElement(By.xpath("(//div[contains(@id,'ContractCostContainer')]//div[@class='AGGridDivs AGColHover'])[6]")));
+		CommonFunctions.clickElement(driver.findElement(By.xpath("(//div[contains(@id,'ContractCostContainer')]//div[@role='grid'])[4]//span[@title='Delete Cost']")));
+	}
+	
+	@When("^user sees delete cell popup message$")
+	public void user_sees_delete_cell_popup_message() throws Throwable {
+		CommonFunctions.pause(5000, false);
+		CommonFunctions.switchFrameByXPath("//*[text() = 'Are you sure you want to delete this cost record?']");
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//*[text() = 'Are you sure you want to delete this cost record?']")));
+	}
+	
+	@When("^user sees delete cell popup message with overlapping price date for twenty five Seater$")
+	public void user_sees_delete_cell_popup_message_with_overlapping_price_date_for_twenty_five_Seater() throws Throwable {
+		CommonFunctions.switchFrameByXPath("//*[text() = 'Price exists that overlaps other cost records. Are you sure you want to delete the selected cost record(s) followed by adjusting the price dates manually?']");
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//*[text() = 'Price exists that overlaps other cost records. Are you sure you want to delete the selected cost record(s) followed by adjusting the price dates manually?']")));
+	}
+	
+	@When("^user sees delete cell popup message with price for twenty five Seater$")
+	public void user_sees_delete_cell_popup_message_with_price_for_twenty_five_Seater() throws Throwable {
+		CommonFunctions.switchFrameByXPath("//*[text() = 'Price exists. Are you sure you want to delete the selected cost record(s) and associated Prices?']");
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//*[text() = 'Price exists. Are you sure you want to delete the selected cost record(s) and associated Prices?']")));
+	}
+	
+	@Then("^user clicks on Cancel button in delete cell popup$")
+	public void user_clicks_on_Cancel_button_in_delete_cell_popup() throws Throwable {
+		CommonFunctions.clickElement(driver.findElement(By.xpath("//input[@value='Cancel']")));
+	}
+	
+	@Given("^user clicks on delete link in the accordion$")
+	public void user_clicks_on_delete_link_in_the_accordion() throws Throwable {
+		CommonFunctions.clickElement(driver.findElement(By.xpath("(//div[contains(@id,'ContractCostContainer')]//div[contains(@id,'Title')])[14]//a[contains(@id,'DeleteCostLink')]")));
+		
+	}
+	
+	@Given("^user sees message for delete cost by accordion for twenty five Seater$")
+	public void user_sees_message_for_delete_cost_by_accordion_for_twenty_five_Seater() throws Throwable {
+		CommonFunctions.switchFrameByXPath("//*[text() = 'Are you sure you want to delete cost records for 25 Seater?']");
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//*[text() = 'Are you sure you want to delete cost records for 25 Seater?']")));
+	}
+	
+	@Given("^user sees message for delete cost by accordion with price for twenty five Seater$")
+	public void user_sees_message_for_delete_cost_by_accordion_with_price_for_twenty_five_Seater() throws Throwable {
+		CommonFunctions.switchFrameByXPath("//*[text() = 'Price exists. Are you sure you want to delete the selected cost record(s) and associated Prices?']");
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//*[text() = 'Price exists. Are you sure you want to delete the selected cost record(s) and associated Prices?']")));
+	}
+	
+	@Given("^user sees message for delete cost by accordion with overlapping price date for twenty five Seater$")
+	public void user_sees_message_for_delete_cost_by_accordion_with_overlapping_price_date_for_twenty_five_Seater() throws Throwable {
+		CommonFunctions.switchFrameByXPath("//*[text() = 'Price exists. Are you sure you want to delete the selected cost record(s) and associated Prices?']");
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//*[text() = 'Price exists. Are you sure you want to delete the selected cost record(s) and associated Prices?']")));
+	}
+	
+	@Then("^user clicks on Cancel button in the delete accordion popup$")
+	public void user_clicks_on_Cancel_button_in_the_delete_accordion_popup() throws Throwable {
+		CommonFunctions.clickElement(driver.findElement(By.xpath("//input[@value='Cancel']")));
+	}
+	
+	@Then("^user clicks on Ok button in the delete accordion popup$")
+	public void user_clicks_on_Ok_button_in_the_delete_accordion_popup() throws Throwable {
+		CommonFunctions.clickElement(driver.findElement(By.xpath("//input[@value='OK']")));
 	}
 	// End - Price Maintenance Page Functions
 	

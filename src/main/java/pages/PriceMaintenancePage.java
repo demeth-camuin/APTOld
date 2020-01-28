@@ -549,5 +549,13 @@ public class PriceMaintenancePage extends Base {
 		CommonFunctions.clickElement(driver.findElement(By.xpath("//input[@value='Update Price']")));
 		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//div[contains(@id,'ctn_main')]")));
 	}
+	
+	public void alignPriceContentRight() throws Exception {
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("(//tbody//td[@class='PriceRow0 BatchNo20200114091218'])[5]//div[@align = 'right']")));
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("(//tbody//td[@class='PriceRow0 BatchNo20200114091218'])[6]//div[@align = 'right']")));
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("(//tbody//td[@class='PriceRow0 BatchNo20200114091218'])[7]//div[@align = 'right']")));
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("(//tbody//td[@class='PriceRow0 BatchNo20200114091218'])[8]//div[@align = 'right']")));
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("(//tbody//td[@class='PriceRow0 BatchNo20200114091218'])[9]//div[@align = 'right']")));
+	}
 	// End - Actions
 }

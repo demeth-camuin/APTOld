@@ -35,7 +35,9 @@ public class Base {
 			
 			options.addArguments("--incognito");
 			options.setCapability(CapabilityType.ForSeleniumServer.ENSURING_CLEAN_SESSION, true);
-			System.setProperty("webdriver.chrome.driver", "/Program Files/Automation Tools/Drivers/chromedriver.exe");
+			options.addArguments("--ignore-ssl-errors=yes");
+			options.addArguments("--ignore-certificate-errors");
+			System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\drivers\\chromedriver.exe");
 			
 			driver = new ChromeDriver(options);
 		}
@@ -48,7 +50,7 @@ public class Base {
 			options.setCapability(InternetExplorerDriver.IE_SWITCHES, "-private");
 			options.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
 			options.setCapability(InternetExplorerDriver.NATIVE_EVENTS, false);
-			System.setProperty("webdriver.ie.driver", "/Program Files/Automation Tools/Drivers/IEDriverServer.exe");
+			System.setProperty("webdriver.ie.driver", "src\\main\\resources\\configurations\\drivers\\IEDriverServer.exe");
 			
 			driver = new InternetExplorerDriver(options);
 		}

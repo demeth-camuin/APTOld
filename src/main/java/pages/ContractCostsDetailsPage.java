@@ -482,7 +482,7 @@ public class ContractCostsDetailsPage extends Base {
 	
 	public void clickDateRangesSectionAddDateRangeButton() throws Exception {
 		CommonFunctions.clickElement(button_DateRangesSection_AddDateRange);
-		CommonFunctions.pause(5000, false);
+		CommonFunctions.pause(7500, false);
 		CommonFunctions.switchFrameByXPath("//*[text() = 'Add Date Range']");
 	}
 	
