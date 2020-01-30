@@ -5292,6 +5292,54 @@ public class StepDefinitions extends Base {
 	public void user_clicks_on_edit_contract_button_of_any_contracts_in_the_list() throws Throwable {
 		contractDetailsPage = contractsPage.clickTopRowDataEditButton();
 	}
+	
+	@When("^user searches for a contract name \"([^\"]*)\"$")
+	public void user_searches_for_a_contract_name(String arg1) throws Throwable {
+		// contractsPage.setIdInput(arg1);
+		contractsPage.setNameInput1(arg1);
+		contractsPage.clickFindButton();
+	}
+	
+	@Then("^user sees a delete icon in the contract shown in the list$")
+	public void user_sees_a_delete_icon_in_the_contract_shown_in_the_list() throws Throwable {
+		contractsPage.displayedDeleteContractButton();
+	}
+	
+	@Given("^user clicks on delete button$")
+	public void user_clicks_on_delete_button() throws Throwable {
+		contractsPage.clickDeleteContractButton();
+		CommonFunctions.pause(5000, false);
+	}
+	
+	@Given("^confirmation popup message is displayed for unused contract$")
+	public void confirmation_popup_message_is_displayed_for_unused_contract() throws Throwable {
+		CommonFunctions.switchFrameByXPath("//div[text()='Are you sure you want to delete all details of the selected Contract?']");
+		contractsPage.displayedDeleteContractPopup();
+	}
+	
+	@When("^user clicks on OK button in the delete popup$")
+	public void user_clicks_on_OK_button_in_the_delete_popup() throws Throwable {
+		// CommonFunctions.switchFrameByXPath("//div[text()='Are you sure you want to delete all details of the selected Contract?']");
+		CommonFunctions.pause(5000, false);
+		contractsPage.clickDeletePopupOkButton();
+		
+	}
+	
+	@Given("^confirmation popup message is displayed for used contract$")
+	public void confirmation_popup_message_is_displayed_for_used_contract() throws Throwable {
+		CommonFunctions.switchFrameByXPath("//span[text()='Unable to delete. Contract is used in packages or bookings.']");
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//span[text()='Unable to delete. Contract is used in packages or bookings.']")));
+	}
+	
+	@Then("^selected contract is not deleted$")
+	public void selected_contract_is_not_deleted() throws Throwable {
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//*[text()='Tokyu Hotel Kyoto (GRJ TM)']")));
+	}
+	
+	@When("^user clicks on OK button in the popup$")
+	public void user_clicks_on_OK_button_in_the_popup() throws Throwable {
+		CommonFunctions.clickElement(driver.findElement(By.xpath("//input[@value='OK']")));
+	}
 	// End - Contracts Page Functions
 	
 	// Start - Contract Details Page Functions
@@ -8803,12 +8851,14 @@ public class StepDefinitions extends Base {
 	
 	@When("^user disregards the saving of the contract with duplicate name$")
 	public void user_disregards_the_saving_of_the_contract_with_duplicate_name() throws Throwable {
-		user_hits_the_escape_key();
+		CommonFunctions.switchFrameByXPath("//*[text() = 'The contract name is already in use. Do you want to continue creating a new contract with the duplicate name?']");
+		CommonFunctions.clickElement(CommonFunctions.getLastElementInListByXPath("//input[contains(@value, 'Cancel')]"));
 	}
 	
 	@When("^user disregards the cancellation of the new contract$")
 	public void user_disregards_the_cancellation_of_the_new_contract() throws Throwable {
-		user_hits_the_escape_key();
+		CommonFunctions.switchFrameByXPath("//*[text() = 'You have not created this contract yet. Are you sure you want to discard this contract?']");
+		CommonFunctions.clickElement(CommonFunctions.getLastElementInListByXPath("//input[contains(@value, 'Cancel')]"));
 	}
 	
 	@When("^user confirms the cancellation of the new contract$")
@@ -8825,7 +8875,8 @@ public class StepDefinitions extends Base {
 	
 	@When("^user disregards the cancellation of the contract duplication$")
 	public void user_disregards_the_cancellation_of_the_contract_duplication() throws Throwable {
-		user_hits_the_escape_key();
+		CommonFunctions.switchFrameByXPath("//*[text() = 'You have not created this contract yet. Are you sure you want to discard this contract?']");
+		CommonFunctions.clickElement(CommonFunctions.getLastElementInListByXPath("//input[@value = 'Cancel']"));
 	}
 	
 	@When("^user confirms the cancellation of the contract duplication$")
@@ -8836,7 +8887,8 @@ public class StepDefinitions extends Base {
 	
 	@When("^user disregards the updating of the contract with duplicate name$")
 	public void user_disregards_the_updating_of_the_contract_with_duplicate_name() throws Throwable {
-		user_hits_the_escape_key();
+		CommonFunctions.switchFrameByXPath("//*[text() = 'The contract name is already in use. Do you want to continue updating the contract with the duplicate name?']");
+		CommonFunctions.clickElement(CommonFunctions.getLastElementInListByXPath("//input[@value = 'Cancel']"));
 	}
 	
 	@When("^user confirms the updating of the contract with duplicate name$")
@@ -9908,7 +9960,7 @@ public class StepDefinitions extends Base {
 	
 	@Then("^user sees the added price in the contract prices table$")
 	public void user_sees_the_added_price_in_the_contract_prices_table() throws Throwable {
-		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//div[contains(@id,'PricesContainer')]//div[contains(@id,'GridCont')]//div[@class='wj-row'][10]//div[text()='EUR']")));
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//div[contains(@id,'PricesContainer')]//div[contains(@id,'GridCont')]//div[@class='wj-row'][07]//div[text()='EUR']")));
 	}
 	
 	@Then("^user sees the update contract basic information fields tooltips when hovered$")
@@ -9919,6 +9971,58 @@ public class StepDefinitions extends Base {
 		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//div[contains(@data-tip, 'Hotel Grand Chancellor Hobart (277)')]")));
 		contractDetailsPage.hoverUpdateBasicInformationPopupDepartmentDropdown();
 		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//div[contains(@data-tip, 'APT Cheltenham - Tour Operations')]")));
+	}
+	
+	@When("^user enter details of the contract$")
+	public void user_enter_details_of_the_contract() throws Throwable {
+		contractDetailsPage.setNameInput("TestContract");
+		contractDetailsPage.selectTypeValue("Coach");
+		contractDetailsPage.selectSupplierValue("Test_SupplierPH");
+		contractDetailsPage.selectCityValue("Auckland, NEW ZEALAND");
+		contractDetailsPage.selectOfficeValue("APT Auckland");
+		contractDetailsPage.selectDepartmentValue("APT Auckland - Sales");
+		contractDetailsPage.selectCurrencyValue("NZD - New Zealand Dollars");
+		contractDetailsPage.selectAutoSendToSupplierContactValue("FIT");
+		contractDetailsPage.setCommentsTextArea("Test Create Contract");
+	}
+	
+	@Then("^user close details page for the newly created contract$")
+	public void user_close_details_page_for_the_newly_created_contract() throws Throwable {
+		CommonFunctions.clickElement(driver.findElement(By.xpath("//input[contains(@id,'CloseTopButton')]")));
+		CommonFunctions.pause(5000, false);
+	}
+	
+	@When("^user sees that add to table button is disabled$")
+	public void user_sees_that_add_to_table_button_is_disabled() throws Throwable {
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//span[contains(@id,'ButtonCustomAjaxRfrsh')]//input[@disabled='disabled']")));
+	}
+	
+	@When("^user sees that add to table button is enabled$")
+	public void user_sees_that_add_to_table_button_is_enabled() throws Throwable {
+		CommonFunctions.elementNotExistingByXPath("//span[contains(@id,'ButtonCustomAjaxRfrsh')]//input[@disabled='disabled']");
+	}
+	
+	@Then("^user click cancel button in the add contract prices popup$")
+	public void user_click_cancel_button_in_the_add_contract_prices_popup() throws Throwable {
+		// CommonFunctions.switchFrameByXPath("//*[text() = 'Add Contract Prices']");
+		CommonFunctions.clickElement(driver.findElement(By.xpath("//input[@value='Cancel']")));
+		CommonFunctions.switchFrameByXPath("//*[text() = 'Are you sure you want to discard your changes?']");
+		CommonFunctions.pause(2500, false);
+		CommonFunctions.clickElement(driver.findElement(By.xpath("//div[@class = 'ConfirmationPopupMainContainer']//input[@value = 'OK']")));
+	}
+	
+	@Then("^price configuration dropdown is not reverted to the original value$")
+	public void price_configuration_dropdown_is_not_reverted_to_the_original_value() throws Throwable {
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//div[@class='SearchInput']//div[text()='Per Person']")));
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//div[@class='SearchInput']//div[text()='Porterage']")));
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//div[@class='SearchInput']//div[text()='Child']")));
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//div[@class='SearchInput']//div[text()='2-99']")));
+	}
+	
+	@Then("^edit and delete icon is not visible in maximum commission cell$")
+	public void edit_and_delete_icon_is_not_visible_in_maximum_commission_cell() throws Throwable {
+		CommonFunctions.elementNotExistingByXPath("((//div[contains(@id, 'MainContractPriceContainer')] //div[@class = 'WebBlockMainContainer'])[1] //div[@ref = 'eBodyViewport'] //div[@ref = 'eCenterColsClipper'] //div[@role = 'row'])[1]//div[@col-id = 'MaximumCommission']//span[@title = 'Edit Price']");
+		CommonFunctions.elementNotExistingByXPath("((//div[contains(@id, 'MainContractPriceContainer')] //div[@class = 'WebBlockMainContainer'])[1] //div[@ref = 'eBodyViewport'] //div[@ref = 'eCenterColsClipper'] //div[@role = 'row'])[1]//div[@col-id = 'MaximumCommission']//span[@title = 'Delete Price']");
 	}
 	// End - Contract Details Page Functions
 	
@@ -11080,7 +11184,8 @@ public class StepDefinitions extends Base {
 	
 	@When("^user closes contract cost existing configuration popup$")
 	public void user_closes_contract_cost_existing_configuration_popup() throws Throwable {
-		user_hits_the_escape_key();
+		CommonFunctions.switchFrameByXPath("//*[text() = 'Existing Configurations']");
+		CommonFunctions.clickElement(driver.findElement(By.xpath("//a[@aria-label = 'Close']")));
 	}
 	
 	@When("^user decides to remove all the contract cost existing configuration$")

@@ -2393,7 +2393,7 @@ Feature: APT - Contracts
     Given user opens browser
     When user logs into app
     And user navigates to contracts page
-    And user finds a contract by id
+    And user searches for a contract with type foreign operator / land and with contract costs
     And user updates the contract
     And user opens the update packages popup
     And user decides to update supplier name
@@ -4282,8 +4282,8 @@ Feature: APT - Contracts
     And user puts "01 Sep 2003" in the contract cost date range table top end date field
     And user accepts the changes made on the contract costs date range row
     Then user does not see the error message "Date falls outside the date range of the contract."
-    When user puts "01 Sep 2020" in the contract cost date range table top start date field
-    And user puts "01 Aug 2021" in the contract cost date range table top end date field
+    When user puts "01 Sep 2007" in the contract cost date range table top start date field
+    And user puts "31 Aug 2008" in the contract cost date range table top end date field
     And user accepts the changes made on the contract costs date range row
     #		Then user sees error message "The date range overlaps with another date range."
     Then user sees error message "Duplicate record exists."
@@ -5472,6 +5472,37 @@ Feature: APT - Contracts
     And user ticks the "EUR" option of the contract price add custom dates currency dropdown
     And user adds the contract prices custom dates to the table
     Then user sees the added price in the contract prices table
+    
+	@Regression
+  Scenario: APT-3723: Delete Contracts when it is not used on packages/bookings
+  	#Navigate to Contracts PAge
+  	Given user opens browser
+		When user logs into app
+		And user navigates to contracts page
+		Then user decides to add a new contract
+		#Create Contract
+    Given user is on "Contract Details" page
+		And user enter details of the contract
+		When user saves the contract
+		Then user sees feedback message Contract ID has been "created successfully." displayed
+		And user close details page for the newly created contract
+		#Check Delete button
+		Given user is on "Contracts" page
+		When user searches for a contract name "TestContract"
+		Then user sees a delete icon in the contract shown in the list
+		#Delete un-used contract
+		Given user clicks on delete button
+		And confirmation popup message is displayed for unused contract
+		When user clicks on OK button in the delete popup
+		Then user sees feedback message "Contract and all associated details deleted successfully. "
+		#Search for used contract
+		Given user is on "Contracts" page
+    And user searches for a contract by id
+		#Delete used contract
+		Given user clicks on delete button
+		And confirmation popup message is displayed for used contract
+		When user clicks on OK button in the popup
+		Then selected contract is not deleted
 
   @Regression
   Scenario: APT-3744: Hover for long text, field validations in Edit Basic Info popup
@@ -5484,3 +5515,35 @@ Feature: APT - Contracts
     And user updates the contract
     And user opens the update contract basic information popup
     Then user sees the update contract basic information fields tooltips when hovered
+		
+	@Regression
+  Scenario:  APT-3942: Add to Table button behavior and Price Configuration field changes in Edit Price popup
+  #Scenario 1: Add to Table is not disabled if all fields have value
+  	Given user opens browser
+		When user logs into app
+		And user navigates to contracts page
+    And user searches for a contract with "96682" id
+		And user updates the contract
+		And user opens the add contract price popup
+		And user searches for the contract price configuration with "Per Person" as the guest configuration, "Porterage" as the category 1 and "Adult" as the category 2
+		And user selects the top price configuration search result in the list
+		And user opens the contract price add custom dates section
+		And user sees that add to table button is enabled
+		And user puts "01 Jan 2022" in the contract price start date field
+		And user puts "" in the contract price end date field
+		And user sees that add to table button is disabled
+		Then user click cancel button in the add contract prices popup
+	#Scenario 2: Price Configuration value does not reverts to original value if there is an error
+		Given user is on "Contract Details" page
+		When user hovers over a certain cell that is not empty in the contract prices table
+    And user edits the contract price
+		And user searches for the contract price configuration with "Per Person" as the guest configuration, "Porterage" as the category 1 and "Child" as the category 2
+		And user selects the top price configuration search result in the list
+		Then user saves the contract prices
+		And user sees error message "Cannot change value as Price already exists."
+		When price configuration dropdown is not reverted to the original value
+		Then user click cancel button in the add contract prices popup
+	#Scenario 3: Hide the Edit and Delete icons in the Max Commission column in Price Table
+		Given user is on "Contract Details" page
+		When user hovers over a certain maximum commission cell that is not empty in the contract prices table
+		Then edit and delete icon is not visible in maximum commission cell

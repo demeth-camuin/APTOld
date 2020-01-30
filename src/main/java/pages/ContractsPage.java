@@ -117,6 +117,18 @@ public class ContractsPage extends Base {
 	
 	@FindBy(xpath = "//form[contains(@action, 'Contracts')]//div[contains(@id, 'GridContainer')]")
 	WebElement table_Contracts;
+	
+	@FindBy(xpath = "//a[@title='Delete']")
+	WebElement button_DeleteContract;
+	
+	@FindBy(xpath = "//div[text()='Are you sure you want to delete all details of the selected Contract?']")
+	WebElement popup_DeleteContract;
+	
+	@FindBy(xpath = "//input[contains(@id,'PopupFooter') and @value='Ok']")
+	WebElement button_DeletePopupOkButton;
+	
+	@FindBy(xpath = "//input[contains(@id, 'ContractNameInput')]")
+	WebElement input_Name1;
 	// End - Main Page Objects
 	// End - Page Objects
 	
@@ -362,6 +374,30 @@ public class ContractsPage extends Base {
 		CommonFunctions.pause(2500, false);
 		
 		return new ContractDetailsPage();
+	}
+	
+	public void displayedDeleteContractButton() throws Exception {
+		CommonFunctions.elementDisplayed(button_DeleteContract);
+	}
+	
+	public void clickDeleteContractButton() throws Exception {
+		CommonFunctions.clickElement(button_DeleteContract);
+	}
+	
+	public void displayedDeleteContractPopup() throws Exception {
+		CommonFunctions.elementDisplayed(popup_DeleteContract);
+	}
+	
+	public void clickDeletePopupOkButton() throws Exception {
+		CommonFunctions.clickElement(button_DeletePopupOkButton);
+	}
+	
+	public void setNameInput1(String name1) throws Exception {
+		CommonFunctions.clearThenEnterElementValue(input_Name1, name1);
+	}
+	
+	public void OKdisplay() throws Exception {
+		CommonFunctions.elementDisplayed(button_DeletePopupOkButton);
 	}
 	// End - Main Page Actions
 	// End - Actions
