@@ -78,7 +78,7 @@ public class HomePage extends Base {
 	@FindBy(xpath = "//a[contains(text(), 'Suppliers')]")
 	WebElement link_Suppliers;
 	
-	@FindBy(xpath = "//a[contains(text(), 'Ticketing Time Limit')]")
+	@FindBy(xpath = "//a[contains(text(), 'Ticket Time Limit')]")
 	WebElement link_TicketingTimeLimit;
 	
 	@FindBy(xpath = "//a[contains(text(), 'Users')]")

@@ -189,13 +189,13 @@ public class ContractCostsDetailsPage extends Base {
 	// End - Add Cost Popup Objects
 	
 	// Start - Add Date Range Popup Objects
-	@FindBy(xpath = "//div[contains(@id, 'Popup')]//input[@value = 'Add']")
+	@FindBy(xpath = "//div[contains(@class, 'Popup')]//input[@value = 'Add']")
 	WebElement button_AddDateRangePopup_Add;
 	
-	@FindBy(xpath = "//div[contains(@id, 'Popup')]//input[@value = 'Add to Table']")
+	@FindBy(xpath = "//div[contains(@class, 'Popup')]//input[@value = 'Add to Table']")
 	WebElement button_AddDateRangePopup_AddToTable;
 	
-	@FindBy(xpath = "//div[contains(@id, 'Popup')]//input[@value = 'Cancel']")
+	@FindBy(xpath = "//div[contains(@class, 'Popup')]//input[@value = 'Cancel']")
 	WebElement button_AddDateRangePopup_Cancel;
 	
 	@FindBy(xpath = "//a[contains(@class, 'CloseLink')]")
@@ -264,8 +264,8 @@ public class ContractCostsDetailsPage extends Base {
 	// End - Edit Voucher Comment Popup Objects
 	
 	// Start - Edit Configuration Details Popup Objects
-	@FindBy(xpath = "//form[contains(@action, 'Popup')]//input[@value = 'Cancel']")
-	WebElement button_EditConfigurationDetailsPopup_Cancel;
+	@FindBy(xpath = "//form[contains(@action, 'Popup')]//input[@value = 'Close']")
+	WebElement button_EditConfigurationDetailsPopup_Close;
 	
 	@FindBy(xpath = "//form[contains(@action, 'Popup')]//input[@value = 'Update']")
 	WebElement button_EditConfigurationDetailsPopup_Update;
@@ -401,7 +401,7 @@ public class ContractCostsDetailsPage extends Base {
 	public void clickAddCostButton() throws Exception {
 		CommonFunctions.clickElement(button_CostsSection_AddCost);
 		CommonFunctions.pause(5000, false);
-		CommonFunctions.switchFrameByXPath("//*[text() = 'Add Cost']");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'Popup')]//*[text() = 'Cost Type']");
 	}
 	
 	public void clickConfigurationDetailsSectionCategory1DropdownOption(String dropdownOptionValue) throws Exception {
@@ -439,7 +439,7 @@ public class ContractCostsDetailsPage extends Base {
 	public void clickConfigurationDetailsSectionEditConfigurationButton() throws Exception {
 		CommonFunctions.clickElement(button_ConfigurationDetailsSection_EditConfiguration);
 		CommonFunctions.pause(5000, false);
-		CommonFunctions.switchFrameByXPath("//*[text() = 'Edit Configuration Details']");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'Popup')]//label[contains(@id, 'GuestConfiguration')]");
 	}
 	
 	public void clickConfigurationDetailsSectionExistingConfigurationDetailsButton() throws Exception {
@@ -467,7 +467,7 @@ public class ContractCostsDetailsPage extends Base {
 	public void clickConfigurationDetailsSectionViewButton() throws Exception {
 		CommonFunctions.clickElement(button_ConfigurationDetailsSection_View);
 		CommonFunctions.pause(5000, false);
-		CommonFunctions.switchFrameByXPath("//*[text() = 'Selected Configurations']");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'Popup')]//*[text() = 'Guest Configuration']");
 	}
 	
 	public void clickCostsSectionSaveButton() throws Exception {
@@ -482,8 +482,8 @@ public class ContractCostsDetailsPage extends Base {
 	
 	public void clickDateRangesSectionAddDateRangeButton() throws Exception {
 		CommonFunctions.clickElement(button_DateRangesSection_AddDateRange);
-		CommonFunctions.pause(7500, false);
-		CommonFunctions.switchFrameByXPath("//*[text() = 'Add Date Range']");
+		CommonFunctions.pause(10000, false);
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'Popup')]//*[text() = 'Selected Date Range(s)']");
 	}
 	
 	public void clickDateRangesSectionSaveButton() throws Exception {
@@ -494,7 +494,7 @@ public class ContractCostsDetailsPage extends Base {
 	public void clickDateRangesSectionTopAllotmentCodeInputRowData() throws Exception {
 		CommonFunctions.clickElement(rowData_DateRangesSection_TopAllotmentCodeInput);
 		CommonFunctions.pause(5000, false);
-		CommonFunctions.switchFrameByXPath("//input[contains(@id, 'SelectAllotmentCodeInput')]");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'Popup')]//input[contains(@id, 'SelectAllotmentCodeInput')]");
 	}
 	
 	public void clickDateRangesSectionTopDeleteDateRangeButtonRowData() throws Exception {
@@ -505,13 +505,13 @@ public class ContractCostsDetailsPage extends Base {
 	public void clickDateRangesSectionTopInvoiceCommentsInputRowData() throws Exception {
 		CommonFunctions.clickElement(rowData_DateRangesSection_TopInvoiceCommentsInput);
 		CommonFunctions.pause(5000, false);
-		CommonFunctions.switchFrameByXPath("//*[text() = 'Edit Invoice Comment']");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'Popup')]//input[@value = 'Done']");
 	}
 	
 	public void clickDateRangesSectionTopVoucherCommentsInputRowData() throws Exception {
 		CommonFunctions.clickElement(rowData_DateRangesSection_TopVoucherCommentsInput);
 		CommonFunctions.pause(5000, false);
-		CommonFunctions.switchFrameByXPath("//*[text() = 'Edit Voucher Comment']");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'Popup')]//input[@value = 'Done']");
 	}
 	
 	public void clickSeasonGroupsSectionAddButton() throws Exception {
@@ -522,7 +522,7 @@ public class ContractCostsDetailsPage extends Base {
 	public void clickSeasonGroupsSectionImportButton() throws Exception {
 		CommonFunctions.clickElement(button_SeasonGroupsSection_Import);
 		CommonFunctions.pause(5000, false);
-		CommonFunctions.switchFrameByXPath("//*[text() = 'Import Seasons']");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'Popup')]//input[@value = 'Import']");
 	}
 	
 	public void clickSeasonGroupsSectionTopDeleteSeasonGroupButtonRowData() throws Exception {
@@ -1243,8 +1243,8 @@ public class ContractCostsDetailsPage extends Base {
 	// End - Edit Voucher Comments Popup Actions
 	
 	// Start - Edit Configuration Details Popup Actions
-	public void clickEditConfigurationDetailsPopupCancelButton() throws Exception {
-		CommonFunctions.clickElement(button_EditConfigurationDetailsPopup_Cancel);
+	public void clickEditConfigurationDetailsPopupCloseButton() throws Exception {
+		CommonFunctions.clickElement(button_EditConfigurationDetailsPopup_Close);
 		CommonFunctions.pause(5000, false);
 	}
 	
@@ -1289,8 +1289,8 @@ public class ContractCostsDetailsPage extends Base {
 		CommonFunctions.elementAttributeContains(input_EditConfigurationDetailsPopup_MinimumNights, "value", expectedValue);
 	}
 	
-	public void displayedEditConfigurationDetailsPopupCancelButton() throws Exception {
-		CommonFunctions.elementDisplayed(button_EditConfigurationDetailsPopup_Cancel);
+	public void displayedEditConfigurationDetailsPopupCloseButton() throws Exception {
+		CommonFunctions.elementDisplayed(button_EditConfigurationDetailsPopup_Close);
 	}
 	
 	public void displayedEditConfigurationDetailsPopupCategory1Dropdown() throws Exception {

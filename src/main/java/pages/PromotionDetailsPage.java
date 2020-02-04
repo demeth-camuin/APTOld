@@ -342,10 +342,10 @@ public class PromotionDetailsPage extends Base {
 	@FindBy(xpath = "(//div[contains(@col-id, 'Id')]//preceding-sibling::div)[1]")
 	WebElement checkbox_CustomerPopup_SelectAll;
 	
-	@FindBy(xpath = "//form[contains(@action, 'CustomerSearchPopup')]//select[contains(@id, 'CountryDropdown')]")
+	@FindBy(xpath = "//form[contains(@action, 'Popup')]//select[contains(@id, 'CountryDropdown')]")
 	WebElement dropdown_CustomerPopup_Country;
 	
-	@FindBy(xpath = "//form[contains(@action, 'CustomerSearchPopup')]//select[contains(@id, 'StateDropdown')]")
+	@FindBy(xpath = "//form[contains(@action, 'Popup')]//select[contains(@id, 'StateDropdown')]")
 	WebElement dropdown_CustomerPopup_State;
 	
 	@FindBy(xpath = "//input[contains(@id, 'NameInput')]")
@@ -453,7 +453,7 @@ public class PromotionDetailsPage extends Base {
 	@FindBy(xpath = "//a[contains(@id, 'SearchLink')]")
 	WebElement button_SupplierPopup_Find;
 	
-	@FindBy(xpath = "//form[contains(@action, 'SupplierSearchPopup')]//label[contains(text(), 'Country')]//following::select[contains(@id, 'StatusDropdown')]")
+	@FindBy(xpath = "//form[contains(@action, 'Popup')]//label[contains(text(), 'Country')]//following::select[contains(@id, 'StatusDropdown')]")
 	WebElement dropdown_SupplierPopup_Status;
 	
 	@FindBy(xpath = "//input[contains(@id, 'Input_SupplierName')]")
@@ -560,7 +560,8 @@ public class PromotionDetailsPage extends Base {
 	
 	public void clickContractSectionAddContractButton() throws Exception {
 		CommonFunctions.clickElement(button_ContractSection_AddContract);
-		CommonFunctions.switchFrameByXPath("//*[text() = 'Add Contract']");
+		CommonFunctions.pause(5000, false);
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'Popup')]//input[@value = 'Add Contract']");
 	}
 	
 	public void clickContractSectionDeleteContractButton() throws Exception {
@@ -574,7 +575,7 @@ public class PromotionDetailsPage extends Base {
 	public void clickCustomerSectionAddCustomerButton() throws Exception {
 		CommonFunctions.clickElement(button_CustomerSection_AddCustomer);
 		CommonFunctions.pause(5000, false);
-		CommonFunctions.switchFrameByXPath("//*[text() = 'Add Customer']");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'Popup')]//input[@value = 'Add Customer']");
 	}
 	
 	public void clickCustomerSectionAgencyChainDropdownOption(String agencyChainDropdownOptionValue) throws Exception {
@@ -697,7 +698,7 @@ public class PromotionDetailsPage extends Base {
 		CommonFunctions.pause(7500, false);
 		
 		if (driver.findElements(By.tagName("iframe")).size() > 0) {
-			CommonFunctions.switchFrameByXPath("//span[contains(text(), 'Add Date Range for')]");
+			CommonFunctions.switchFrameByXPath("//form[contains(@action, 'Popup')]//input[@value = 'Save']");
 		}
 	}
 	
@@ -707,7 +708,7 @@ public class PromotionDetailsPage extends Base {
 	
 	public void clickDateRangeSectionEditDateRangeButton() throws Exception {
 		CommonFunctions.clickElement(button_DateRangeSection_EditDateRange);
-		CommonFunctions.switchFrameByXPath("//*[contains(text(), 'Add Date Range for')]");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'Popup')]//input[@value = 'Save']");
 	}
 	
 	public void clickIndicativeAirSectionAirlineCodeDropdownOption(String airlineCodeOptionValue) throws Exception {
@@ -851,8 +852,8 @@ public class PromotionDetailsPage extends Base {
 	
 	public void clickPackageSectionAddPackageButton() throws Exception {
 		CommonFunctions.clickElement(button_PackageSection_AddPackage);
-		CommonFunctions.pause(2500, false);
-		CommonFunctions.switchFrameByXPath("//*[text() = 'Add Package']");
+		CommonFunctions.pause(5000, false);
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'Package')]//input[@value = 'Add Package']");
 	}
 	
 	public void clickPackageSectionBrandDropdownOption(String brandDropdownOptionValue) throws Exception {
@@ -1376,12 +1377,10 @@ public class PromotionDetailsPage extends Base {
 	}
 	
 	public void selectClassificationValue(String classificationValue) throws Exception {
-		CommonFunctions.scrollToTop();
-		CommonFunctions.pause(5000, false);
 		CommonFunctions.selectValueFromDropdown(dropdown_Classification, classificationValue);
 		CommonFunctions.clickKeys(Keys.chord(Keys.TAB));
 		CommonFunctions.pause(5000, false);
-		CommonFunctions.clickElement(input_Code);
+		// CommonFunctions.clickElement(input_Code);
 	}
 	
 	public void selectCombinabilityGroupValue(String combinabilityGroupValue) throws Exception {

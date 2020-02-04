@@ -373,7 +373,7 @@ Feature: APT - Air
 		Given user is on "Recommended Itinerary" page
 		When user decides to create a new itinerary
 		And user ticks the "BTBAL13" option of the itinerary tour code dropdown
-		And user ticks the "NOBCDT6" option of the itinerary tour code dropdown
+		And user ticks the "NOBCTK14" option of the itinerary tour code dropdown
 		And user ticks the "Asia" option of the itinerary customer market dropdown
 		And user puts "Test" in the itinerary name field
 		And user puts "01 Jan 2087" in the itinerary date ranges departure date from field
@@ -383,7 +383,7 @@ Feature: APT - Air
 		Then user sees feedback message Recommended Itinerary "has been successfully saved"
 		When user decides to delete the recommended itinerary
 		And user disregards the deletion of the recommended itinerary
-		Then user sees the recommended itinerary search results with the specific tour codes "BTBAL13, NOBCDT6"
+		Then user sees the recommended itinerary search results with the specific tour codes "BTBAL13, NOBCTK14"
 		When user decides to delete the recommended itinerary
 		And user confirms the deletion of the recommended itinerary
 		Then user sees feedback message Recommended Itinerary "deleted successfully"
@@ -1165,7 +1165,7 @@ Feature: APT - Air
 		When user ticks the "Business Class" option of the contract indicative air cabin class dropdown
 		Then user sees the contract indicative air cabin class dropdown contains "Business Class"
 		When user saves the contract
-		Then user sees feedback message Contract ID has been "updated successfully." displayed
+		Then user sees feedback message "Record saved successfully."
 		# Scenario for APT-2523:
 		# And Scenario for APT-2533:
 		Given user is on "Contract Details" page
@@ -1179,8 +1179,7 @@ Feature: APT - Air
 		When user ticks the "ACY" option of the contract indicative air location dropdown
 		And user ticks the "DXB" option of the contract indicative air location dropdown
 		Then user sees the contract indicative air location dropdown contains "Atlantic City International"
-		When user saves the contract
-		And user ticks the "First Class" option of the contract indicative air cabin class dropdown
+		When user ticks the "First Class" option of the contract indicative air cabin class dropdown
 		Then user sees the contract indicative air cabin class dropdown contains "First Class"
 		When user saves the contract
 		Then user sees feedback message Contract ID has been "created successfully." displayed
@@ -1200,6 +1199,7 @@ Feature: APT - Air
 		Given user is on "Contract Details" page
 		When user cancels the update of the contract
 		And user searches for a contract with type miscellaneous
+    And user updates the contract
 		And user opens the update contract basic information popup
 		And user ticks the "Economy" option of the contract indicative air cabin class dropdown
 		And user saves the contract
@@ -1487,7 +1487,7 @@ Feature: APT - Air
 		And user ticks the "Total Fare" option of the markup rule price setting apply on dropdown
 		And user saves the markup rule details
 		Then user sees feedback message "Markup Rule cannot be saved. Please review the error message(s)."
-		And user sees error message "Duplicate Markup details"
+		And user sees error message "Markup Rule Already Exist"
 		When user deletes a cost setting of the markup rule
 		#		And user confirms the deletion of markup rule details cost setting
 		And user deletes a cost setting of the markup rule

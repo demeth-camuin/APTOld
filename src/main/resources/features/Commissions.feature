@@ -348,7 +348,7 @@ Feature: APT - Commissions
 		Given user is on "RuleDetails" page
 		When user provides empty date ranges for the commission dates
 		And user saves the commission rule
-		Then user sees feedback message "Commission rule cannot be saved. Please review the field error message."
+		Then user sees feedback message "Commission rule cannot be saved. Please review the field error message"
 		And user sees error message "This is a mandatory field."
 		# Scenario 4:
 		# And Scenario 6:

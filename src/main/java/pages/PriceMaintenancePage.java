@@ -319,13 +319,13 @@ public class PriceMaintenancePage extends Base {
 	}
 	
 	public void clickViewPricePopupCancelButton() throws Exception {
-		CommonFunctions.switchFrameByXPath("//div[text()='View Price']");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'View')]//input[@value = 'Close']");
 		CommonFunctions.clickElement(ViewPricePopupCloseButton);
 		CommonFunctions.pause(5000, false);
 	}
 	
 	public void CheckFieldsDisplayedinTextualFashion() throws Exception {
-		CommonFunctions.switchFrameByXPath("//div[text()='View Price']");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'View')]//input[@value = 'Close']");
 		CommonFunctions.textVisibleInPage("Effective Date");
 		CommonFunctions.textVisibleInPage("Effective Time");
 		CommonFunctions.textVisibleInPage("Contract ID");
@@ -355,7 +355,7 @@ public class PriceMaintenancePage extends Base {
 	}
 	
 	public void CheckFieldinAddPriceMaintenance() throws Exception {
-		CommonFunctions.switchFrameByXPath("//span[text()='Add Price Effective in the Future']");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'Popup')]//input[@value = 'Add Price']");
 		CommonFunctions.textVisibleInPage("Effective Date");
 		CommonFunctions.textVisibleInPage("Effective Time");
 		CommonFunctions.textVisibleInPage("Contract ID");
@@ -419,7 +419,7 @@ public class PriceMaintenancePage extends Base {
 	}
 	
 	public void CheckPriceFieldValidationMessage() throws Exception {
-		CommonFunctions.switchFrameByXPath("//div[contains(@id,'tn_main')]");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'Popup')]//input[@value = 'Add Price']");
 		CommonFunctions.clickElement(driver.findElement(By.xpath("//input[@value='Add Price']")));
 		CommonFunctions.pause(5000, false);
 		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//span[contains(@id,'TwinInput') and contains(text(),'*Mandatory field.')]")));
@@ -500,10 +500,8 @@ public class PriceMaintenancePage extends Base {
 	public void enterValidEffectiveDate() throws Exception {
 		CommonFunctions.clearThenEnterElementValue(field_EffectiveDatePMpopup, "13 Jan 2020");
 		CommonFunctions.clickKeys(Keys.chord(Keys.TAB));
-		CommonFunctions.elementNotExistingByXPath("//span[text()='Effective Date cannot be greater than End Date.']");
-		field_EffectiveDatePMpopup.clear();
-		CommonFunctions.clickKeys(Keys.chord(Keys.TAB));
-		CommonFunctions.elementNotExistingByXPath("//span[text()='Effective Date cannot be greater than End Date.']");
+		CommonFunctions.pause(1000, false);
+		CommonFunctions.elementNotExistingByXPath("//span[text()='Effective Date cannot be greater than End Date.']/parent::div[contains(@style, 'display: block')]");
 	}
 	
 	public void enterInvalidEffectiveTime() throws Exception {
@@ -533,21 +531,17 @@ public class PriceMaintenancePage extends Base {
 	public void closeOrCancelPriceUpdate() throws Exception {
 		CommonFunctions.clickElement(driver.findElement(By.xpath("//table[contains(@id,'PriceMaintenanceTable')]//a[contains(@id,'EditLink')]")));
 		CommonFunctions.pause(2500, false);
-		CommonFunctions.switchFrameByXPath("//span[text()='Update Effective Date and Time']");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'Popup')]//input[@value = 'Update Price']");
 		CommonFunctions.clickElement(button_Cancel);
 		CommonFunctions.pause(2500, false);
-		CommonFunctions.elementNotExistingByXPath("//span[text()='Update Effective Date and Time']");
+		CommonFunctions.elementNotExistingByXPath("//*[text()='Update Effective Date and Time']");
 	}
 	
 	public void enterValidEffectiveTime() throws Exception {
 		CommonFunctions.clearThenEnterElementValue(field_EffectiveTimePMpopup, "12:22");
 		CommonFunctions.clickKeys(Keys.chord(Keys.TAB));
+		CommonFunctions.pause(1000, false);
 		CommonFunctions.elementNotExistingByXPath("//span[text()='Invalid 24 hour time']");
-		field_EffectiveTimePMpopup.clear();
-		CommonFunctions.clickKeys(Keys.chord(Keys.TAB));
-		CommonFunctions.elementNotExistingByXPath("//span[text()='Invalid 24 hour time']");
-		CommonFunctions.clickElement(driver.findElement(By.xpath("//input[@value='Update Price']")));
-		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//div[contains(@id,'ctn_main')]")));
 	}
 	
 	public void alignPriceContentRight() throws Exception {

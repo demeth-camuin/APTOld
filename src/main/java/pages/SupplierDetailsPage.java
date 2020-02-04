@@ -296,24 +296,24 @@ public class SupplierDetailsPage extends Base {
 	public void clickAirlineSectionAddAirlineClassButton() throws Exception {
 		CommonFunctions.clickElement(button_AirlineSection_AddAirlineClass);
 		CommonFunctions.pause(5000, false);
-		CommonFunctions.switchFrameByXPath("//*[text() = 'Add Airline Class']");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'Popup')]//input[@value = 'Save']");
 	}
 	
 	public void clickAirlineSectionAddPriceEntryCodeButton() throws Exception {
 		CommonFunctions.clickElement(button_AirlineSection_AddPriceEntryCode);
 		CommonFunctions.pause(5000, false);
-		CommonFunctions.switchFrameByXPath("//*[text() = 'Add Price Entry Code']");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'Popup')]//input[@value = 'Save']");
 	}
 	
 	public void clickAirlineSectionEditAirlineClassButton() throws Exception {
 		CommonFunctions.clickElement(button_AirlineSection_EditAirlineClass);
 		CommonFunctions.pause(2500, false);
-		CommonFunctions.switchFrameByXPath("//*[text() = 'Edit Airline Class']");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'Popup')]//input[@value = 'Save']");
 	}
 	
 	public void clickAirlineSectionEditPriceEntryCodeButton() throws Exception {
 		CommonFunctions.clickElement(button_AirlineSection_EditPriceEntryCode);
-		CommonFunctions.switchFrameByXPath("//*[text() = 'Edit Price Entry Code']");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'Popup')]//input[@value = 'Save']");
 	}
 	
 	public void clickLocationContactAndAddressAccordion() throws Exception {
@@ -342,7 +342,7 @@ public class SupplierDetailsPage extends Base {
 	
 	public void clickSageSectionManageRollupButton() throws Exception {
 		CommonFunctions.clickElement(button_SageSection_ManageRollup);
-		CommonFunctions.switchFrameByXPath("//*[text() = 'Supplier Purchase Roll Up']");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'Sage')]//input[@value = 'Save']");
 	}
 	
 	public void clickThirdPartyAccordion() throws Exception {
@@ -351,7 +351,7 @@ public class SupplierDetailsPage extends Base {
 	
 	public void clickThirdPartySectionAddThirdPartySupplierButton() throws Exception {
 		CommonFunctions.clickElement(button_ThirdPartySection_AddThirdPartySupplier);
-		CommonFunctions.switchFrameByXPath("//*[text() = 'Add Third Party']");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'Popup')]//input[@value = 'Add Third Party']");
 	}
 	
 	public void clickThirdPartySectionBillingToThirdPartyCheckbox() throws Exception {

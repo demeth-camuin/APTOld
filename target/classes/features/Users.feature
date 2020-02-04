@@ -85,11 +85,12 @@ Feature: APT - Users
     When user navigates to new user creation page
     And user creates a user that is already existing
     Then user sees feedback message "An account with this email id exist in the system"
-    # Scenario 5:
-    Given user is on "UserDetails" page
-    When user closes add user page
-    Then user is on "User" page
 
+  # Scenario 5:
+  #Given user is on "UserDetails" page
+  #When user closes add user page
+  #Then user is on "User" page
+  #
   @Regression
   Scenario: APT-159: As a Business Administrator, I want to SEARCH User records, so that I can manage the user accounts
     # Additional Scenario: APT-399: As an Administrator, I want to unlock a user's locked account so that the user may log into Oxy Admin
@@ -168,6 +169,6 @@ Feature: APT - Users
     Then user sees feedback message "Activation link has been successfully resent to the User"
     # Scenario 3:
     Given user is on "UserDetails" page
-    When user closes add user page
+    #When user closes add user page
     And user searches for a user that is already activated
     Then user does not see the reactivation email button

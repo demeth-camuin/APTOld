@@ -158,7 +158,7 @@ public class CommissionRulesDetailsPage extends Base {
 	
 	public void clickPackagesAndContractsSectionAddContractButton() throws Exception {
 		CommonFunctions.clickElement(button_PackagesAndContractsSection_AddContract);
-		CommonFunctions.switchFrameByXPath("//*[text() = 'Search for a contract']");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'Popup')]//input[@value = 'Add Contract']");
 	}
 	
 	public void clickPackagesAndContractsSectionBrandDropdown() throws Exception {

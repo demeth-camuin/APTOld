@@ -277,16 +277,16 @@ public class ContractDetailsPage extends Base {
 	// End - Main Page Objects
 	
 	// Start - Update Basic Information Popup Objects
-	@FindBy(xpath = "//div[contains(@id, 'Popup')]//input[contains(@id, 'CloseBottomButton')]")
+	@FindBy(xpath = "//form[contains(@action, 'Popup')]//input[contains(@id, 'CloseBottomButton')]")
 	WebElement button_UpdateBasicInformationPopup_Close;
 	
-	@FindBy(xpath = "//div[contains(@id, 'Popup')]//input[contains(@id, 'SaveAltBottom')]")
+	@FindBy(xpath = "//form[contains(@action, 'Popup')]//input[contains(@id, 'SaveAltBottom')]")
 	WebElement button_UpdateBasicInformationPopup_Save;
 	
-	@FindBy(xpath = "//div[contains(@id, 'Popup')]//*[text() = 'Created By']//parent::div//following-sibling::div//span")
+	@FindBy(xpath = "//form[contains(@action, 'Popup')]//*[text() = 'Created By']//parent::div//following-sibling::div//span")
 	WebElement label_UpdateBasicInformationPopup_CreatedBy;
 	
-	@FindBy(xpath = "//div[contains(@id, 'Popup')]//*[text() = 'Created Date']//parent::div//following-sibling::div//span")
+	@FindBy(xpath = "//form[contains(@action, 'Popup')]//*[text() = 'Created Date']//parent::div//following-sibling::div//span")
 	WebElement label_UpdateBasicInformationPopup_CreatedDate;
 	// End - Update Basic Information Popup Objects
 	
@@ -553,7 +553,7 @@ public class ContractDetailsPage extends Base {
 	@FindBy(xpath = "//a[contains(@id, 'CloseLink')]")
 	WebElement button_PaymentCancellationRulePopup_Close;
 	
-	@FindBy(xpath = "//div[contains(@id, 'Popup')]//a[contains(@id, 'AddIteneraryLink')]")
+	@FindBy(xpath = "//div[contains(@class, 'MainContainer')]//a[contains(@id, 'AddIteneraryLink')]")
 	WebElement button_PaymentCancellationRulePopup_AddRule;
 	
 	@FindBy(xpath = "//select[contains(@id, 'ComboBox_Action')]")
@@ -600,7 +600,7 @@ public class ContractDetailsPage extends Base {
 	@FindBy(xpath = "//a[contains(@id, 'CloseLink')]")
 	WebElement button_PaymentDepositRulePopup_Close;
 	
-	@FindBy(xpath = "//div[contains(@id, 'Popup')]//a[contains(@id, 'AddIteneraryLink')]")
+	@FindBy(xpath = "//div[contains(@class, 'MainContainer')]//a[contains(@id, 'AddIteneraryLink')]")
 	WebElement button_PaymentDepositRulePopup_AddRule;
 	
 	@FindBy(xpath = "//select[contains(@id, 'ComboBox_Action')]")
@@ -647,7 +647,7 @@ public class ContractDetailsPage extends Base {
 	@FindBy(xpath = "//a[contains(@id, 'CloseLink')]")
 	WebElement button_PaymentFinalPaymentRulePopup_Close;
 	
-	@FindBy(xpath = "//div[contains(@id, 'Popup')]//a[contains(@id, 'AddIteneraryLink')]")
+	@FindBy(xpath = "//div[contains(@class, 'MainContainer')]//a[contains(@id, 'AddIteneraryLink')]")
 	WebElement button_PaymentFinalPaymentRulePopup_AddRule;
 	
 	@FindBy(xpath = "//div[contains(@id, 'ComboBox_Currency')]")
@@ -691,7 +691,7 @@ public class ContractDetailsPage extends Base {
 	@FindBy(xpath = "//a[contains(@id, 'CloseLink')]")
 	WebElement button_ItirenaryTemplatePopup_Close;
 	
-	@FindBy(xpath = "//div[contains(@id, 'Popup')]//a[contains(@id, 'AddIteneraryLink')]")
+	@FindBy(xpath = "//div[contains(@class, 'MainContainer')]//a[contains(@id, 'AddIteneraryLink')]")
 	WebElement button_ItirenaryTemplatePopup_Save;
 	
 	@FindBy(xpath = "//div[contains(@id, 'ItineraryContainer')]")
@@ -717,10 +717,10 @@ public class ContractDetailsPage extends Base {
 	// End - Itinerary Template Popup Objects
 	
 	// Start - Contract Price Popup Objects
-	@FindBy(xpath = "//div[contains(@class, 'Popup')]//div[contains(@id, 'Body')]//div[contains(@id, 'Content2') and contains(@class, 'PH Tabs')]//input[@value = 'Add to Table']")
+	@FindBy(xpath = "//div[contains(@class, 'MainContainer')]//div[contains(@id, 'Body')]//div[contains(@id, 'Content2') and contains(@class, 'PH Tabs')]//input[@value = 'Add to Table']")
 	WebElement button_ContractPricePopup_AddCustomDatesSection_AddToTable;
 	
-	@FindBy(xpath = "//div[contains(@class, 'Popup')]//input[@value = 'Cancel']")
+	@FindBy(xpath = "//div[contains(@class, 'MainContainer')]//input[@value = 'Cancel']")
 	WebElement button_ContractPricePopup_Cancel;
 	
 	@FindBy(xpath = "//a[@class = 'CancelRowAction']")
@@ -735,43 +735,43 @@ public class ContractDetailsPage extends Base {
 	@FindBy(xpath = "//div[@class = 'wj-colheaders']//div[text() = 'Start Date']//button")
 	WebElement button_ContractPricePopup_ContractPricesTable_StartDateFilter;
 	
-	@FindBy(xpath = "//div[contains(@class, 'Popup')]//div[contains(@id, 'Body')]//div[contains(@id, 'Content1') and contains(@class, 'PH Tabs')]//input[@value = 'Add to Table']")
+	@FindBy(xpath = "//div[contains(@class, 'MainContainer')]//div[contains(@id, 'Body')]//div[contains(@id, 'Content1') and contains(@class, 'PH Tabs')]//input[@value = 'Add to Table']")
 	WebElement button_ContractPricePopup_ImportDatesSection_AddToTable;
 	
-	@FindBy(xpath = "//div[contains(@class, 'Popup')]//input[@value = 'Save Prices']")
+	@FindBy(xpath = "//div[contains(@class, 'MainContainer')]//input[@value = 'Save Prices']")
 	WebElement button_ContractPricePopup_SavePrices;
 	
 	@FindBy(xpath = "//div[@class = 'wj-row']//div[contains(@class, 'wj-cell')]//input[@class = 'select-all']")
 	WebElement checkbox_ContractPricePopup_ContractPricesTable_AllRows;
 	
-	@FindBy(xpath = "//div[contains(@class, 'Popup')]//div[contains(@id, 'Body')]//div[contains(@id, 'Content1') and contains(@class, 'PH Tabs')]//div[text() = 'Copy Prices']//preceding-sibling::div//input")
+	@FindBy(xpath = "//div[contains(@class, 'MainContainer')]//div[contains(@id, 'Body')]//div[contains(@id, 'Content1') and contains(@class, 'PH Tabs')]//div[text() = 'Copy Prices']//preceding-sibling::div//input")
 	WebElement checkbox_ContractPricePopup_ImportDatesSection_CopyPrices;
 	
-	@FindBy(xpath = "//div[contains(@class, 'Popup')]//div[contains(@id, 'Body')]//div[contains(@id, 'Content1') and contains(@class, 'PH Tabs')]//div[text() = 'Include Past Dates']//preceding-sibling::div//input")
+	@FindBy(xpath = "//div[contains(@class, 'MainContainer')]//div[contains(@id, 'Body')]//div[contains(@id, 'Content1') and contains(@class, 'PH Tabs')]//div[text() = 'Include Past Dates']//preceding-sibling::div//input")
 	WebElement checkbox_ContractPricePopup_ImportDatesSection_IncludePastDates;
 	
-	@FindBy(xpath = "//div[contains(@class, 'Popup')]//div[contains(@id, 'Body')]//div[contains(@id, 'Content2') and contains(@class, 'PH Tabs')]//span[contains(@id, 'PaxCombo')]//parent::div//button")
+	@FindBy(xpath = "//div[contains(@class, 'MainContainer')]//div[contains(@id, 'Body')]//div[contains(@id, 'Content2') and contains(@class, 'PH Tabs')]//span[contains(@id, 'PaxCombo')]//parent::div//button")
 	WebElement dropdown_ContractPricePopup_AddCustomDatesSection_PaxType;
 	
-	@FindBy(xpath = "//div[contains(@class, 'Popup')]//div[contains(@id, 'Body')]//div[contains(@id, 'Content2') and contains(@class, 'PH Tabs')]//span[contains(@id, 'PriceCurrencyCombo')]//parent::div//button")
+	@FindBy(xpath = "//div[contains(@class, 'MainContainer')]//div[contains(@id, 'Body')]//div[contains(@id, 'Content2') and contains(@class, 'PH Tabs')]//span[contains(@id, 'PriceCurrencyCombo')]//parent::div//button")
 	WebElement dropdown_ContractPricePopup_AddCustomDatesSection_PriceCurrency;
 	
 	@FindBy(xpath = "//div[contains(@id, 'PriceImportInput')]")
 	WebElement dropdown_ContractPricePopup_ImportDatesSection_ImportFromPrice;
 	
-	@FindBy(xpath = "//div[contains(@class, 'Popup')]//div[contains(@id, 'Body')]//div[contains(@id, 'Content1') and contains(@class, 'PH Tabs')]//span[contains(@id, 'PaxCombo')]//parent::div//button")
+	@FindBy(xpath = "//div[contains(@class, 'MainContainer')]//div[contains(@id, 'Body')]//div[contains(@id, 'Content1') and contains(@class, 'PH Tabs')]//span[contains(@id, 'PaxCombo')]//parent::div//button")
 	WebElement dropdown_ContractPricePopup_ImportDatesSection_PaxType;
 	
-	@FindBy(xpath = "//div[contains(@class, 'Popup')]//div[contains(@id, 'Body')]//div[contains(@id, 'Content1') and contains(@class, 'PH Tabs')]//span[contains(@id, 'PriceCurrencyCombo')]//parent::div//button")
+	@FindBy(xpath = "//div[contains(@class, 'MainContainer')]//div[contains(@id, 'Body')]//div[contains(@id, 'Content1') and contains(@class, 'PH Tabs')]//span[contains(@id, 'PriceCurrencyCombo')]//parent::div//button")
 	WebElement dropdown_ContractPricePopup_ImportDatesSection_PriceCurrency;
 	
 	@FindBy(xpath = "//label[text() = 'Price Configuration']//parent::div//div[contains(@id, 'PriceInput')]")
 	WebElement dropdown_ContractPricePopup_PriceConfiguration;
 	
-	@FindBy(xpath = "//div[contains(@class, 'Popup')]//div[contains(@id, 'Body')]//div[contains(@id, 'Content2') and contains(@class, 'PH Tabs')]//input[contains(@id, 'EndDateInput')]")
+	@FindBy(xpath = "//div[contains(@class, 'MainContainer')]//div[contains(@id, 'Body')]//div[contains(@id, 'Content2') and contains(@class, 'PH Tabs')]//input[contains(@id, 'EndDateInput')]")
 	WebElement input_ContractPricePopup_AddCustomDatesSection_EndDate;
 	
-	@FindBy(xpath = "//div[contains(@class, 'Popup')]//div[contains(@id, 'Body')]//div[contains(@id, 'Content2') and contains(@class, 'PH Tabs')]//input[contains(@id, 'StartDateInput')]")
+	@FindBy(xpath = "//div[contains(@class, 'MainContainer')]//div[contains(@id, 'Body')]//div[contains(@id, 'Content2') and contains(@class, 'PH Tabs')]//input[contains(@id, 'StartDateInput')]")
 	WebElement input_ContractPricePopup_AddCustomDatesSection_StartDate;
 	
 	@FindBy(xpath = "//div[contains(@id, 'PricesContainer')]//table//thead//*[text() = 'Currency']//parent::th//following-sibling::div//input")
@@ -783,7 +783,7 @@ public class ContractDetailsPage extends Base {
 	@FindBy(xpath = "//div[contains(@id, 'PricesContainer')]//table//thead//*[text() = 'Pax Type']//parent::div//following-sibling::div//input")
 	WebElement input_ContractPricePopup_ContractPricesTable_PaxTypeFilter;
 	
-	@FindBy(xpath = "//div[contains(@class, 'Popup')]//div[contains(@id, 'Body')]//div[contains(@id, 'Content1') and contains(@class, 'PH Tabs')]//div[contains(@id, 'PriceCostImportInput')]")
+	@FindBy(xpath = "//div[contains(@class, 'MainContainer')]//div[contains(@id, 'Body')]//div[contains(@id, 'Content1') and contains(@class, 'PH Tabs')]//div[contains(@id, 'PriceCostImportInput')]")
 	WebElement input_ContractPricePopup_ImportDatesSection_EquivalentCostConfiguration;
 	
 	@FindBy(xpath = "//div[contains(@class, 'ImportSuggestions')]//div[text() = 'Category 1']//following-sibling::input")
@@ -810,7 +810,7 @@ public class ContractDetailsPage extends Base {
 	@FindBy(xpath = "//div[@class = 'Suggestions']//div[text() = 'Nights']//following-sibling::input")
 	WebElement input_ContractPricePopup_PriceConfigurationDropdown_NightsFilter;
 	
-	@FindBy(xpath = "//div[contains(@class, 'Popup')]//div[contains(@id, 'TabsContainer')]//span[text() = 'Add Custom Dates']//parent::div")
+	@FindBy(xpath = "//div[contains(@class, 'MainContainer')]//div[contains(@id, 'TabsContainer')]//span[text() = 'Add Custom Dates']//parent::div")
 	WebElement label_ContractPricePopup_AddCustomDatesTab;
 	
 	@FindBy(xpath = "(//div[contains(@id, 'PriceCostImportInput')]//div//div)[2]")
@@ -825,7 +825,7 @@ public class ContractDetailsPage extends Base {
 	@FindBy(xpath = "(//div[contains(@id, 'PriceCostImportInput')]//div//div)[4]")
 	WebElement label_ContractPricePopup_EquivalentCostConfigurationDropdown_Nights;
 	
-	@FindBy(xpath = "//div[contains(@class, 'Popup')]//div[contains(@id, 'TabsContainer')]//span[text() = 'Import Dates']//parent::div")
+	@FindBy(xpath = "//div[contains(@class, 'MainContainer')]//div[contains(@id, 'TabsContainer')]//span[text() = 'Import Dates']//parent::div")
 	WebElement label_ContractPricePopup_ImportDatesTab;
 	
 	@FindBy(xpath = "(//label[text() = 'Price Configuration']//parent::div//div[contains(@id, 'PriceInput')]//div[@class = 'SearchInput']//div)[2]")
@@ -840,10 +840,10 @@ public class ContractDetailsPage extends Base {
 	@FindBy(xpath = "(//label[text() = 'Price Configuration']//parent::div//div[contains(@id, 'PriceInput')]//div[@class = 'SearchInput']//div)[4]")
 	WebElement label_ContractPricePopup_PriceConfigurationDropdown_Nights;
 	
-	@FindBy(xpath = "//div[contains(@class, 'Popup')]//div[contains(@id, 'Body')]//div[contains(@id, 'Content1') and contains(@class, 'PH Tabs')]//div[text() = 'Cost']//preceding-sibling::div//input")
+	@FindBy(xpath = "//div[contains(@class, 'MainContainer')]//div[contains(@id, 'Body')]//div[contains(@id, 'Content1') and contains(@class, 'PH Tabs')]//div[text() = 'Cost']//preceding-sibling::div//input")
 	WebElement radioButton_ContractPricePopup_ImportDatesSection_ImportFromCost;
 	
-	@FindBy(xpath = "//div[contains(@class, 'Popup')]//div[contains(@id, 'Body')]//div[contains(@id, 'Content1') and contains(@class, 'PH Tabs')]//div[text() = 'Price']//preceding-sibling::div//input")
+	@FindBy(xpath = "//div[contains(@class, 'MainContainer')]//div[contains(@id, 'Body')]//div[contains(@id, 'Content1') and contains(@class, 'PH Tabs')]//div[text() = 'Price']//preceding-sibling::div//input")
 	WebElement radioButton_ContractPricePopup_ImportDatesSection_ImportFromPrice;
 	
 	@FindBy(xpath = "(//div[contains(@class, 'ImportSuggestions')]//div[@class = 'SuggestionList']//div[@class = 'FullRow'])[1]//input")
@@ -881,7 +881,7 @@ public class ContractDetailsPage extends Base {
 	// End - Contract Price Popup Objects
 	
 	// Start - View Contract Price Popup Objects
-	@FindBy(xpath = "//div[contains(@class, 'Popup')]//*[@value = 'Close']")
+	@FindBy(xpath = "//div[contains(@class, 'MainContainer')]//*[@value = 'Close']")
 	WebElement button_ViewContractPricePopup_Close;
 	
 	@FindBy(xpath = "//div[contains(@id, 'PricesContainer')]//table//thead//*[text() = 'Currency']//parent::div//following-sibling::div//input")
@@ -1058,7 +1058,7 @@ public class ContractDetailsPage extends Base {
 	public void clickContractCostsSectionCreateBulkCostsButton() throws Exception {
 		CommonFunctions.clickElement(button_ContractCostsSection_CreateBulkCosts);
 		CommonFunctions.pause(5000, false);
-		CommonFunctions.switchFrameByXPath("//*[text() = 'Create Bulk Costs']");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'Popup')]//input[@value = 'Create Costs']");
 	}
 	
 	public void clickContractCostsSectionDeleteAllCostsButton() throws Exception {
@@ -1098,7 +1098,7 @@ public class ContractDetailsPage extends Base {
 	public void clickContractPricesSectionAddPricesButton() throws Exception {
 		CommonFunctions.clickElement(button_ContractPricesSection_AddPrices);
 		CommonFunctions.pause(10000, false);
-		CommonFunctions.switchFrameByXPath("//*[text() = 'Add Contract Prices']");
+		CommonFunctions.switchFrameByXPath("//div[contains(@class, 'Popup')]//input[@value = 'Save Prices']");
 	}
 	
 	public void clickContractPricesSectionHidePastDatesCheckbox() throws Exception {
@@ -1133,7 +1133,7 @@ public class ContractDetailsPage extends Base {
 	public void clickEditBasicInfoButton() throws Exception {
 		CommonFunctions.clickElement(button_EditBasicInfo);
 		CommonFunctions.pause(10000, false);
-		CommonFunctions.switchFrameByXPath("//*[contains(text(), 'Update Basic Information - Contract ID')]");
+		CommonFunctions.switchFrameByXPath("//div[contains(@class, 'Popup')]//input[@value = 'Save']");
 	}
 	
 	public void clickIndicativeAirSectionCabinClassDropdownOption(String cabinClassOptionValue) throws Exception {
@@ -1171,13 +1171,13 @@ public class ContractDetailsPage extends Base {
 	public void clickItirenaryTemplatesSectionAddItirenaryTemplateButton() throws Exception {
 		CommonFunctions.clickElement(button_ItirenaryTemplatesSection_AddItirenaryTemplate);
 		CommonFunctions.pause(5000, false);
-		CommonFunctions.switchFrameByXPath("//div[contains(@id, 'PopupTitle')]//*[contains(text(), 'Itinerary Template')]");
+		CommonFunctions.switchFrameByXPath("//div[contains(@class, 'Popup')]//span[text() = 'Itinerary Template']");
 	}
 	
 	public void clickItirenaryTemplatesSectionTopEditItineraryTemplateButton() throws Exception {
 		CommonFunctions.clickElement(button_ItirenaryTemplatesSection_TopEditItineraryTemplate);
 		CommonFunctions.pause(5000, false);
-		CommonFunctions.switchFrameByXPath("//div[contains(@id, 'PopupTitle')]//*[contains(text(), 'Itinerary Template')]");
+		CommonFunctions.switchFrameByXPath("//div[contains(@class, 'Popup')]//span[text() = 'Itinerary Template']");
 	}
 	
 	public void clickOfficeDropdown() throws Exception {
@@ -1187,19 +1187,19 @@ public class ContractDetailsPage extends Base {
 	public void clickPaymentRulesSectionAddCancellationRuleButton() throws Exception {
 		CommonFunctions.clickElement(button_PaymentRulesSection_AddCancellationRule);
 		CommonFunctions.pause(5000, false);
-		CommonFunctions.switchFrameByXPath("//div[contains(@id, 'PopupTitle')]//*[text() = 'Add Cancellation Rule']");
+		CommonFunctions.switchFrameByXPath("//div[contains(@class, 'Popup')]//div[contains(@id, 'CustomerMarket')]");
 	}
 	
 	public void clickPaymentRulesSectionAddDepositRuleButton() throws Exception {
 		CommonFunctions.clickElement(button_PaymentRulesSection_AddDepositRule);
 		CommonFunctions.pause(5000, false);
-		CommonFunctions.switchFrameByXPath("//div[contains(@id, 'PopupTitle')]//*[text() = 'Add Deposit Rule']");
+		CommonFunctions.switchFrameByXPath("//div[contains(@class, 'Popup')]//div[contains(@id, 'CustomerMarket')]");
 	}
 	
 	public void clickPaymentRulesSectionAddFinalPaymentRuleButton() throws Exception {
 		CommonFunctions.clickElement(button_PaymentRulesSection_AddFinalPaymentRule);
 		CommonFunctions.pause(5000, false);
-		CommonFunctions.switchFrameByXPath("//div[contains(@id, 'PopupTitle')]//*[text() = 'Add Final Payment Rule']");
+		CommonFunctions.switchFrameByXPath("//div[contains(@class, 'Popup')]//div[contains(@id, 'CustomerMarket')]");
 	}
 	
 	public void clickPaymentRulesSectionCancellationTabLabel() throws Exception {
@@ -1232,24 +1232,24 @@ public class ContractDetailsPage extends Base {
 	public void clickPaymentRulesSectionTopEditCancellationRuleButton() throws Exception {
 		CommonFunctions.clickElement(button_PaymentRulesSection_TopEditCancellationRule);
 		CommonFunctions.pause(5000, false);
-		CommonFunctions.switchFrameByXPath("//div[contains(@id, 'PopupTitle')]//*[contains(text(), 'Cancellation Rule')]");
+		CommonFunctions.switchFrameByXPath("//div[contains(@class, 'Popup')]//div[contains(@id, 'CustomerMarket')]");
 	}
 	
 	public void clickPaymentRulesSectionTopEditDepositRuleButton() throws Exception {
 		CommonFunctions.clickElement(button_PaymentRulesSection_TopEditDepositRule);
 		CommonFunctions.pause(5000, false);
-		CommonFunctions.switchFrameByXPath("//div[contains(@id, 'PopupTitle')]//*[contains(text(), 'Deposit Rule')]");
+		CommonFunctions.switchFrameByXPath("//div[contains(@class, 'Popup')]//div[contains(@id, 'CustomerMarket')]");
 	}
 	
 	public void clickPaymentRulesSectionTopEditFinalPaymentRuleButton() throws Exception {
 		CommonFunctions.clickElement(button_PaymentRulesSection_TopEditFinalPaymentRule);
 		CommonFunctions.pause(5000, false);
-		CommonFunctions.switchFrameByXPath("//div[contains(@id, 'PopupTitle')]//*[contains(text(), 'Final Payment Rule')]");
+		CommonFunctions.switchFrameByXPath("//div[contains(@class, 'Popup')]//div[contains(@id, 'CustomerMarket')]");
 	}
 	
 	public void clickUpdatePackagesButton() throws Exception {
 		CommonFunctions.clickElement(button_UpdatePackages);
-		CommonFunctions.switchFrameByXPath("//*[text() = 'Update Packages']");
+		CommonFunctions.switchFrameByXPath("//div[contains(@class, 'Popup')]//label[text() = 'Package Status']");
 	}
 	
 	public void containsValueAutoSendToSupplierContactDropdown(String expectedAutoSendToSupplierContact) throws Exception {

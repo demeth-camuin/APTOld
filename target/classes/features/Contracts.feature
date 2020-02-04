@@ -3728,7 +3728,7 @@ Feature: APT - Contracts
     When user changes the status of the contract to "Internal Sale Only"
     Then user sees error message "Contract cannot be put on sale as it does not have a valid Price."
 
-  @Regression @RegressionContractCostPage
+  @Regression-Slow @RegressionContractCostPage
   Scenario: APT-2560: 01a. Load and display ADD CONTRACT COSTS page
     # Additional Scenario: APT-2625: 06a. Add new costs in Add Contract Costs page
     # Additional Scenario: APT-2628: 07a. Add new costs in Update Contract Costs page
@@ -3738,7 +3738,7 @@ Feature: APT - Contracts
     # And Scenario 2: Populate 'Guest configuration' dropdown when contract type is transfer, coach or misc
     # And Scenario 3: Populate 'Guest configuration' dropdown when contract type is NOT transfer, coach or misc
     # And Scenario 4: Populate 'Category 1' dropdown when contract type is NOT Foreign Operator/Land
-    # And Scenario 5: Empty and disable 'Category 1' dropdown when co2598ntract type is Foreign Operator/Land
+    # And Scenario 5: Empty and disable 'Category 1' dropdown when contract type is Foreign Operator/Land
     # And Scenario 6: Populate 'Category 2' dropdown when contract type is hotel or cruise
     # And Scenario 7: Populate 'Category 2' dropdown when contract type is rail
     # And Scenario 8: Populate 'Category 2' dropdown when contract type is NOT hotel, cruise or rail
@@ -4170,6 +4170,7 @@ Feature: APT - Contracts
     # Additional Scenario: APT-2619: 03a. Add new dates in Update Contract Costs page
     # Additional Scenario: APT-2842: 02b. Delete a date range in Add Contract Costs page
     # Additional Scenario: APT-2986: 02a.ii Date Fields and Validations in Add Date Range pop-up
+    # Additional Scenario: APT-3745: Add and Edit Cost Screen changes
     # Scenario 1: Add New Date Range brings up a pop-up
     # And Scenario 2: 'Share Allowed' field
     # And Scenario 3: Mandatory validation on date range
@@ -4897,7 +4898,7 @@ Feature: APT - Contracts
     And user changes the status of the contract to "Loading"
     And user expands the contract options accordion
     And user saves the update of contract basic information
-    Then user sees feedback message "Record saved successfully."
+    #Then user sees feedback message "Record saved successfully."
 
   @Regression @RegressionContractCostPage
   Scenario: APT-3022: 1.d View Configurations to be created in Add Contract Cost page

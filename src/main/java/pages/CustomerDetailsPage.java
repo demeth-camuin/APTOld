@@ -210,10 +210,10 @@ public class CustomerDetailsPage extends Base {
 	@FindBy(xpath = "//div[contains(@id, 'TradeSiteForm')]//div[contains(@id, 'Currency_Combobox')]//span[contains(@class, 'select2-chosen')]")
 	WebElement dropdown_ProductAccessLevelPopup_Currency;
 	
-	@FindBy(xpath = "//div[contains(@id, 'TradeSiteForm')]//div[contains(@id, 'Department_Combobox')]//span[contains(@class, 'select2-chosen')]")
+	@FindBy(xpath = "//form[contains(@action, 'TradeSiteAccess')]//div[contains(@id, 'Department_Combobox')]//span[contains(@class, 'select2-chosen')]")
 	WebElement dropdown_ProductAccessLevelPopup_Department;
 	
-	@FindBy(xpath = "//div[contains(@id, 'TradeSiteForm')]//div[contains(@id, 'Office_Combobox')]//span[contains(@class, 'select2-chosen')]")
+	@FindBy(xpath = "//form[contains(@action, 'TradeSiteAccess')]//div[contains(@id, 'Office_Combobox')]//span[contains(@class, 'select2-chosen')]")
 	WebElement dropdown_ProductAccessLevelPopup_Office;
 	// End - Product Access Level Popup Objects
 	
@@ -330,7 +330,7 @@ public class CustomerDetailsPage extends Base {
 	public void clickTopRowDataEditProductAccessLevelButton() throws Exception {
 		CommonFunctions.clickElement(rowData_TradeSiteAccessSetupSection_TopEditProductAccessLevelButton);
 		CommonFunctions.pause(5000, false);
-		CommonFunctions.switchFrameByXPath("//*[text() = 'Update Product Access Level']");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'TradeSiteAccess')]//input[@value = 'Save']");
 	}
 	
 	public void clickTradeBookingSetupAccordion() throws Exception {
@@ -339,8 +339,8 @@ public class CustomerDetailsPage extends Base {
 	
 	public void clickTradeBookingSetupSectionAddProductAccessLevelButton() throws Exception {
 		CommonFunctions.clickElement(button_TradeBookingSetupSection_AddProductAccessLevel);
-		CommonFunctions.pause(5000, false);
-		CommonFunctions.switchFrameByXPath("//*[text() = 'Add Product Access Level']");
+		CommonFunctions.pause(7500, false);
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'TradeSiteAccess')]//input[@value = 'Save']");
 	}
 	
 	public void clickTradeBookingSetupSectionAPTGroupSiteAccessCheckbox() throws Exception {

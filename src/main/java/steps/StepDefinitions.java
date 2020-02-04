@@ -456,9 +456,8 @@ public class StepDefinitions extends Base {
 	@Then("^user sees the hamburger menu is expanded$")
 	public void user_sees_the_hamburger_menu_is_expanded() throws Throwable {
 		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//div[@class='Application_Menu']")));
-		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//span[text()='Modules']")));
-		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//span[text()='Administration']")));
-		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//a[text()='Log out']")));
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//span[contains(text(), 'Administration')]")));
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//a[contains(text(), 'Log out')]")));
 	}
 	
 	@Then("^user sees the selected menu is higlighted$")
@@ -3198,7 +3197,7 @@ public class StepDefinitions extends Base {
 	
 	@Then("^user sees feedback message that the airline is already existing$")
 	public void user_sees_feedback_message_that_the_airline_is_already_existing() throws Throwable {
-		CommonFunctions.checkFeedbackMessageDisplayedContainsString("The airline code tst is being used by");
+		CommonFunctions.checkFeedbackMessageDisplayedContainsString("The airline code TST is being used by");
 	}
 	
 	@When("^user modifies certain information of the supplier$")
@@ -3217,8 +3216,6 @@ public class StepDefinitions extends Base {
 		CommonFunctions.clickKeys(Keys.chord(Keys.TAB));
 		CommonFunctions.pause(500, false);
 		CommonFunctions.clickKeys(Keys.chord(Keys.BACK_SPACE));
-		CommonFunctions.pause(500, false);
-		CommonFunctions.clickOnPopUp("OK");
 		CommonFunctions.pause(2500, false);
 	}
 	
@@ -4196,7 +4193,7 @@ public class StepDefinitions extends Base {
 	
 	@Then("^user sees commission name field enabled and two add rules buttons disabled$")
 	public void user_sees_commission_name_field_enabled_and_two_add_rules_buttons_disabled() throws Throwable {
-		CommonFunctions.switchFrameByXPath("//span[text() = 'Create Commission Name']");
+		CommonFunctions.switchFrameByXPath("//a[contains(@id, 'AddRulesNow')]");
 		commissionsPage.enabledCreateCommissionNamePopupNameInput();
 		commissionsPage.disabledCreateCommissionNamePopupAddRulesLaterButton();
 		commissionsPage.disabledCreateCommissionNamePopupAddRulesNowButton();
@@ -4221,7 +4218,8 @@ public class StepDefinitions extends Base {
 	
 	@When("^user closes the create commission name popup$")
 	public void user_closes_the_create_commission_name_popup() throws Throwable {
-		CommonFunctions.clickKeys(Keys.chord(Keys.ESCAPE));
+		// CommonFunctions.switchFrameByXPath("//a[contains(@id, 'AddRulesNow')]");
+		CommonFunctions.clickElement(driver.findElement(By.xpath("//a[@aria-label = 'Close']")));
 	}
 	
 	@Then("^user does not see the create commission name popup$")
@@ -4231,7 +4229,7 @@ public class StepDefinitions extends Base {
 	
 	@When("^user provides an existing commission name$")
 	public void user_provides_an_existing_commission_name() throws Throwable {
-		CommonFunctions.switchFrameByXPath("//span[text() = 'Create Commission Name']");
+		CommonFunctions.switchFrameByXPath("//a[contains(@id, 'AddRulesNow')]");
 		commissionsPage.setCreateCommissionNamePopupNameInput(usedCommissionName);
 		CommonFunctions.pause(2500, false);
 	}
@@ -5333,7 +5331,7 @@ public class StepDefinitions extends Base {
 	
 	@Then("^selected contract is not deleted$")
 	public void selected_contract_is_not_deleted() throws Throwable {
-		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//*[text()='Tokyu Hotel Kyoto (GRJ TM)']")));
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//*[text()='Hotel Grand Chancellor']")));
 	}
 	
 	@When("^user clicks on OK button in the popup$")
@@ -9960,7 +9958,7 @@ public class StepDefinitions extends Base {
 	
 	@Then("^user sees the added price in the contract prices table$")
 	public void user_sees_the_added_price_in_the_contract_prices_table() throws Throwable {
-		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//div[contains(@id,'PricesContainer')]//div[contains(@id,'GridCont')]//div[@class='wj-row'][07]//div[text()='EUR']")));
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//div[contains(@id,'PricesContainer')]//div[contains(@id,'GridCont')]//div[@class='wj-row']//div[text()='EUR']")));
 	}
 	
 	@Then("^user sees the update contract basic information fields tooltips when hovered$")
@@ -10713,7 +10711,7 @@ public class StepDefinitions extends Base {
 		CommonFunctions.switchFrameByXPath("//*[text() = 'Are you sure you want to discard your changes?']");
 		CommonFunctions.clickElement(CommonFunctions.getLastElementInListByXPath("//input[@value = 'Cancel']"));
 		CommonFunctions.pause(5000, false);
-		CommonFunctions.switchFrameByXPath("//*[text() = 'Add Date Range']");
+		CommonFunctions.switchFrameByXPath("/form[contains(@action, 'Popup')]//*[text() = 'Selected Date Range(s)']");
 	}
 	
 	@Then("^user sees the add date range popup$")
@@ -10848,7 +10846,6 @@ public class StepDefinitions extends Base {
 		contractCostsDetailsPage.clickAddDateRangePopupAllotmentCodeInput();
 		contractCostsDetailsPage.displayedAddDateRangePopupAllotmentCodeDropdownAllotmentCodeFilterInput();
 		contractCostsDetailsPage.displayedAddDateRangePopupAllotmentCodeDropdownInventoryPoolFilterInput();
-		user_hits_the_escape_key();
 		user_removes_the_focus_on_the_field();
 		user_searches_for_an_allotment_code_for_the_contract_costs_new_date_range_with_as_the_allotment_code_and_as_the_inventory_pool("ABC", "XYZ");
 		CommonFunctions.elementNotExistingByXPath("(//label[text() = 'Allotment Code']//parent::div//div[contains(@id, 'Suggestions')]//div[@class = 'FullRow'])[3]//div[@class = 'Cell1']");
@@ -10944,7 +10941,7 @@ public class StepDefinitions extends Base {
 		contractCostsDetailsPage.displayedEditConfigurationDetailsPopupMinimumNightsInput();
 		contractCostsDetailsPage.displayedEditConfigurationDetailsPopupMaximumNightsInput();
 		contractCostsDetailsPage.displayedEditConfigurationDetailsPopupMaximumChildAgeInput();
-		contractCostsDetailsPage.displayedEditConfigurationDetailsPopupCancelButton();
+		contractCostsDetailsPage.displayedEditConfigurationDetailsPopupCloseButton();
 		contractCostsDetailsPage.displayedEditConfigurationDetailsPopupUpdateButton();
 	}
 	
@@ -10990,7 +10987,7 @@ public class StepDefinitions extends Base {
 	
 	@When("^user cancels the update of the contract costs configuration details$")
 	public void user_cancels_the_update_of_the_contract_costs_configuration_details() throws Throwable {
-		contractCostsDetailsPage.clickEditConfigurationDetailsPopupCancelButton();
+		contractCostsDetailsPage.clickEditConfigurationDetailsPopupCloseButton();
 	}
 	
 	@Then("^user does not see the edit configuration details popup$")
@@ -11336,7 +11333,9 @@ public class StepDefinitions extends Base {
 	
 	@When("^user disregards the deletion of the recommended itinerary$")
 	public void user_disregards_the_deletion_of_the_recommended_itinerary() throws Throwable {
-		user_hits_the_escape_key();
+		CommonFunctions.switchFrameByXPath("//*[contains(text(), 'Do you want to delete Itinerary')]");
+		CommonFunctions.clickElement(CommonFunctions.getLastElementInListByXPath("//input[contains(@value, 'Cancel')]"));
+		CommonFunctions.pause(5000, false);
 	}
 	
 	@Then("^user sees feedback message Recommended Itinerary \"([^\"]*)\"$")
@@ -11723,7 +11722,9 @@ public class StepDefinitions extends Base {
 	
 	@When("^user disregards the closing of recommended itinerary details$")
 	public void user_disregards_the_closing_of_recommended_itinerary_details() throws Throwable {
-		user_hits_the_escape_key();
+		CommonFunctions.switchFrameByXPath("//*[text() = 'This Itinerary is not created yet, are you sure you want to discard the changes?']");
+		CommonFunctions.clickElement(CommonFunctions.getLastElementInListByXPath("//input[contains(@value, 'Cancel')]"));
+		CommonFunctions.pause(15000, false);
 	}
 	
 	@When("^user confirms the closing of recommended itinerary details$")
@@ -11897,7 +11898,8 @@ public class StepDefinitions extends Base {
 	
 	@When("^user disregards the deletion of the queue place setting$")
 	public void user_disregards_the_deletion_of_the_queue_place_setting() throws Throwable {
-		user_hits_the_escape_key();
+		CommonFunctions.switchFrameByXPath("//*[text() = 'Are you sure you want to delete this Queue Rule?']");
+		CommonFunctions.clickElement(CommonFunctions.getLastElementInListByXPath("//input[contains(@value, 'Cancel')]"));
 	}
 	
 	@Then("^user sees the queue place setting is not deleted$")
@@ -12021,7 +12023,8 @@ public class StepDefinitions extends Base {
 	
 	@When("^user disregards the closing of queue place rule details$")
 	public void user_disregards_the_closing_of_queue_place_rule_details() throws Throwable {
-		user_hits_the_escape_key();
+		CommonFunctions.switchFrameByXPath("//*[text() = 'Are you sure you want to discard your changes?']");
+		CommonFunctions.clickElement(CommonFunctions.getLastElementInListByXPath("//input[contains(@value, 'Cancel')]"));
 	}
 	
 	@When("^user confirms the closing of queue place rule details$")
@@ -12159,7 +12162,8 @@ public class StepDefinitions extends Base {
 	
 	@When("^user disregards the deletion of the markup rule$")
 	public void user_disregards_the_deletion_of_the_markup_rule() throws Throwable {
-		user_hits_the_escape_key();
+		CommonFunctions.switchFrameByXPath("//*[text() = 'Do you want to delete Markup Rule?']");
+		CommonFunctions.clickElement(CommonFunctions.getLastElementInListByXPath("//input[contains(@value, 'Cancel')]"));
 	}
 	
 	@Then("^user sees the markup rule is not deleted$")
@@ -12521,7 +12525,8 @@ public class StepDefinitions extends Base {
 	
 	@When("^user disregards the closing of markup rule details$")
 	public void user_disregards_the_closing_of_markup_rule_details() throws Throwable {
-		user_hits_the_escape_key();
+		CommonFunctions.switchFrameByXPath("//*[text() = 'Are you sure you want to discard your changes?']");
+		CommonFunctions.clickElement(CommonFunctions.getLastElementInListByXPath("//input[contains(@value, 'Cancel')]"));
 	}
 	
 	@When("^user confirms the closing of markup rule details$")
@@ -12595,7 +12600,8 @@ public class StepDefinitions extends Base {
 	
 	@When("^user disregards the deletion of markup rule details cost setting$")
 	public void user_disregards_the_deletion_of_markup_rule_details_cost_setting() throws Throwable {
-		user_hits_the_escape_key();
+		CommonFunctions.switchFrameByXPath("//*[text() = 'Do you want to delete this Cost Setting?']");
+		CommonFunctions.clickElement(CommonFunctions.getLastElementInListByXPath("//input[contains(@value, 'Cancel')]"));
 	}
 	
 	@When("^user confirms the deletion of markup rule details cost setting$")
@@ -12616,7 +12622,8 @@ public class StepDefinitions extends Base {
 	
 	@When("^user disregards the deletion of markup rule details price setting$")
 	public void user_disregards_the_deletion_of_markup_rule_details_price_setting() throws Throwable {
-		user_hits_the_escape_key();
+		CommonFunctions.switchFrameByXPath("//*[text() = 'Do you want to delete this Price Setting?']");
+		CommonFunctions.clickElement(CommonFunctions.getLastElementInListByXPath("//input[contains(@value, 'Cancel')]"));
 	}
 	
 	@When("^user confirms the deletion of markup rule details price setting$")
@@ -12786,7 +12793,8 @@ public class StepDefinitions extends Base {
 	
 	@When("^user disregards the deletion of the ticketing time limit$")
 	public void user_disregards_the_deletion_of_the_ticketing_time_limit() throws Throwable {
-		user_hits_the_escape_key();
+		CommonFunctions.switchFrameByXPath("//*[text() = 'Do you want to Delete Ticketing Time Limit - Test12345?']");
+		CommonFunctions.clickElement(CommonFunctions.getLastElementInListByXPath("//input[contains(@value, 'Cancel')]"));
 	}
 	
 	@Then("^user sees the ticketing time limit is not deleted$")
@@ -12978,7 +12986,8 @@ public class StepDefinitions extends Base {
 	
 	@When("^user disregards the closing of ticketing time limit details$")
 	public void user_disregards_the_closing_of_ticketing_time_limit_details() throws Throwable {
-		user_hits_the_escape_key();
+		CommonFunctions.switchFrameByXPath("//*[text() = 'This Ticketing Time Limit is not yet created. Are you sure you want to discard the changes?']");
+		CommonFunctions.clickElement(CommonFunctions.getLastElementInListByXPath("//input[contains(@value, 'Cancel')]"));
 	}
 	
 	@When("^user confirms the closing of ticketing time limit details$")

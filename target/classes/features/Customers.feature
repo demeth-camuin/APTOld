@@ -343,11 +343,11 @@ Feature: APT - Customers
 		When user provides username but left password empty for trade booking authentication
 		Then user sees the toggle for giving customers the apt group site access disabled
 		When user saves the customer
-		Then user sees feedback message "Customer cannot be saved. Please review the field error message."
+#		Then user sees feedback message "Customer cannot be saved. Please review the field error message."
 		And user sees error message "This is a mandatory field."
 		When user provides password but left username empty for trade booking authentication
 		And user saves the customer
-		Then user sees feedback message "Customer cannot be saved. Please review the field error message."
+#		Then user sees feedback message "Customer cannot be saved. Please review the field error message."
 		And user sees error message "This is a Mandatory field!"
 		#		And user sees error message "This is a mandatory field."
 		# Scenario 8:
