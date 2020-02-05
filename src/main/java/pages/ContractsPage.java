@@ -130,6 +130,9 @@ public class ContractsPage extends Base {
 	@FindBy(xpath = "//input[contains(@id, 'ContractNameInput')]")
 	WebElement input_Name1;
 	// End - Main Page Objects
+	
+	@FindBy(xpath = "//a[@class='far fa-copy ActionIcons' and @title='Copy']")
+	WebElement button_Copy;
 	// End - Page Objects
 	
 	// Start - Initializing the Page Objects
@@ -400,5 +403,14 @@ public class ContractsPage extends Base {
 		CommonFunctions.elementDisplayed(button_DeletePopupOkButton);
 	}
 	// End - Main Page Actions
+	
+	public ContractDetailsPage clicksOnCopyButton() throws Exception {
+		CommonFunctions.clickElement(button_Copy);
+		return new ContractDetailsPage();
+	}
+	
+	public void clearContractId() throws Exception {
+		input_Id.clear();
+	}
 	// End - Actions
 }

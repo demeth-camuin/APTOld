@@ -10022,6 +10022,156 @@ public class StepDefinitions extends Base {
 		CommonFunctions.elementNotExistingByXPath("((//div[contains(@id, 'MainContractPriceContainer')] //div[@class = 'WebBlockMainContainer'])[1] //div[@ref = 'eBodyViewport'] //div[@ref = 'eCenterColsClipper'] //div[@role = 'row'])[1]//div[@col-id = 'MaximumCommission']//span[@title = 'Edit Price']");
 		CommonFunctions.elementNotExistingByXPath("((//div[contains(@id, 'MainContractPriceContainer')] //div[@class = 'WebBlockMainContainer'])[1] //div[@ref = 'eBodyViewport'] //div[@ref = 'eCenterColsClipper'] //div[@role = 'row'])[1]//div[@col-id = 'MaximumCommission']//span[@title = 'Delete Price']");
 	}
+	
+	@Then("^expected fields are displayed$")
+	public void expected_fields_are_displayed() throws Throwable {
+		CommonFunctions.pause(5000, false);
+		CommonFunctions.clickKeys(Keys.chord(Keys.PAGE_DOWN));
+		CommonFunctions.clickElement(driver.findElement(By.xpath("//span[@class='Heading2' and text()='Allotment Details']")));
+		CommonFunctions.pause(5000, false);
+		contractDetailsPage.displayedFields();
+	}
+	
+	@When("^user create contract without populating new allotment code$")
+	public void user_create_contract_without_populating_new_allotment_code() throws Throwable {
+		contractDetailsPage.clickNewAllotmentCode();
+		CommonFunctions.clickKeys(Keys.chord(Keys.PAGE_UP));
+		contractDetailsPage.clickCreateContract();
+		CommonFunctions.pause(5000, false);
+	}
+	
+	@Then("^user sees in field validation message for new allotment code$")
+	public void user_sees_in_field_validation_message_for_new_allotment_code() throws Throwable {
+		CommonFunctions.clickKeys(Keys.chord(Keys.PAGE_DOWN));
+		contractDetailsPage.validationNewAllotmentCode();
+	}
+	
+	@When("^user create contract without populating replace allotment code$")
+	public void user_create_contract_without_populating_replace_allotment_code() throws Throwable {
+		contractDetailsPage.clickReplaceAllotmentCode();
+		CommonFunctions.clickKeys(Keys.chord(Keys.PAGE_UP));
+		contractDetailsPage.clickCreateContract();
+		CommonFunctions.pause(5000, false);
+	}
+	
+	@Then("^user sees in field validation message for replace allotment code$")
+	public void user_sees_in_field_validation_message_for_replace_allotment_code() throws Throwable {
+		CommonFunctions.clickKeys(Keys.chord(Keys.PAGE_DOWN));
+		contractDetailsPage.validationReplaceAllotmentCode();
+	}
+	
+	@When("^user create contract without populating add characters to code$")
+	public void user_create_contract_without_populating_add_characters_to_code() throws Throwable {
+		contractDetailsPage.clickAddCharToCodeAllotment();
+		CommonFunctions.clickKeys(Keys.chord(Keys.PAGE_UP));
+		contractDetailsPage.clickCreateContract();
+		CommonFunctions.pause(5000, false);
+	}
+	
+	@Then("^user sees in field validation message for add characters to code$")
+	public void user_sees_in_field_validation_message_for_add_characters_to_code() throws Throwable {
+		CommonFunctions.clickKeys(Keys.chord(Keys.PAGE_DOWN));
+		contractDetailsPage.validationAddCharAllotment();
+	}
+	
+	@When("^user create new allotment code$")
+	public void user_create_new_allotment_code() throws Throwable {
+		contractDetailsPage.clickNewAllotmentCode();
+		contractDetailsPage.inputNewAllotmentCode();
+		CommonFunctions.clickKeys(Keys.chord(Keys.PAGE_UP));
+		contractDetailsPage.inputContractName("TestContract012020");
+		CommonFunctions.clickKeys(Keys.chord(Keys.PAGE_DOWN));
+		CommonFunctions.clickKeys(Keys.chord(Keys.PAGE_DOWN));
+		CommonFunctions.elementNotExistingByXPath("//a[contains(@id,'CreateBulkCosts')]");
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("(//div[contains(@id,'ContractCostContainer')])[1]//div[@class='customAllotmentHeaderLabel' and text()='GLAWSBB']")));
+		CommonFunctions.clickKeys(Keys.chord(Keys.PAGE_UP));
+		CommonFunctions.clickKeys(Keys.chord(Keys.PAGE_UP));
+		contractDetailsPage.clickCreateContract();
+	}
+	
+	@Then("^existing allotment code for the existing contracts will be created$")
+	public void existing_allotment_code_for_the_existing_contracts_will_be_created() throws Throwable {
+		CommonFunctions.pause(5000, false);
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("(//div[contains(@id,'ContractCostContainer')])[1]//div[@class='customAllotmentHeaderLabel' and text()='NAC']")));
+	}
+	
+	@When("^user replace an existing allotment code$")
+	public void user_replace_an_existing_allotment_code() throws Throwable {
+		contractDetailsPage.clickCloseButton();
+		contractsPage.clearContractId();
+		contractsPage.setNameInput1("TestContract012020");
+		contractsPage.clickFindButton();
+		contractDetailsPage = contractsPage.clicksOnCopyButton();
+		CommonFunctions.pause(5000, false);
+		CommonFunctions.clickKeys(Keys.chord(Keys.PAGE_DOWN));
+		CommonFunctions.clickElement(driver.findElement(By.xpath("//span[@class='Heading2' and text()='Allotment Details']")));
+		contractDetailsPage.clickReplaceAllotmentCode();
+		contractDetailsPage.inputReplaceAllotmentCode();
+		CommonFunctions.clickKeys(Keys.chord(Keys.PAGE_DOWN));
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("(//div[contains(@id,'ContractCostContainer')])[1]//div[@class='customAllotmentHeaderLabel' and text()='NAC']")));
+		CommonFunctions.clickKeys(Keys.chord(Keys.PAGE_UP));
+		CommonFunctions.clickKeys(Keys.chord(Keys.PAGE_UP));
+		contractDetailsPage.inputContractName("TestContract022020");
+		contractDetailsPage.clickCreateContract();
+	}
+	
+	@Then("^existing allotment code for the contracts will be replaced$")
+	public void existing_allotment_code_for_the_contracts_will_be_replaced() throws Throwable {
+		CommonFunctions.pause(5000, false);
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("(//div[contains(@id,'ContractCostContainer')])[1]//div[@class='customAllotmentHeaderLabel' and text()='NAS']")));
+	}
+	
+	@When("^user add characters to an existing allotment code$")
+	public void user_add_characters_to_an_existing_allotment_code() throws Throwable {
+		contractDetailsPage.clickCloseButton();
+		contractsPage.clearContractId();
+		contractsPage.setNameInput1("TestContract022020");
+		contractsPage.clickFindButton();
+		contractDetailsPage = contractsPage.clicksOnCopyButton();
+		CommonFunctions.pause(5000, false);
+		CommonFunctions.clickKeys(Keys.chord(Keys.PAGE_DOWN));
+		CommonFunctions.clickElement(driver.findElement(By.xpath("//span[@class='Heading2' and text()='Allotment Details']")));
+		contractDetailsPage.clickAddCharToCodeAllotment();
+		CommonFunctions.pause(2500, false);
+		contractDetailsPage.inputAddCharAllotmentCode();
+		CommonFunctions.clickKeys(Keys.chord(Keys.PAGE_DOWN));
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("(//div[contains(@id,'ContractCostContainer')])[1]//div[@class='customAllotmentHeaderLabel' and text()='NAS']")));
+		CommonFunctions.clickKeys(Keys.chord(Keys.PAGE_UP));
+		CommonFunctions.clickKeys(Keys.chord(Keys.PAGE_UP));
+		contractDetailsPage.inputContractName("TestContract032020");
+		contractDetailsPage.clickCreateContract();
+	}
+	
+	@Then("^characters to the existing allotment code will be appended$")
+	public void characters_to_the_existing_allotment_code_will_be_appended() throws Throwable {
+		CommonFunctions.pause(5000, false);
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("(//div[contains(@id,'ContractCostContainer')])[1]//div[@class='customAllotmentHeaderLabel' and text()='NASC']")));
+		contractDetailsPage.clickCloseButton();
+		contractsPage.clearContractId();
+		contractsPage.setNameInput1("TestContract012020");
+		contractsPage.clickFindButton();
+		CommonFunctions.pause(2500, false);
+		CommonFunctions.clickElement(driver.findElement(By.xpath("//a[@class='far fa-trash-alt Text_red ActionIcons']")));
+		CommonFunctions.pause(2500, false);
+		CommonFunctions.switchFrameByXPath("//div[text() = 'Are you sure you want to delete all details of the selected Contract?']");
+		CommonFunctions.clickElement(driver.findElement(By.xpath("//input[@value='Ok']")));
+		CommonFunctions.pause(3000, false);
+		contractsPage.setNameInput1("TestContract022020");
+		contractsPage.clickFindButton();
+		CommonFunctions.pause(2500, false);
+		CommonFunctions.clickElement(driver.findElement(By.xpath("//a[@class='far fa-trash-alt Text_red ActionIcons']")));
+		CommonFunctions.pause(2500, false);
+		CommonFunctions.switchFrameByXPath("//div[text() = 'Are you sure you want to delete all details of the selected Contract?']");
+		CommonFunctions.clickElement(driver.findElement(By.xpath("//input[@value='Ok']")));
+		CommonFunctions.pause(3000, false);
+		contractsPage.setNameInput1("TestContract032020");
+		contractsPage.clickFindButton();
+		CommonFunctions.pause(2500, false);
+		CommonFunctions.clickElement(driver.findElement(By.xpath("//a[@class='far fa-trash-alt Text_red ActionIcons']")));
+		CommonFunctions.pause(2500, false);
+		CommonFunctions.switchFrameByXPath("//div[text() = 'Are you sure you want to delete all details of the selected Contract?']");
+		CommonFunctions.clickElement(driver.findElement(By.xpath("//input[@value='Ok']")));
+	}
 	// End - Contract Details Page Functions
 	
 	// Start - Contract Costs Details Page Functions

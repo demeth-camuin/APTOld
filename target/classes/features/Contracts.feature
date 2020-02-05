@@ -5516,6 +5516,36 @@ Feature: APT - Contracts
     And user updates the contract
     And user opens the update contract basic information popup
     Then user sees the update contract basic information fields tooltips when hovered
+
+  @Regression
+  Scenario: APT-3801: Copy contract to allow bulk changes to Allotment Code
+    Given user opens browser
+    When user logs into app
+    And user navigates to contracts page
+    And user searches for a contract with "96682" id
+    And user copies the contract
+    Then expected fields are displayed
+    #Scenario 3: Mandatory field
+    Given user is on "Contract Details" page
+    When user create contract without populating new allotment code
+    Then user sees in field validation message for new allotment code
+    When user create contract without populating replace allotment code
+    Then user sees in field validation message for replace allotment code
+    When user create contract without populating add characters to code
+    Then user sees in field validation message for add characters to code
+    #Scenario 2.a: Changing Allotment Codes to a new Code
+    #Scenario 4: Hide 'Create Bulk Cost' button
+    Given user is on "Contract Details" page
+    When user create new allotment code
+    Then existing allotment code for the existing contracts will be created
+    #Scenario 2.b: Replace part of existing Allotment Code with a new text
+    Given user is on "Contract Details" page
+    When user replace an existing allotment code
+    Then existing allotment code for the contracts will be replaced
+    #Scenario 2.c: Add characters to the end of existing Allotment Code
+    Given user is on "Contract Details" page
+    When user add characters to an existing allotment code
+    Then characters to the existing allotment code will be appended
 		
 	@Regression
   Scenario:  APT-3942: Add to Table button behavior and Price Configuration field changes in Edit Price popup

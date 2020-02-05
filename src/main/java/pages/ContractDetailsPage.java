@@ -957,6 +957,71 @@ public class ContractDetailsPage extends Base {
 	@FindBy(xpath = "(//span[@class='fa fa-fw fa-info-circle'])[1]//parent::a")
 	WebElement i_icon_below_dates;
 	
+	@FindBy(xpath = "//span[@class='Heading2' and text()='Allotment Details']")
+	WebElement accordion_AllotmentDetails;
+	
+	@FindBy(xpath = "(//div[contains(@id,'AllotmentContentContainer')]//input[@class='radio-button'])[1]")
+	WebElement radioButton_CopyExisting;
+	
+	@FindBy(xpath = "(//div[contains(@id,'AllotmentContentContainer')]//input[@class='radio-button'])[1]//following::div[text()='Copy Existing']")
+	WebElement label_CopyExisting;
+	
+	@FindBy(xpath = "(//div[contains(@id,'AllotmentContentContainer')]//input[@class='radio-button' ])[2]")
+	WebElement radioButton_NewAllotment;
+	
+	@FindBy(xpath = "(//div[contains(@id,'AllotmentContentContainer')]//input[@class='radio-button' ])[2]//following::div[text()='New Allotment Code']")
+	WebElement label_NewAllotment;
+	
+	@FindBy(xpath = "(//div[contains(@id,'AllotmentContentContainer')]//input[@class='radio-button' ])[7]")
+	WebElement radioButton_ReplaceAllotment;
+	
+	@FindBy(xpath = "(//div[contains(@id,'AllotmentContentContainer')]//input[@class='radio-button' ])[7]//following::div[text()='Replace Allotment Code']")
+	WebElement label_ReplaceAllotment;
+	
+	@FindBy(xpath = "(//div[contains(@id,'AllotmentContentContainer')]//input[@class='radio-button' ])[8]")
+	WebElement radioButton_AddCharAllotment;
+	
+	@FindBy(xpath = "(//div[contains(@id,'AllotmentContentContainer')]//input[@class='radio-button' ])[8]//following::div[text()='Add Characters to Code']")
+	WebElement label_AddCharAllotment;
+	
+	@FindBy(xpath = "//input[@value='Create Contract' and contains(@id,'SaveAltTop')]")
+	WebElement button_CreateContract;
+	
+	@FindBy(xpath = "(//div[@class='ThemeGrid_Width10 ThemeGrid_MarginGutter'])[1]//following::span[text()='*Mandatory field.']")
+	WebElement validation_NewAllotmentCode;
+	
+	@FindBy(xpath = "((//div[@class='ThemeGrid_Width10 ThemeGrid_MarginGutter'])[2]//following::span[text()='*Mandatory field.'])[1]")
+	WebElement validation_ReplaceAllotmentCode1;
+	
+	@FindBy(xpath = "((//div[@class='ThemeGrid_Width10 ThemeGrid_MarginGutter'])[2]//following::span[text()='*Mandatory field.'])[2]")
+	WebElement validation_ReplaceAllotmentCode2;
+	
+	@FindBy(xpath = "((//div[@class='ThemeGrid_Width10 ThemeGrid_MarginGutter'])[3]//following::span[text()='*Mandatory field.'])[1]")
+	WebElement validation_AddCharAllotment1;
+	
+	@FindBy(xpath = "((//div[@class='ThemeGrid_Width10 ThemeGrid_MarginGutter'])[3]//following::span[text()='*Mandatory field.'])[2]")
+	WebElement validation_AddCharAllotment2;
+	
+	@FindBy(xpath = "//input[contains(@id,'ContractNameInput')]")
+	WebElement field_ContractName;
+	
+	@FindBy(xpath = "//input[contains(@id,'NewAllotmentCodeInput')]")
+	WebElement field_NewAllotmetCode;
+	
+	@FindBy(xpath = "//input[contains(@id,'ReplaceInput')]")
+	WebElement field_ReplaceAllotmentCode;
+	
+	@FindBy(xpath = "//input[contains(@id,'ReplaceWithInput')]")
+	WebElement field_ReplaceWithAllotmentCode;
+	
+	@FindBy(xpath = "//input[contains(@id,'CloseTopButton')]")
+	WebElement button_Close;
+	
+	@FindBy(xpath = "//input[contains(@id,'AddCharStartsWithInput')]")
+	WebElement field_AddCharStartsWith;
+	
+	@FindBy(xpath = "//input[contains(@id,'AddCharToAdd')]")
+	WebElement field_AddCharTo;
 	// End - Page Objects
 	
 	// Start - Initializing the Page Objects
@@ -3799,5 +3864,75 @@ public class ContractDetailsPage extends Base {
 		CommonFunctions.elementAttributeContains(button_PaymentRulesSection_TopDeleteCancellationRule.findElement(By.xpath(".//parent::div")), "style", "display: none;");
 	}
 	// End - View Contract Price Popup Objects
+	
+	public void displayedFields() throws Exception {
+		CommonFunctions.elementDisplayed(radioButton_AddCharAllotment);
+		CommonFunctions.elementDisplayed(radioButton_CopyExisting);
+		CommonFunctions.elementDisplayed(radioButton_NewAllotment);
+		CommonFunctions.elementDisplayed(radioButton_ReplaceAllotment);
+		CommonFunctions.elementDisplayed(label_AddCharAllotment);
+		CommonFunctions.elementDisplayed(label_CopyExisting);
+		CommonFunctions.elementDisplayed(label_NewAllotment);
+		CommonFunctions.elementDisplayed(label_ReplaceAllotment);
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("(//div[contains(@id,'AllotmentContentContainer')]//input[@class='radio-button' and @checked='checked'])[1]")));
+	}
+	
+	public void clickAllotmentAccordion() throws Exception {
+		CommonFunctions.clickElement(accordion_AllotmentDetails);
+	}
+	
+	public void clickNewAllotmentCode() throws Exception {
+		CommonFunctions.clickElement(radioButton_NewAllotment);
+	}
+	
+	public void clickReplaceAllotmentCode() throws Exception {
+		CommonFunctions.clickElement(radioButton_ReplaceAllotment);
+	}
+	
+	public void clickAddCharToCodeAllotment() throws Exception {
+		CommonFunctions.clickElement(radioButton_AddCharAllotment);
+	}
+	
+	public void clickCreateContract() throws Exception {
+		CommonFunctions.clickElement(button_CreateContract);
+	}
+	
+	public void validationNewAllotmentCode() throws Exception {
+		CommonFunctions.elementDisplayed(validation_NewAllotmentCode);
+	}
+	
+	public void validationReplaceAllotmentCode() throws Exception {
+		CommonFunctions.elementDisplayed(validation_ReplaceAllotmentCode1);
+		CommonFunctions.elementDisplayed(validation_ReplaceAllotmentCode2);
+	}
+	
+	public void validationAddCharAllotment() throws Exception {
+		CommonFunctions.elementDisplayed(validation_AddCharAllotment1);
+		CommonFunctions.elementDisplayed(validation_AddCharAllotment2);
+	}
+	
+	public void inputNewAllotmentCode() throws Exception {
+		CommonFunctions.clearThenEnterElementValue(field_NewAllotmetCode, "NAC");
+	}
+	
+	public void inputContractName(String value) throws Exception {
+		CommonFunctions.clearThenEnterElementValue(field_ContractName, value);
+	}
+	
+	public void clickCloseButton() throws Exception {
+		CommonFunctions.clickElement(button_Close);
+	}
+	
+	public void inputReplaceAllotmentCode() throws Exception {
+		CommonFunctions.clearThenEnterElementValue(field_ReplaceAllotmentCode, "NAC");
+		CommonFunctions.pause(2500, false);
+		CommonFunctions.clearThenEnterElementValue(field_ReplaceWithAllotmentCode, "NAS");
+	}
+	
+	public void inputAddCharAllotmentCode() throws Exception {
+		CommonFunctions.clearThenEnterElementValue(field_AddCharStartsWith, "NAS");
+		CommonFunctions.pause(2500, false);
+		CommonFunctions.clearThenEnterElementValue(field_AddCharTo, "C");
+	}
 	// End - Actions
 }
