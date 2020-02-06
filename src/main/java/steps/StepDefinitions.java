@@ -5384,7 +5384,6 @@ public class StepDefinitions extends Base {
 	
 	@Then("^user sees the update contract page title, fields and its values$")
 	public void user_sees_the_update_contract_page_title_fields_and_its_values() throws Throwable {
-		CommonFunctions.textVisibleInPage("Update Basic Information - Contract ID 53");
 		contractDetailsPage.containsValueNameInput(prop.getProperty("searchContractName"));
 		contractDetailsPage.containsValueTypeDropdown(prop.getProperty("searchContractType"));
 		contractDetailsPage.containsValueSupplierInput(prop.getProperty("searchContractSupplier"));
@@ -5408,7 +5407,6 @@ public class StepDefinitions extends Base {
 	
 	@Then("^user sees the copy contract page title, fields and its values$")
 	public void user_sees_the_copy_contract_page_title_fields_and_its_values() throws Throwable {
-		CommonFunctions.textVisibleInPage("Copy Contract ID 53");
 		contractDetailsPage.containsValueNameInput("");
 		contractDetailsPage.containsValueTypeDropdown(prop.getProperty("searchContractType"));
 		contractDetailsPage.containsValueSupplierInput(prop.getProperty("searchContractSupplier"));
@@ -5443,7 +5441,6 @@ public class StepDefinitions extends Base {
 	
 	@Then("^user sees the view contract page title, fields and its values$")
 	public void user_sees_the_view_contract_page_title_fields_and_its_values() throws Throwable {
-		CommonFunctions.textVisibleInPage("View Contract ID 53");
 		contractDetailsPage.containsValueNameLabel(prop.getProperty("searchContractName"));
 		contractDetailsPage.containsValueTypeLabel(prop.getProperty("searchContractType"));
 		contractDetailsPage.containsValueSupplierLabel(prop.getProperty("searchContractSupplier"));
@@ -6184,7 +6181,6 @@ public class StepDefinitions extends Base {
 	
 	@Then("^user sees the add new contract cost popup$")
 	public void user_sees_the_add_new_contract_cost_popup() throws Throwable {
-		CommonFunctions.textVisibleInPage("Add Costs");
 		contractDetailsPage.containsValueModifyContractCostsDetailsPopupGuestConfigurationDropdown("Twin");
 		contractDetailsPage.containsValueModifyContractCostsDetailsPopupCategory1Dropdown("3 Star Room");
 		contractDetailsPage.containsValueModifyContractCostsDetailsPopupCategory2Dropdown("");
@@ -6217,7 +6213,6 @@ public class StepDefinitions extends Base {
 	
 	@Then("^user sees the edit contract cost popup$")
 	public void user_sees_the_edit_contract_cost_popup() throws Throwable {
-		CommonFunctions.textVisibleInPage("Edit Cost");
 		contractDetailsPage.containsValueModifyContractCostsDetailsPopupGuestConfigurationDropdown("Double");
 		contractDetailsPage.containsValueModifyContractCostsDetailsPopupCategory1Dropdown("Run of House");
 		contractDetailsPage.containsValueModifyContractCostsDetailsPopupCategory2Dropdown("DBB");
@@ -6250,7 +6245,6 @@ public class StepDefinitions extends Base {
 	
 	@Then("^user sees the view contract cost popup$")
 	public void user_sees_the_view_contract_cost_popup() throws Throwable {
-		CommonFunctions.textVisibleInPage("View Cost");
 		contractDetailsPage.containsValueModifyContractCostsDetailsPopupGuestConfigurationLabel("Triple");
 		contractDetailsPage.containsValueModifyContractCostsDetailsPopupCategory1Label("Run of House");
 		contractDetailsPage.containsValueModifyContractCostsDetailsPopupCategory2Label("DBB");
@@ -6327,7 +6321,6 @@ public class StepDefinitions extends Base {
 	
 	@Then("^user sees the contract information, options, and costs in view mode$")
 	public void user_sees_the_contract_information_options_and_costs_in_view_mode() throws Throwable {
-		CommonFunctions.textVisibleInPage("View Contract ID 53");
 		contractDetailsPage.containsValueNameLabel(prop.getProperty("searchContractName"));
 		contractDetailsPage.containsValueTypeLabel(prop.getProperty("searchContractType"));
 		contractDetailsPage.containsValueSupplierLabel(prop.getProperty("searchContractSupplier"));
@@ -6462,7 +6455,6 @@ public class StepDefinitions extends Base {
 	
 	@Then("^user sees the copy contract basic information, options, and costs$")
 	public void user_sees_the_copy_contract_basic_information_options_and_costs() throws Throwable {
-		CommonFunctions.textVisibleInPage("Copy Contract ID 53");
 		contractDetailsPage.containsValueNameInput("");
 		contractDetailsPage.containsValueTypeDropdown(prop.getProperty("searchContractType"));
 		contractDetailsPage.containsValueSupplierInput(prop.getProperty("searchContractSupplier"));
@@ -8281,7 +8273,7 @@ public class StepDefinitions extends Base {
 	
 	@Then("^user sees the add payment cancellation rule popup$")
 	public void user_sees_the_add_payment_cancellation_rule_popup() throws Throwable {
-		CommonFunctions.textVisibleInPage("Add Cancellation Rule");
+		contractDetailsPage.displayedPaymentCancellationRulePopupAddRuleButton();
 	}
 	
 	@Then("^user does not see the add payment cancellation rule popup$")
@@ -8296,7 +8288,7 @@ public class StepDefinitions extends Base {
 	
 	@Then("^user sees the add payment deposit rule popup$")
 	public void user_sees_the_add_payment_deposit_rule_popup() throws Throwable {
-		CommonFunctions.textVisibleInPage("Add Deposit Rule");
+		contractDetailsPage.displayedPaymentDepositRulePopupAddRuleButton();
 	}
 	
 	@Then("^user does not see the add payment deposit rule popup$")
@@ -8520,7 +8512,7 @@ public class StepDefinitions extends Base {
 	
 	@Then("^user does not see the add itinerary template popup$")
 	public void user_does_not_see_the_add_itinerary_template_popup() throws Throwable {
-		CommonFunctions.elementNotExistingByXPath("//div[contains(@id, 'PopupTitle')]//span[contains(text(), 'Itinerary Template')]");
+		CommonFunctions.elementNotExistingByXPath("//form[contains(@action, 'ItineraryTemplate')]//a[contains(@id, 'AddIteneraryLink')]");
 	}
 	
 	@When("^user saves the itinerary template$")
@@ -8533,12 +8525,12 @@ public class StepDefinitions extends Base {
 		CommonFunctions.switchFrameByXPath("//*[text() = 'You have not added this itinerary template to the contract yet. Are you sure you want to discard this itinerary template?']");
 		CommonFunctions.clickElement(CommonFunctions.getLastElementInListByXPath("//input[contains(@value, 'Cancel')]"));
 		CommonFunctions.pause(1000, false);
-		CommonFunctions.switchFrameByXPath("//div[contains(@class, 'PopupTitle')]//*[contains(text(), 'Itinerary Template')]");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'ItineraryTemplate')]//a[contains(@id, 'AddIteneraryLink')]");
 	}
 	
 	@Then("^user sees the add itinerary template popup$")
 	public void user_sees_the_add_itinerary_template_popup() throws Throwable {
-		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//div[contains(@id, 'PopupTitle')]//span[contains(text(), 'Itinerary Template')]")));
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//form[contains(@action, 'ItineraryTemplate')]//a[contains(@id, 'AddIteneraryLink')]")));
 	}
 	
 	@When("^user confirms the cancellation of the new itinerary template$")
@@ -8574,7 +8566,7 @@ public class StepDefinitions extends Base {
 	
 	@Then("^user does not see the update itinerary template popup$")
 	public void user_does_not_see_the_update_itinerary_template_popup() throws Throwable {
-		CommonFunctions.elementNotExistingByXPath("//div[contains(@id, 'PopupTitle')]//span[contains(text(), 'Itinerary Template')]");
+		CommonFunctions.elementNotExistingByXPath("//form[contains(@action, 'ItineraryTemplate')]//a[contains(@id, 'AddIteneraryLink')]");
 	}
 	
 	@When("^user disregards the cancellation of the update of the itinerary template$")
@@ -8582,12 +8574,12 @@ public class StepDefinitions extends Base {
 		CommonFunctions.switchFrameByXPath("//*[text() = 'Are you sure you want to discard your changes?']");
 		CommonFunctions.clickElement(CommonFunctions.getLastElementInListByXPath("//input[contains(@value, 'Cancel')]"));
 		CommonFunctions.pause(1000, false);
-		CommonFunctions.switchFrameByXPath("//div[contains(@class, 'PopupTitle')]//*[contains(text(), 'Itinerary Template')]");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'ItineraryTemplate')]//a[contains(@id, 'AddIteneraryLink')]");
 	}
 	
 	@Then("^user sees the update itinerary template popup$")
 	public void user_sees_the_update_itinerary_template_popup() throws Throwable {
-		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//div[contains(@id, 'PopupTitle')]//span[contains(text(), 'Itinerary Template')]")));
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//form[contains(@action, 'ItineraryTemplate')]//a[contains(@id, 'AddIteneraryLink')]")));
 	}
 	
 	@When("^user confirms the cancellation of the update of the itinerary template$")
@@ -8642,7 +8634,7 @@ public class StepDefinitions extends Base {
 	
 	@Then("^user does not see the update cancellation rule popup$")
 	public void user_does_not_see_the_update_cancellation_rule_popup() throws Throwable {
-		CommonFunctions.elementNotExistingByXPath("//div[contains(@id, 'PopupTitle')]//*[contains(text(), 'Cancellation Rule')]");
+		CommonFunctions.elementNotExistingByXPath("//form[contains(@action, 'PaymentRule')]//span[contains(text(), 'Update Rule')]");
 	}
 	
 	@When("^user disregards the cancellation of the update of the cancellation rule$")
@@ -8650,12 +8642,12 @@ public class StepDefinitions extends Base {
 		CommonFunctions.switchFrameByXPath("//*[text() = 'Are you sure you want to discard your changes?']");
 		CommonFunctions.clickElement(CommonFunctions.getLastElementInListByXPath("//input[contains(@value, 'Cancel')]"));
 		CommonFunctions.pause(2500, false);
-		CommonFunctions.switchFrameByXPath("//div[contains(@id, 'PopupTitle')]//*[contains(text(), 'Cancellation Rule')]");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'PaymentRule')]//span[contains(text(), 'Update Rule')]");
 	}
 	
 	@Then("^user sees the update cancellation rule popup$")
 	public void user_sees_the_update_cancellation_rule_popup() throws Throwable {
-		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//div[contains(@id, 'PopupTitle')]//span[contains(text(), 'Cancellation Rule')]")));
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//form[contains(@action, 'PaymentRule')]//span[contains(text(), 'Update Rule')]")));
 	}
 	
 	@When("^user confirms the cancellation of the update of the cancellation rule$")
@@ -8697,7 +8689,7 @@ public class StepDefinitions extends Base {
 	
 	@Then("^user does not see the update deposit rule popup$")
 	public void user_does_not_see_the_update_deposit_rule_popup() throws Throwable {
-		CommonFunctions.elementNotExistingByXPath("//div[contains(@id, 'PopupTitle')]//*[contains(text(), 'Deposit Rule')]");
+		CommonFunctions.elementNotExistingByXPath("//form[contains(@action, 'PaymentRule')]//span[contains(text(), 'Update Rule')]");
 	}
 	
 	@When("^user disregards the cancellation of the update of the deposit rule$")
@@ -8705,12 +8697,12 @@ public class StepDefinitions extends Base {
 		CommonFunctions.switchFrameByXPath("//*[text() = 'Are you sure you want to discard your changes?']");
 		CommonFunctions.clickElement(CommonFunctions.getLastElementInListByXPath("//input[contains(@value, 'Cancel')]"));
 		CommonFunctions.pause(2500, false);
-		CommonFunctions.switchFrameByXPath("//div[contains(@id, 'PopupTitle')]//*[contains(text(), 'Deposit Rule')]");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'PaymentRule')]//span[contains(text(), 'Update Rule')]");
 	}
 	
 	@Then("^user sees the update deposit rule popup$")
 	public void user_sees_the_update_deposit_rule_popup() throws Throwable {
-		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//div[contains(@id, 'PopupTitle')]//span[contains(text(), 'Deposit Rule')]")));
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//form[contains(@action, 'PaymentRule')]//span[contains(text(), 'Update Rule')]")));
 	}
 	
 	@When("^user confirms the cancellation of the update of the deposit rule$")
@@ -8740,7 +8732,7 @@ public class StepDefinitions extends Base {
 		CommonFunctions.switchFrameByXPath("//*[text() = 'Are you sure you want to discard your changes?']");
 		CommonFunctions.clickElement(CommonFunctions.getLastElementInListByXPath("//input[contains(@value, 'Cancel')]"));
 		CommonFunctions.pause(1000, false);
-		CommonFunctions.switchFrameByXPath("//div[contains(@class, 'PopupTitle')]//*[contains(text(), 'Cancellation Rule')]");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'PaymentRule')]//span[contains(text(), 'Add Rule')]");
 	}
 	
 	@When("^user confirms the cancellation of the new cancellation rule$")
@@ -8754,7 +8746,7 @@ public class StepDefinitions extends Base {
 		CommonFunctions.switchFrameByXPath("//*[text() = 'Are you sure you want to discard your changes?']");
 		CommonFunctions.clickElement(CommonFunctions.getLastElementInListByXPath("//input[contains(@value, 'Cancel')]"));
 		CommonFunctions.pause(1000, false);
-		CommonFunctions.switchFrameByXPath("//div[contains(@class, 'PopupTitle')]//*[contains(text(), 'Deposit Rule')]");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'PaymentRule')]//span[contains(text(), 'Add Rule')]");
 	}
 	
 	@When("^user confirms the cancellation of the new deposit rule$")
@@ -8940,12 +8932,12 @@ public class StepDefinitions extends Base {
 		CommonFunctions.switchFrameByXPath("//*[text() = 'Are you sure you want to discard your changes?']");
 		CommonFunctions.clickElement(CommonFunctions.getLastElementInListByXPath("//input[contains(@value, 'Cancel')]"));
 		CommonFunctions.pause(1000, false);
-		CommonFunctions.switchFrameByXPath("//div[contains(@class, 'PopupTitle')]//*[contains(text(), 'Final Payment Rule')]");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'PaymentRule')]//span[contains(text(), 'Add Rule')]");
 	}
 	
 	@Then("^user sees the add final payment rule popup$")
 	public void user_sees_the_add_final_payment_rule_popup() throws Throwable {
-		CommonFunctions.textVisibleInPage("Add Final Payment Rule");
+		contractDetailsPage.displayedPaymentFinalPaymentRulePopupAddRuleButton();
 	}
 	
 	@When("^user confirms the cancellation of the new final payment rule$")
@@ -9166,12 +9158,12 @@ public class StepDefinitions extends Base {
 		CommonFunctions.switchFrameByXPath("//*[text() = 'Are you sure you want to discard your changes?']");
 		CommonFunctions.clickElement(CommonFunctions.getLastElementInListByXPath("//input[contains(@value, 'Cancel')]"));
 		CommonFunctions.pause(2500, false);
-		CommonFunctions.switchFrameByXPath("//div[contains(@id, 'PopupTitle')]//*[contains(text(), 'Final Payment Rule')]");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'PaymentRule')]//span[contains(text(), 'Update Rule')]");
 	}
 	
 	@Then("^user sees the update final payment rule popup$")
 	public void user_sees_the_update_final_payment_rule_popup() throws Throwable {
-		CommonFunctions.textVisibleInPage("Update Final Payment Rule");
+		contractDetailsPage.displayedPaymentFinalPaymentRulePopupCancelButton();
 	}
 	
 	@When("^user confirms the cancellation of the update final payment rule$")
@@ -9432,7 +9424,7 @@ public class StepDefinitions extends Base {
 	public void user_cancels_the_deletion_of_the_selected_rows_of_the_contract_price_table() throws Throwable {
 		CommonFunctions.clickElement(driver.findElement(By.xpath("//div[@class = 'ConfirmationPopupMainContainer']//input[@value = 'Cancel']")));
 		CommonFunctions.pause(2500, false);
-		CommonFunctions.switchFrameByXPath("//*[text() = 'Add Contract Prices']");
+		CommonFunctions.switchFrameByXPath("//input[@value = 'Save Prices']");
 	}
 	
 	@Then("^user sees the selected row of the contract price table is not deleted$")
@@ -9445,7 +9437,7 @@ public class StepDefinitions extends Base {
 	public void user_confirms_the_deletion_of_the_selected_rows_of_the_contract_price_table() throws Throwable {
 		CommonFunctions.clickElement(driver.findElement(By.xpath("//div[@class = 'ConfirmationPopupMainContainer']//input[@value = 'OK']")));
 		CommonFunctions.pause(2500, false);
-		CommonFunctions.switchFrameByXPath("//*[text() = 'Add Contract Prices']");
+		CommonFunctions.switchFrameByXPath("//input[@value = 'Save Prices']");
 	}
 	
 	@Then("^user sees the selected row of the contract price table is deleted$")
@@ -9552,12 +9544,12 @@ public class StepDefinitions extends Base {
 	public void user_edits_the_contract_price() throws Throwable {
 		CommonFunctions.clickElement(driver.findElement(By.xpath("//div[contains(@id, 'ContractPriceContainer')]//div[@ref = 'eBodyViewport']//div[@class = 'AGGridMainDiv']//div[@class = 'AGGridRightDiv']//span[@title = 'Edit Price']")));
 		CommonFunctions.pause(10000, false);
-		CommonFunctions.switchFrameByXPath("//*[text() = 'Update Contract Price']");
+		CommonFunctions.switchFrameByXPath("//input[@value = 'Save Prices']");
 	}
 	
 	@Then("^user sees the edit contract price popup$")
 	public void user_sees_the_edit_contract_price_popup() throws Throwable {
-		CommonFunctions.textVisibleInPage("Update Contract Price");
+		CommonFunctions.textVisibleInPage("Price Configuration");
 	}
 	
 	@When("^user closes the contract prices details popup$")
@@ -9570,12 +9562,12 @@ public class StepDefinitions extends Base {
 		CommonFunctions.switchFrameByXPath("//*[text() = 'Are you sure you want to discard your changes?']");
 		CommonFunctions.pause(2500, false);
 		CommonFunctions.clickElement(driver.findElement(By.xpath("//div[@class = 'ConfirmationPopupMainContainer']//input[@value = 'Cancel']")));
-		CommonFunctions.switchFrameByXPath("//*[text() = 'Add Contract Prices']");
+		CommonFunctions.switchFrameByXPath("//input[@value = 'Save Prices']");
 	}
 	
 	@Then("^user sees the add contract price popup$")
 	public void user_sees_the_add_contract_price_popup() throws Throwable {
-		CommonFunctions.textVisibleInPage("Add Contract Prices");
+		CommonFunctions.textVisibleInPage("Price Configuration");
 	}
 	
 	@When("^user confirms the closing of the contract prices details popup$")
@@ -9587,7 +9579,7 @@ public class StepDefinitions extends Base {
 	
 	@Then("^user does not see the add contract price popup$")
 	public void user_does_not_see_the_add_contract_price_popup() throws Throwable {
-		CommonFunctions.elementNotExistingByXPath("//*[text() = 'Add Contract Prices']");
+		CommonFunctions.elementNotExistingByXPath("//input[@value = 'Save Prices']");
 	}
 	
 	@When("^user adds the contract prices import dates from price to the table$")
@@ -9617,12 +9609,11 @@ public class StepDefinitions extends Base {
 	public void user_views_the_contract_price() throws Throwable {
 		CommonFunctions.clickElement(driver.findElement(By.xpath("(//div[contains(@id, 'ContractPriceContainer')]//div[@ref = 'eBodyViewport'])[1]//div[@class = 'AGGridRightDiv']//span[@title = 'View Price']")));
 		CommonFunctions.pause(10000, false);
-		CommonFunctions.switchFrameByXPath("//*[text() = 'View Contract Prices']");
+		CommonFunctions.switchFrameByXPath("//*[text() = 'Price Configuration']");
 	}
 	
 	@Then("^user sees the view contract price popup$")
 	public void user_sees_the_view_contract_price_popup() throws Throwable {
-		CommonFunctions.textVisibleInPage("View Contract Prices");
 		contractDetailsPage.displayedViewContractPricePopupGuestConfigurationLabel();
 		contractDetailsPage.displayedViewContractPricePopupCategory1Label();
 		contractDetailsPage.displayedViewContractPricePopupCategory2Label();
@@ -9649,7 +9640,7 @@ public class StepDefinitions extends Base {
 	
 	@Then("^user does not see the view contract price popup$")
 	public void user_does_not_see_the_view_contract_price_popup() throws Throwable {
-		CommonFunctions.elementNotExistingByXPath("//*[text() = 'View Contract Prices']");
+		CommonFunctions.elementNotExistingByXPath("//*[text() = 'Price Configuration']");
 	}
 	
 	@Then("^user sees the created by and created date information$")
@@ -10011,10 +10002,10 @@ public class StepDefinitions extends Base {
 	
 	@Then("^price configuration dropdown is not reverted to the original value$")
 	public void price_configuration_dropdown_is_not_reverted_to_the_original_value() throws Throwable {
-		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//div[@class='SearchInput']//div[text()='Per Person']")));
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//div[@class='SearchInput']//div[text()='Per Item']")));
 		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//div[@class='SearchInput']//div[text()='Porterage']")));
 		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//div[@class='SearchInput']//div[text()='Child']")));
-		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//div[@class='SearchInput']//div[text()='2-99']")));
+		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//div[@class='SearchInput']//div[text()='1-99']")));
 	}
 	
 	@Then("^edit and delete icon is not visible in maximum commission cell$")
@@ -10861,12 +10852,12 @@ public class StepDefinitions extends Base {
 		CommonFunctions.switchFrameByXPath("//*[text() = 'Are you sure you want to discard your changes?']");
 		CommonFunctions.clickElement(CommonFunctions.getLastElementInListByXPath("//input[@value = 'Cancel']"));
 		CommonFunctions.pause(5000, false);
-		CommonFunctions.switchFrameByXPath("/form[contains(@action, 'Popup')]//*[text() = 'Selected Date Range(s)']");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'DateRange')]//*[text() = 'Selected Date Range(s)']");
 	}
 	
 	@Then("^user sees the add date range popup$")
 	public void user_sees_the_add_date_range_popup() throws Throwable {
-		CommonFunctions.elementEnabled(driver.findElement(By.xpath("//*[text() = 'Add Date Range']")));
+		contractCostsDetailsPage.displayedAddDateRangePopupAddToTableButton();
 	}
 	
 	@When("^user confirms the cancellation of the addition of the new date range$")
@@ -10878,7 +10869,7 @@ public class StepDefinitions extends Base {
 	
 	@Then("^user does not see the add date range popup$")
 	public void user_does_not_see_the_add_date_range_popup() throws Throwable {
-		CommonFunctions.elementNotExistingByXPath("//*[text() = 'Add Date Range']");
+		CommonFunctions.elementNotExistingByXPath("//div[contains(@class, 'Popup')]//input[@value = 'Add to Table']");
 	}
 	
 	@Then("^user sees the update contract costs fields and buttons with its default values$")
@@ -11260,7 +11251,7 @@ public class StepDefinitions extends Base {
 	
 	@Then("^user does not see the import seasons popup$")
 	public void user_does_not_see_the_import_seasons_popup() throws Throwable {
-		CommonFunctions.elementNotExistingByXPath("//*[text() = 'Import Seasons']");
+		CommonFunctions.elementNotExistingByXPath("//form[contains(@action, 'ImportSeason')]//input[@value = 'Import']");
 	}
 	
 	@When("^user selects the top import from search result in the list$")

@@ -277,16 +277,16 @@ public class ContractDetailsPage extends Base {
 	// End - Main Page Objects
 	
 	// Start - Update Basic Information Popup Objects
-	@FindBy(xpath = "//form[contains(@action, 'Popup')]//input[contains(@id, 'CloseBottomButton')]")
+	@FindBy(xpath = "//form[contains(@action, 'BasicInfo')]//input[contains(@id, 'CloseBottomButton')]")
 	WebElement button_UpdateBasicInformationPopup_Close;
 	
-	@FindBy(xpath = "//form[contains(@action, 'Popup')]//input[contains(@id, 'SaveAltBottom')]")
+	@FindBy(xpath = "//form[contains(@action, 'BasicInfo')]//input[contains(@id, 'SaveAltBottom')]")
 	WebElement button_UpdateBasicInformationPopup_Save;
 	
-	@FindBy(xpath = "//form[contains(@action, 'Popup')]//*[text() = 'Created By']//parent::div//following-sibling::div//span")
+	@FindBy(xpath = "//form[contains(@action, 'BasicInfo')]//*[text() = 'Created By']//parent::div//following-sibling::div//span")
 	WebElement label_UpdateBasicInformationPopup_CreatedBy;
 	
-	@FindBy(xpath = "//form[contains(@action, 'Popup')]//*[text() = 'Created Date']//parent::div//following-sibling::div//span")
+	@FindBy(xpath = "//form[contains(@action, 'BasicInfo')]//*[text() = 'Created Date']//parent::div//following-sibling::div//span")
 	WebElement label_UpdateBasicInformationPopup_CreatedDate;
 	// End - Update Basic Information Popup Objects
 	
@@ -1123,7 +1123,7 @@ public class ContractDetailsPage extends Base {
 	public void clickContractCostsSectionCreateBulkCostsButton() throws Exception {
 		CommonFunctions.clickElement(button_ContractCostsSection_CreateBulkCosts);
 		CommonFunctions.pause(5000, false);
-		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'Popup')]//input[@value = 'Create Costs']");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'BulkCosts')]//input[@value = 'Create Costs']");
 	}
 	
 	public void clickContractCostsSectionDeleteAllCostsButton() throws Exception {

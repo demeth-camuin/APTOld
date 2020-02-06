@@ -242,10 +242,10 @@ public class ContractCostsDetailsPage extends Base {
 	// End - Add Date Range Popup Objects
 	
 	// Start - Edit Invoice Comment Popup Objects
-	@FindBy(xpath = "//form[contains(@action, 'Popup')]//input[@value = 'Cancel']")
+	@FindBy(xpath = "//form[contains(@action, 'Comment')]//input[@value = 'Cancel']")
 	WebElement button_EditInvoiceCommentPopup_Cancel;
 	
-	@FindBy(xpath = "//form[contains(@action, 'Popup')]//input[@value = 'Done']")
+	@FindBy(xpath = "//form[contains(@action, 'Comment')]//input[@value = 'Done']")
 	WebElement button_EditInvoiceCommentPopup_Done;
 	
 	@FindBy(xpath = "//*[text() = 'Edit Invoice Comment']//following-sibling::div//textarea")
@@ -253,10 +253,10 @@ public class ContractCostsDetailsPage extends Base {
 	// End - Edit Invoice Comment Popup Objects
 	
 	// Start - Edit Voucher Comment Popup Objects
-	@FindBy(xpath = "//form[contains(@action, 'Popup')]//input[@value = 'Cancel']")
+	@FindBy(xpath = "//form[contains(@action, 'Comment')]//input[@value = 'Cancel']")
 	WebElement button_EditVoucherCommentPopup_Cancel;
 	
-	@FindBy(xpath = "//form[contains(@action, 'Popup')]//input[@value = 'Done']")
+	@FindBy(xpath = "//form[contains(@action, 'Comment')]//input[@value = 'Done']")
 	WebElement button_EditVoucherCommentPopup_Done;
 	
 	@FindBy(xpath = "//*[text() = 'Edit Voucher Comment']//following-sibling::div//textarea")
@@ -264,10 +264,10 @@ public class ContractCostsDetailsPage extends Base {
 	// End - Edit Voucher Comment Popup Objects
 	
 	// Start - Edit Configuration Details Popup Objects
-	@FindBy(xpath = "//form[contains(@action, 'Popup')]//input[@value = 'Close']")
+	@FindBy(xpath = "//form[contains(@action, 'ConfigurationDetails')]//input[@value = 'Close']")
 	WebElement button_EditConfigurationDetailsPopup_Close;
 	
-	@FindBy(xpath = "//form[contains(@action, 'Popup')]//input[@value = 'Update']")
+	@FindBy(xpath = "//form[contains(@action, 'ConfigurationDetails')]//input[@value = 'Update']")
 	WebElement button_EditConfigurationDetailsPopup_Update;
 	
 	@FindBy(xpath = "//label[text() = 'Category 1']//parent::div//a[contains(@class, 'choice')]")
@@ -290,54 +290,54 @@ public class ContractCostsDetailsPage extends Base {
 	// End - Edit Configuration Details Popup Objects
 	
 	// Start - Allotment Code Popup Objects
-	@FindBy(xpath = "//form[contains(@action, 'AllotmentPopup')]//input[@value = 'Cancel']")
+	@FindBy(xpath = "//form[contains(@action, 'Allotment')]//input[@value = 'Cancel']")
 	WebElement button_AllotmentCodePopup_Cancel;
 	
-	@FindBy(xpath = "//form[contains(@action, 'AllotmentPopup')]//input[@value = 'Done']")
+	@FindBy(xpath = "//form[contains(@action, 'Allotment')]//input[@value = 'Done']")
 	WebElement button_AllotmentCodePopup_Done;
 	
-	@FindBy(xpath = "//form[contains(@action, 'AllotmentPopup')]//input[contains(@id, 'SelectAllotmentCodeInput')]")
+	@FindBy(xpath = "//form[contains(@action, 'Allotment')]//input[contains(@id, 'SelectAllotmentCodeInput')]")
 	WebElement input_AllotmentCodePopup_AllotmentCode;
 	
-	@FindBy(xpath = "//form[contains(@action, 'AllotmentPopup')]//div[@class = 'AllotmentSearchContainer']//input[contains(@id, 'AllotmentCodeInput')]")
+	@FindBy(xpath = "//form[contains(@action, 'Allotment')]//div[@class = 'AllotmentSearchContainer']//input[contains(@id, 'AllotmentCodeInput')]")
 	WebElement input_AllotmentCodePopup_AllotmentCodeFilter;
 	
-	@FindBy(xpath = "//form[contains(@action, 'AllotmentPopup')]//div[@class = 'AllotmentSearchContainer']//input[contains(@id, 'InventoryPoolInput')]")
+	@FindBy(xpath = "//form[contains(@action, 'Allotment')]//div[@class = 'AllotmentSearchContainer']//input[contains(@id, 'InventoryPoolInput')]")
 	WebElement input_AllotmentCodePopup_InventoryPoolFilter;
 	
-	@FindBy(xpath = "((//form[contains(@action, 'AllotmentPopup')]//span[@class = 'ListRecords']//div[@class = 'FullRow'])[1]//div[@class = 'OSInline'])[1]//div[@class = 'Cell2']")
+	@FindBy(xpath = "((//form[contains(@action, 'Allotment')]//span[@class = 'ListRecords']//div[@class = 'FullRow'])[1]//div[@class = 'OSInline'])[1]//div[@class = 'Cell2']")
 	WebElement rowData_AllotmentCodePopup_FirstAllotmentCode;
 	
-	@FindBy(xpath = "((//form[contains(@action, 'AllotmentPopup')]//span[@class = 'ListRecords']//div[@class = 'FullRow'])[1]//div[@class = 'OSInline'])[2]//div[@class = 'Cell2']")
+	@FindBy(xpath = "((//form[contains(@action, 'Allotment')]//span[@class = 'ListRecords']//div[@class = 'FullRow'])[1]//div[@class = 'OSInline'])[2]//div[@class = 'Cell2']")
 	WebElement rowData_AllotmentCodePopup_FirstInventoryPool;
 	
-	@FindBy(xpath = "((//form[contains(@action, 'AllotmentPopup')]//span[@class = 'ListRecords']//div[@class = 'FullRow'])[1]//div)[1]//input")
+	@FindBy(xpath = "((//form[contains(@action, 'Allotment')]//span[@class = 'ListRecords']//div[@class = 'FullRow'])[1]//div)[1]//input")
 	WebElement rowData_AllotmentCodePopup_FirstRadioButton;
 	
-	@FindBy(xpath = "((//form[contains(@action, 'AllotmentPopup')]//span[@class = 'ListRecords']//div[@class = 'FullRow'])[2]//div[@class = 'OSInline'])[1]//div[@class = 'Cell2']")
+	@FindBy(xpath = "((//form[contains(@action, 'Allotment')]//span[@class = 'ListRecords']//div[@class = 'FullRow'])[2]//div[@class = 'OSInline'])[1]//div[@class = 'Cell2']")
 	WebElement rowData_AllotmentCodePopup_SecondAllotmentCode;
 	
-	@FindBy(xpath = "((//form[contains(@action, 'AllotmentPopup')]//span[@class = 'ListRecords']//div[@class = 'FullRow'])[2]//div[@class = 'OSInline'])[2]//div[@class = 'Cell2']")
+	@FindBy(xpath = "((//form[contains(@action, 'Allotment')]//span[@class = 'ListRecords']//div[@class = 'FullRow'])[2]//div[@class = 'OSInline'])[2]//div[@class = 'Cell2']")
 	WebElement rowData_AllotmentCodePopup_SecondInventoryPool;
 	
-	@FindBy(xpath = "((//form[contains(@action, 'AllotmentPopup')]//span[@class = 'ListRecords']//div[@class = 'FullRow'])[2]//div)[1]//input")
+	@FindBy(xpath = "((//form[contains(@action, 'Allotment')]//span[@class = 'ListRecords']//div[@class = 'FullRow'])[2]//div)[1]//input")
 	WebElement rowData_AllotmentCodePopup_SecondRadioButton;
 	
-	@FindBy(xpath = "((//form[contains(@action, 'AllotmentPopup')]//span[@class = 'ListRecords']//div[@class = 'FullRow'])[3]//div[@class = 'OSInline'])[1]//div[@class = 'Cell2']")
+	@FindBy(xpath = "((//form[contains(@action, 'Allotment')]//span[@class = 'ListRecords']//div[@class = 'FullRow'])[3]//div[@class = 'OSInline'])[1]//div[@class = 'Cell2']")
 	WebElement rowData_AllotmentCodePopup_ThirdAllotmentCode;
 	
-	@FindBy(xpath = "((//form[contains(@action, 'AllotmentPopup')]//span[@class = 'ListRecords']//div[@class = 'FullRow'])[3]//div[@class = 'OSInline'])[2]//div[@class = 'Cell2']")
+	@FindBy(xpath = "((//form[contains(@action, 'Allotment')]//span[@class = 'ListRecords']//div[@class = 'FullRow'])[3]//div[@class = 'OSInline'])[2]//div[@class = 'Cell2']")
 	WebElement rowData_AllotmentCodePopup_ThirdInventoryPool;
 	
-	@FindBy(xpath = "((//form[contains(@action, 'AllotmentPopup')]//span[@class = 'ListRecords']//div[@class = 'FullRow'])[3]//div)[1]//input")
+	@FindBy(xpath = "((//form[contains(@action, 'Allotment')]//span[@class = 'ListRecords']//div[@class = 'FullRow'])[3]//div)[1]//input")
 	WebElement rowData_AllotmentCodePopup_ThirdRadioButton;
 	// End - Allotment Code Popup Objects
 	
 	// Start - Import Seasons Popup Objects
-	@FindBy(xpath = "//form[contains(@action, 'ImportSeasonPopup')]//input[@value = 'Cancel']")
+	@FindBy(xpath = "//form[contains(@action, 'ImportSeason')]//input[@value = 'Cancel']")
 	WebElement button_ImportSeasonsPopup_Cancel;
 	
-	@FindBy(xpath = "//form[contains(@action, 'ImportSeasonPopup')]//input[@value = 'Import']")
+	@FindBy(xpath = "//form[contains(@action, 'ImportSeason')]//input[@value = 'Import']")
 	WebElement button_ImportSeasonsPopup_Done;
 	
 	@FindBy(xpath = "//label[text() = 'Include past dates']//parent::div//input")
@@ -439,7 +439,7 @@ public class ContractCostsDetailsPage extends Base {
 	public void clickConfigurationDetailsSectionEditConfigurationButton() throws Exception {
 		CommonFunctions.clickElement(button_ConfigurationDetailsSection_EditConfiguration);
 		CommonFunctions.pause(5000, false);
-		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'Popup')]//label[contains(@id, 'GuestConfiguration')]");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'ConfigurationDetails')]//label[contains(@id, 'GuestConfiguration')]");
 	}
 	
 	public void clickConfigurationDetailsSectionExistingConfigurationDetailsButton() throws Exception {
@@ -467,7 +467,7 @@ public class ContractCostsDetailsPage extends Base {
 	public void clickConfigurationDetailsSectionViewButton() throws Exception {
 		CommonFunctions.clickElement(button_ConfigurationDetailsSection_View);
 		CommonFunctions.pause(5000, false);
-		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'Popup')]//*[text() = 'Guest Configuration']");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'CostConfigurationView')]//*[text() = 'Guest Configuration']");
 	}
 	
 	public void clickCostsSectionSaveButton() throws Exception {
@@ -494,7 +494,7 @@ public class ContractCostsDetailsPage extends Base {
 	public void clickDateRangesSectionTopAllotmentCodeInputRowData() throws Exception {
 		CommonFunctions.clickElement(rowData_DateRangesSection_TopAllotmentCodeInput);
 		CommonFunctions.pause(5000, false);
-		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'Popup')]//input[contains(@id, 'SelectAllotmentCodeInput')]");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'Allotment')]//input[contains(@id, 'SelectAllotmentCodeInput')]");
 	}
 	
 	public void clickDateRangesSectionTopDeleteDateRangeButtonRowData() throws Exception {
@@ -505,13 +505,13 @@ public class ContractCostsDetailsPage extends Base {
 	public void clickDateRangesSectionTopInvoiceCommentsInputRowData() throws Exception {
 		CommonFunctions.clickElement(rowData_DateRangesSection_TopInvoiceCommentsInput);
 		CommonFunctions.pause(5000, false);
-		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'Popup')]//input[@value = 'Done']");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'Comment')]//input[@value = 'Done']");
 	}
 	
 	public void clickDateRangesSectionTopVoucherCommentsInputRowData() throws Exception {
 		CommonFunctions.clickElement(rowData_DateRangesSection_TopVoucherCommentsInput);
 		CommonFunctions.pause(5000, false);
-		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'Popup')]//input[@value = 'Done']");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'Comment')]//input[@value = 'Done']");
 	}
 	
 	public void clickSeasonGroupsSectionAddButton() throws Exception {
@@ -522,7 +522,7 @@ public class ContractCostsDetailsPage extends Base {
 	public void clickSeasonGroupsSectionImportButton() throws Exception {
 		CommonFunctions.clickElement(button_SeasonGroupsSection_Import);
 		CommonFunctions.pause(5000, false);
-		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'Popup')]//input[@value = 'Import']");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'ImportSeason')]//input[@value = 'Import']");
 	}
 	
 	public void clickSeasonGroupsSectionTopDeleteSeasonGroupButtonRowData() throws Exception {
@@ -694,7 +694,7 @@ public class ContractCostsDetailsPage extends Base {
 	public void displayedConfigurationDetailsSectionGuestConfigurationDropdown() throws Exception {
 		CommonFunctions.elementDisplayed(dropdown_ConfigurationDetailsSection_GuestConfiguration);
 	}
-
+	
 	public void displayedConfigurationDetailsSectionGuestConfigurationSingleSelectDropdown() throws Exception {
 		CommonFunctions.elementDisplayed(dropdown_ConfigurationDetailsSection_GuestConfigurationSingleSelect);
 	}

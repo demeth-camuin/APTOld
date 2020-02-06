@@ -2924,9 +2924,6 @@ Feature: APT - Contracts
     And user opens the add itinerary template popup
     And user cancels the addition of itinerary template
     Then user does not see the add itinerary template popup
-    When user opens the add itinerary template popup
-    And user closes the addition of itinerary template
-    Then user does not see the add itinerary template popup
     # Scenario 2: Mandatory field – Itinerary Template
     Given user is on "Contract Details" page
     When user opens the add itinerary template popup
@@ -2962,10 +2959,10 @@ Feature: APT - Contracts
     Then user does not see the add itinerary template popup
     When user opens the add itinerary template popup
     And user selects "APTCLUB ADAPTOR" as the itinerary template
-    And user closes the addition of itinerary template
+    And user cancels the addition of itinerary template
     And user disregards the cancellation of the new itinerary template
     Then user sees the add itinerary template popup
-    When user closes the addition of itinerary template
+    When user cancels the addition of itinerary template
     And user confirms the cancellation of the new itinerary template
     Then user does not see the add itinerary template popup
     # Scenario 1: Successfully add a new Itinerary Template
@@ -3074,14 +3071,14 @@ Feature: APT - Contracts
     # Scenario for APT-2988:
     Given user is on "Contract Details" page
     When user opens the add payment cancellation rule popup
-    And closes the add payment cancellation rule popup
+    And user cancels the addition of the new cancellation rule
     Then user does not see the add payment cancellation rule popup
     When user opens the add payment cancellation rule popup
     And user selects "New Zealand Domestic" as the customer market value for the cancellation rule
-    And closes the add payment cancellation rule popup
+    And user cancels the addition of the new cancellation rule
     And user disregards the cancellation of the new cancellation rule
     Then user sees the add payment cancellation rule popup
-    When closes the add payment cancellation rule popup
+    And user cancels the addition of the new cancellation rule
     And user confirms the cancellation of the new cancellation rule
     Then user does not see the add payment cancellation rule popup
 
@@ -3487,14 +3484,14 @@ Feature: APT - Contracts
     # Scenario for APT-2968:
     Given user is on "Contract Details" page
     When user opens the add final payment rule popup
-    And closes the add final payment rule popup
+    And user cancels the addition of the new final payment rule
     Then user does not see the add final payment rule popup
     When user opens the add final payment rule popup
     And user selects "New Zealand Domestic" as the customer market value for the deposit rule
-    And closes the add final payment rule popup
+    And user cancels the addition of the new final payment rule
     And user disregards the cancellation of the new final payment rule
     Then user sees the add final payment rule popup
-    When closes the add final payment rule popup
+    When user cancels the addition of the new final payment rule
     And user confirms the cancellation of the new final payment rule
     Then user does not see the add final payment rule popup
 
@@ -5568,7 +5565,7 @@ Feature: APT - Contracts
 		Given user is on "Contract Details" page
 		When user hovers over a certain cell that is not empty in the contract prices table
     And user edits the contract price
-		And user searches for the contract price configuration with "Per Person" as the guest configuration, "Porterage" as the category 1 and "Child" as the category 2
+		And user searches for the contract price configuration with "Per Item" as the guest configuration, "Porterage" as the category 1 and "Child" as the category 2
 		And user selects the top price configuration search result in the list
 		Then user saves the contract prices
 		And user sees error message "Cannot change value as Price already exists."
