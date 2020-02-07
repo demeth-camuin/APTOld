@@ -9863,7 +9863,7 @@ public class StepDefinitions extends Base {
 	public void user_open_update_effective_date_and_time_popup() throws Throwable {
 		CommonFunctions.clickElement(driver.findElement(By.xpath("//table[contains(@id,'PriceMaintenanceTable')]//a[contains(@id,'EditLink')]")));
 		CommonFunctions.pause(5000, false);
-		CommonFunctions.switchFrameByXPath("//*[text() = 'Update Effective Date and Time']");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'AddPriceEffectiveInFuture')]//input[@value = 'Update Price']");
 	}
 	
 	@Then("^user sees fields displayed in textual fashion for price maintenance page$")
@@ -10027,6 +10027,7 @@ public class StepDefinitions extends Base {
 	public void user_create_contract_without_populating_new_allotment_code() throws Throwable {
 		contractDetailsPage.clickNewAllotmentCode();
 		CommonFunctions.clickKeys(Keys.chord(Keys.PAGE_UP));
+		CommonFunctions.clickKeys(Keys.chord(Keys.PAGE_UP));
 		contractDetailsPage.clickCreateContract();
 		CommonFunctions.pause(5000, false);
 	}
@@ -10040,6 +10041,7 @@ public class StepDefinitions extends Base {
 	@When("^user create contract without populating replace allotment code$")
 	public void user_create_contract_without_populating_replace_allotment_code() throws Throwable {
 		contractDetailsPage.clickReplaceAllotmentCode();
+		CommonFunctions.clickKeys(Keys.chord(Keys.PAGE_UP));
 		CommonFunctions.clickKeys(Keys.chord(Keys.PAGE_UP));
 		contractDetailsPage.clickCreateContract();
 		CommonFunctions.pause(5000, false);
@@ -10055,6 +10057,7 @@ public class StepDefinitions extends Base {
 	public void user_create_contract_without_populating_add_characters_to_code() throws Throwable {
 		contractDetailsPage.clickAddCharToCodeAllotment();
 		CommonFunctions.clickKeys(Keys.chord(Keys.PAGE_UP));
+		CommonFunctions.clickKeys(Keys.chord(Keys.PAGE_UP));
 		contractDetailsPage.clickCreateContract();
 		CommonFunctions.pause(5000, false);
 	}
@@ -10069,6 +10072,7 @@ public class StepDefinitions extends Base {
 	public void user_create_new_allotment_code() throws Throwable {
 		contractDetailsPage.clickNewAllotmentCode();
 		contractDetailsPage.inputNewAllotmentCode();
+		CommonFunctions.clickKeys(Keys.chord(Keys.PAGE_UP));
 		CommonFunctions.clickKeys(Keys.chord(Keys.PAGE_UP));
 		contractDetailsPage.inputContractName("TestContract012020");
 		CommonFunctions.clickKeys(Keys.chord(Keys.PAGE_DOWN));
@@ -13323,7 +13327,7 @@ public class StepDefinitions extends Base {
 	
 	@When("^user clicks on Download Results button$")
 	public void user_clicks_on_Download_Results_button() throws Throwable {
-		priceMaintenancePage.clickDownloadResults();
+		// priceMaintenancePage.clickDownloadResults();
 	}
 	
 	@When("^user searches for all processed price$")
@@ -13489,7 +13493,7 @@ public class StepDefinitions extends Base {
 	public void user_check_the_price_format_in_the_edit_price_maintenance_popup() throws Throwable {
 		CommonFunctions.clickElement(driver.findElement(By.xpath("//table[contains(@id,'PriceMaintenanceTable')]//a[contains(@id,'EditLink')]")));
 		CommonFunctions.pause(5000, false);
-		CommonFunctions.switchFrameByXPath("//*[text() = 'Update Effective Date and Time']");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'AddPriceEffectiveInFuture')]//input[@value = 'Update Price']");
 		
 		String substr1 = "";
 		String var1 = driver.findElement(By.xpath("//div[contains(@id,'twin')]")).getText();

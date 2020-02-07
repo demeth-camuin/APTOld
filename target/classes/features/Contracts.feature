@@ -3284,14 +3284,14 @@ Feature: APT - Contracts
     # Scenario for APT-2969:
     Given user is on "Contract Details" page
     When user opens the add payment deposit rule popup
-    And closes the add payment deposit rule popup
+    And user cancels the addition of the new deposit rule
     Then user does not see the add payment deposit rule popup
     When user opens the add payment deposit rule popup
     And user selects "New Zealand Domestic" as the customer market value for the deposit rule
-    And closes the add payment deposit rule popup
+    And user cancels the addition of the new deposit rule
     And user disregards the cancellation of the new deposit rule
     Then user sees the add payment deposit rule popup
-    When closes the add payment deposit rule popup
+    When user cancels the addition of the new deposit rule
     And user confirms the cancellation of the new deposit rule
     Then user does not see the add payment deposit rule popup
 

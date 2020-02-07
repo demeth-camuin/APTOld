@@ -352,10 +352,11 @@ public class PriceMaintenancePage extends Base {
 	
 	public void clickAddPriceButton() throws Exception {
 		CommonFunctions.clickElement(button_AddPrice);
+		CommonFunctions.pause(5000, false);
 	}
 	
 	public void CheckFieldinAddPriceMaintenance() throws Exception {
-		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'Popup')]//input[@value = 'Add Price']");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'AddPriceEffectiveInFuture')]//input[@value = 'Add Price']");
 		CommonFunctions.textVisibleInPage("Effective Date");
 		CommonFunctions.textVisibleInPage("Effective Time");
 		CommonFunctions.textVisibleInPage("Contract ID");
@@ -419,7 +420,7 @@ public class PriceMaintenancePage extends Base {
 	}
 	
 	public void CheckPriceFieldValidationMessage() throws Exception {
-		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'Popup')]//input[@value = 'Add Price']");
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'AddPriceEffectiveInFuture')]//input[@value = 'Add Price']");
 		CommonFunctions.clickElement(driver.findElement(By.xpath("//input[@value='Add Price']")));
 		CommonFunctions.pause(5000, false);
 		CommonFunctions.elementDisplayed(driver.findElement(By.xpath("//span[contains(@id,'TwinInput') and contains(text(),'*Mandatory field.')]")));
@@ -530,11 +531,11 @@ public class PriceMaintenancePage extends Base {
 	
 	public void closeOrCancelPriceUpdate() throws Exception {
 		CommonFunctions.clickElement(driver.findElement(By.xpath("//table[contains(@id,'PriceMaintenanceTable')]//a[contains(@id,'EditLink')]")));
-		CommonFunctions.pause(2500, false);
-		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'Popup')]//input[@value = 'Update Price']");
+		CommonFunctions.pause(5000, false);
+		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'AddPriceEffectiveInFuture')]//input[@value = 'Update Price']");
 		CommonFunctions.clickElement(button_Cancel);
 		CommonFunctions.pause(2500, false);
-		CommonFunctions.elementNotExistingByXPath("//*[text()='Update Effective Date and Time']");
+		CommonFunctions.elementNotExistingByXPath("//form[contains(@action, 'AddPriceEffectiveInFuture')]//input[@value = 'Update Price']");
 	}
 	
 	public void enterValidEffectiveTime() throws Exception {
