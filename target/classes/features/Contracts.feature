@@ -87,7 +87,7 @@ Feature: APT - Contracts
     And user navigates to contracts page
     And user decides to add a new contract
     And user provides the contract dates in invalid format
-    Then user sees error message "Unsupported Date Format"
+    Then user sees error message "Invalid format"
     # Scenario for APT-1320:
     Given user is on "Contract Details" page
     When user adds a contract date range with the start date is greater than the end date
@@ -1511,11 +1511,11 @@ Feature: APT - Contracts
   # Scenario 2:
   #Given user is on "Contract Details" page
   #When user provides dates in unsupported formats in the start and end date fields in the create bulk costs popup
-  #Then user sees error message "Unsupported Date Format"
+  #Then user sees error message "Invalid format"
   # Scenario 3:
   #Given user is on "Contract Details" page
   #When user empties the start and end date fields in the create bulk costs popup
-  #Then user does not see the error message "Unsupported Date Format"
+  #Then user does not see the error message "Invalid format"
   # Scenario 6:
   #Given user is on "Contract Details" page
   #When user provides a date range where the start date is greater than the end date in the create bulk costs popup date fields
@@ -2687,7 +2687,7 @@ Feature: APT - Contracts
   @Regression
   Scenario: APT-2097: Pressing UPDATE EFFECTIVE DATE icon against record in search results brings up a pop-up
     # Scenario 1:
-    # And Scenario 2: Unsupported date formats in effective date field
+    # And Scenario 2: Invalid formats in effective date field
     # And Scenario 3 - Effective Date greater than End Date
     # And Scenario 4: Remove field-level error message on typing valid dates
     # And Scenario 5 - Invalid Effective Time
@@ -2875,14 +2875,14 @@ Feature: APT - Contracts
     And user opens the add itinerary template popup
     And user puts "Test" as the start date for the itinerary template
     And user puts "Test" as the end date for the itinerary template
-    Then user sees error message "Unsupported Date Format"
+    Then user sees error message "Invalid format"
     # Scenario 3: Re-validation of field-level error messages – Start Date or End Date
     # And Scenario 4: 4: Multiple date formats
     # And Scenario 5: Auto-correct date to preferred format
     Given user is on "Contract Details" page
     When user puts "08/12/2019" as the start date for the itinerary template
     And user puts "08 12 2020" as the end date for the itinerary template
-    Then user does not see the error message "Unsupported Date Format"
+    Then user does not see the error message "Invalid format"
     # Scenario 6: Start Date > End Date error message
     Given user is on "Contract Details" page
     When user puts "08 Dec 2019" as the start date for the itinerary template
@@ -3013,10 +3013,10 @@ Feature: APT - Contracts
     Then user does not see the error message "Invalid 24 hour time"
     When user puts "Test" as the start date for the itinerary template
     And user puts "Test" as the end date for the itinerary template
-    Then user sees error message "Unsupported Date Format"
+    Then user sees error message "Invalid format"
     When user puts "08/12/2019" as the start date for the itinerary template
     And user puts "08 12 2020" as the end date for the itinerary template
-    Then user does not see the error message "Unsupported Date Format"
+    Then user does not see the error message "Invalid format"
     When user puts "08 Dec 2019" as the start date for the itinerary template
     And user puts "07 Dec 2019" as the end date for the itinerary template
     Then user sees error message "Start Date cannot be greater than End Date."
@@ -3097,7 +3097,7 @@ Feature: APT - Contracts
     And user puts "Test" as the booking end date for the cancellation rule
     And user puts "Test" as the departure start date for the cancellation rule
     And user puts "Test" as the departure end date for the cancellation rule
-    Then user sees error message "Unsupported Date Format"
+    Then user sees error message "Invalid format"
     # Scenario 3: Re-validation of error messages – Date
     # And Scenario 4: Multiple date formats
     # And Scenario 5: Auto-correct date to preferred format
@@ -3106,7 +3106,7 @@ Feature: APT - Contracts
     And user puts "08 12 2020" as the booking end date for the cancellation rule
     And user puts "09-12-2020" as the departure start date for the cancellation rule
     And user puts "09-Dec-2021" as the departure end date for the cancellation rule
-    Then user does not see the error message "Unsupported Date Format"
+    Then user does not see the error message "Invalid format"
     # Scenario 6: Start Date > End Date error message
     Given user is on "Contract Details" page
     When user puts "07 Dec 2019" as the booking end date for the cancellation rule
@@ -3198,12 +3198,12 @@ Feature: APT - Contracts
     And user puts "Test" as the booking end date for the cancellation rule
     And user puts "Test" as the departure start date for the cancellation rule
     And user puts "Test" as the departure end date for the cancellation rule
-    Then user sees error message "Unsupported Date Format"
+    Then user sees error message "Invalid format"
     When user puts "08/12/2019" as the booking start date for the cancellation rule
     And user puts "08 12 2020" as the booking end date for the cancellation rule
     And user puts "09-12-2020" as the departure start date for the cancellation rule
     And user puts "09-Dec-2021" as the departure end date for the cancellation rule
-    Then user does not see the error message "Unsupported Date Format"
+    Then user does not see the error message "Invalid format"
     When user puts "07 Dec 2019" as the booking end date for the cancellation rule
     And user puts "08 Dec 2020" as the departure end date for the cancellation rule
     Then user sees error message "Start Date cannot be greater than End Date."
@@ -3310,7 +3310,7 @@ Feature: APT - Contracts
     And user puts "Test" as the booking end date for the deposit rule
     And user puts "Test" as the departure start date for the deposit rule
     And user puts "Test" as the departure end date for the deposit rule
-    Then user sees error message "Unsupported Date Format"
+    Then user sees error message "Invalid format"
     # Scenario 3: Re-validation of error messages – Date
     # And Scenario 4: Multiple date formats
     # And Scenario 5: Auto-correct date to preferred format
@@ -3319,7 +3319,7 @@ Feature: APT - Contracts
     And user puts "08 12 2020" as the booking end date for the deposit rule
     And user puts "09-12-2020" as the departure start date for the deposit rule
     And user puts "09-Dec-2021" as the departure end date for the deposit rule
-    Then user does not see the error message "Unsupported Date Format"
+    Then user does not see the error message "Invalid format"
     # Scenario 6: Start Date > End Date error message
     Given user is on "Contract Details" page
     When user puts "07 Dec 2019" as the booking end date for the deposit rule
@@ -3329,7 +3329,7 @@ Feature: APT - Contracts
     Given user is on "Contract Details" page
     When user puts "08 Dec 2020" as the booking end date for the deposit rule
     And user puts "09 Dec 2021" as the departure end date for the deposit rule
-    Then user does not see the error message "Unsupported Date Format"
+    Then user does not see the error message "Invalid format"
     # Scenario 8: Date falls outside of contract range error message
     Given user is on "Contract Details" page
     When user puts "01 Sep 2001" as the booking end date for the deposit rule
@@ -3339,7 +3339,7 @@ Feature: APT - Contracts
     Given user is on "Contract Details" page
     When user puts "08 Dec 2020" as the booking end date for the deposit rule
     And user puts "09 Dec 2021" as the departure end date for the deposit rule
-    Then user does not see the error message "Unsupported Date Format"
+    Then user does not see the error message "Invalid format"
 
   @Regression
   Scenario: APT-2347: 02d. Add new Deposit rule to contract after validations
@@ -3409,12 +3409,12 @@ Feature: APT - Contracts
     And user puts "Test" as the booking end date for the deposit rule
     And user puts "Test" as the departure start date for the deposit rule
     And user puts "Test" as the departure end date for the deposit rule
-    Then user sees error message "Unsupported Date Format"
+    Then user sees error message "Invalid format"
     When user puts "08/12/2019" as the booking start date for the deposit rule
     And user puts "08 12 2020" as the booking end date for the deposit rule
     And user puts "09-12-2020" as the departure start date for the deposit rule
     And user puts "09-Dec-2021" as the departure end date for the deposit rule
-    Then user does not see the error message "Unsupported Date Format"
+    Then user does not see the error message "Invalid format"
     When user puts "07 Dec 2019" as the booking end date for the deposit rule
     And user puts "08 Dec 2020" as the departure end date for the deposit rule
     Then user sees error message "Start Date cannot be greater than End Date."
@@ -3510,7 +3510,7 @@ Feature: APT - Contracts
     And user puts "Test" as the booking end date for the final payment rule
     And user puts "Test" as the departure start date for the final payment rule
     And user puts "Test" as the departure end date for the final payment rule
-    Then user sees error message "Unsupported Date Format"
+    Then user sees error message "Invalid format"
     # Scenario 3: Re-validation of error messages – Date
     # And Scenario 4: Multiple date formats
     # And Scenario 5: Auto-correct date to preferred format
@@ -3519,7 +3519,7 @@ Feature: APT - Contracts
     And user puts "08 12 2020" as the booking end date for the final payment rule
     And user puts "09-12-2020" as the departure start date for the final payment rule
     And user puts "09-Dec-2021" as the departure end date for the final payment rule
-    Then user does not see the error message "Unsupported Date Format"
+    Then user does not see the error message "Invalid format"
     # Scenario 6: Start Date > End Date error message
     Given user is on "Contract Details" page
     When user puts "07 Dec 2019" as the booking end date for the final payment rule
@@ -3529,7 +3529,7 @@ Feature: APT - Contracts
     Given user is on "Contract Details" page
     When user puts "08 Dec 2020" as the booking end date for the final payment rule
     And user puts "09 Dec 2021" as the departure end date for the final payment rule
-    Then user does not see the error message "Unsupported Date Format"
+    Then user does not see the error message "Invalid format"
     # Scenario 8: Date falls outside of contract range error message
     Given user is on "Contract Details" page
     When user puts "01 Sep 2001" as the booking end date for the final payment rule
@@ -3539,7 +3539,7 @@ Feature: APT - Contracts
     Given user is on "Contract Details" page
     When user puts "08 Dec 2020" as the booking end date for the final payment rule
     And user puts "09 Dec 2021" as the departure end date for the final payment rule
-    Then user does not see the error message "Unsupported Date Format"
+    Then user does not see the error message "Invalid format"
 
   @Regression
   Scenario: APT-2355: 02d. Add new Final Payment rule to contract after validations
@@ -3568,7 +3568,7 @@ Feature: APT - Contracts
     And user saves the final payment rule
     Then user sees feedback message "Final Payment Rule has been successfully added to the contract."
     And user does not see the error message "This is a mandatory field"
-    # Scemarop fpr APT-2644:
+    # Scenario for APT-2644:
     Given user is on "Contract Details" page
     When user opens the add final payment rule popup
     And user provides valid values on the final payment rule popup fields
@@ -3593,24 +3593,24 @@ Feature: APT - Contracts
     And user puts "Test" as the booking end date for the final payment rule
     And user puts "Test" as the departure start date for the final payment rule
     And user puts "Test" as the departure end date for the final payment rule
-    Then user sees error message "Unsupported Date Format"
+    Then user sees error message "Invalid format"
     When user puts "08/12/2019" as the booking start date for the final payment rule
     And user puts "08 12 2020" as the booking end date for the final payment rule
     And user puts "09-12-2020" as the departure start date for the final payment rule
     And user puts "09-Dec-2021" as the departure end date for the final payment rule
-    Then user does not see the error message "Unsupported Date Format"
+    Then user does not see the error message "Invalid format"
     When user puts "07 Dec 2019" as the booking end date for the final payment rule
     And user puts "08 Dec 2020" as the departure end date for the final payment rule
     Then user sees error message "Start Date cannot be greater than End Date."
     When user puts "08 Dec 2020" as the booking end date for the final payment rule
     And user puts "09 Dec 2021" as the departure end date for the final payment rule
-    Then user does not see the error message "Unsupported Date Format"
+    Then user does not see the error message "Invalid format"
     When user puts "01 Sep 2001" as the booking end date for the final payment rule
     And user puts "31 Dec 2051" as the departure end date for the final payment rule
     Then user sees error message "Date falls outside the date range of the contract."
     When user puts "08 Dec 2020" as the booking end date for the final payment rule
     And user puts "09 Dec 2021" as the departure end date for the final payment rule
-    Then user does not see the error message "Unsupported Date Format"
+    Then user does not see the error message "Invalid format"
     When user selects due date as the option for the final payment rule
     Then user sees due date field is enabled and minimum days field is disabled
     When user selects minimum days as the option for the final payment rule
@@ -4895,8 +4895,8 @@ Feature: APT - Contracts
     And user changes the status of the contract to "Loading"
     And user expands the contract options accordion
     And user saves the update of contract basic information
-    #Then user sees feedback message "Record saved successfully."
 
+  #Then user sees feedback message "Record saved successfully."
   @Regression @RegressionContractCostPage
   Scenario: APT-3022: 1.d View Configurations to be created in Add Contract Cost page
     # Scenario 1:
@@ -5470,37 +5470,37 @@ Feature: APT - Contracts
     And user ticks the "EUR" option of the contract price add custom dates currency dropdown
     And user adds the contract prices custom dates to the table
     Then user sees the added price in the contract prices table
-    
-	@Regression
+
+  @Regression
   Scenario: APT-3723: Delete Contracts when it is not used on packages/bookings
-  	#Navigate to Contracts PAge
-  	Given user opens browser
-		When user logs into app
-		And user navigates to contracts page
-		Then user decides to add a new contract
-		#Create Contract
+    #Navigate to Contracts PAge
+    Given user opens browser
+    When user logs into app
+    And user navigates to contracts page
+    Then user decides to add a new contract
+    #Create Contract
     Given user is on "Contract Details" page
-		And user enter details of the contract
-		When user saves the contract
-		Then user sees feedback message Contract ID has been "created successfully." displayed
-		And user close details page for the newly created contract
-		#Check Delete button
-		Given user is on "Contracts" page
-		When user searches for a contract name "TestContract"
-		Then user sees a delete icon in the contract shown in the list
-		#Delete un-used contract
-		Given user clicks on delete button
-		And confirmation popup message is displayed for unused contract
-		When user clicks on OK button in the delete popup
-		Then user sees feedback message "Contract and all associated details deleted successfully. "
-		#Search for used contract
-		Given user is on "Contracts" page
+    And user enter details of the contract
+    When user saves the contract
+    Then user sees feedback message Contract ID has been "created successfully." displayed
+    And user close details page for the newly created contract
+    #Check Delete button
+    Given user is on "Contracts" page
+    When user searches for a contract name "TestContract"
+    Then user sees a delete icon in the contract shown in the list
+    #Delete un-used contract
+    Given user clicks on delete button
+    And confirmation popup message is displayed for unused contract
+    When user clicks on OK button in the delete popup
+    Then user sees feedback message "Contract and all associated details deleted successfully. "
+    #Search for used contract
+    Given user is on "Contracts" page
     And user searches for a contract by id
-		#Delete used contract
-		Given user clicks on delete button
-		And confirmation popup message is displayed for used contract
-		When user clicks on OK button in the popup
-		Then selected contract is not deleted
+    #Delete used contract
+    Given user clicks on delete button
+    And confirmation popup message is displayed for used contract
+    When user clicks on OK button in the popup
+    Then selected contract is not deleted
 
   @Regression
   Scenario: APT-3744: Hover for long text, field validations in Edit Basic Info popup
@@ -5543,35 +5543,35 @@ Feature: APT - Contracts
     Given user is on "Contract Details" page
     When user add characters to an existing allotment code
     Then characters to the existing allotment code will be appended
-		
-	@Regression
-  Scenario:  APT-3942: Add to Table button behavior and Price Configuration field changes in Edit Price popup
-  #Scenario 1: Add to Table is not disabled if all fields have value
-  	Given user opens browser
-		When user logs into app
-		And user navigates to contracts page
+
+  @Regression
+  Scenario: APT-3942: Add to Table button behavior and Price Configuration field changes in Edit Price popup
+    #Scenario 1: Add to Table is not disabled if all fields have value
+    Given user opens browser
+    When user logs into app
+    And user navigates to contracts page
     And user searches for a contract with "96682" id
-		And user updates the contract
-		And user opens the add contract price popup
-		And user searches for the contract price configuration with "Per Person" as the guest configuration, "Porterage" as the category 1 and "Adult" as the category 2
-		And user selects the top price configuration search result in the list
-		And user opens the contract price add custom dates section
-		And user sees that add to table button is enabled
-		And user puts "01 Jan 2022" in the contract price start date field
-		And user puts "" in the contract price end date field
-		And user sees that add to table button is disabled
-		Then user click cancel button in the add contract prices popup
-	#Scenario 2: Price Configuration value does not reverts to original value if there is an error
-		Given user is on "Contract Details" page
-		When user hovers over a certain cell that is not empty in the contract prices table
+    And user updates the contract
+    And user opens the add contract price popup
+    And user searches for the contract price configuration with "Per Person" as the guest configuration, "Porterage" as the category 1 and "Adult" as the category 2
+    And user selects the top price configuration search result in the list
+    And user opens the contract price add custom dates section
+    And user sees that add to table button is enabled
+    And user puts "01 Jan 2022" in the contract price start date field
+    And user puts "" in the contract price end date field
+    And user sees that add to table button is disabled
+    Then user click cancel button in the add contract prices popup
+    #Scenario 2: Price Configuration value does not reverts to original value if there is an error
+    Given user is on "Contract Details" page
+    When user hovers over a certain cell that is not empty in the contract prices table
     And user edits the contract price
-		And user searches for the contract price configuration with "Per Item" as the guest configuration, "Porterage" as the category 1 and "Child" as the category 2
-		And user selects the top price configuration search result in the list
-		Then user saves the contract prices
-		And user sees error message "Cannot change value as Price already exists."
-		When price configuration dropdown is not reverted to the original value
-		Then user click cancel button in the add contract prices popup
-	#Scenario 3: Hide the Edit and Delete icons in the Max Commission column in Price Table
-		Given user is on "Contract Details" page
-		When user hovers over a certain maximum commission cell that is not empty in the contract prices table
-		Then edit and delete icon is not visible in maximum commission cell
+    And user searches for the contract price configuration with "Per Item" as the guest configuration, "Porterage" as the category 1 and "Child" as the category 2
+    And user selects the top price configuration search result in the list
+    Then user saves the contract prices
+    And user sees error message "Cannot change value as Price already exists."
+    When price configuration dropdown is not reverted to the original value
+    Then user click cancel button in the add contract prices popup
+    #Scenario 3: Hide the Edit and Delete icons in the Max Commission column in Price Table
+    Given user is on "Contract Details" page
+    When user hovers over a certain maximum commission cell that is not empty in the contract prices table
+    Then edit and delete icon is not visible in maximum commission cell
