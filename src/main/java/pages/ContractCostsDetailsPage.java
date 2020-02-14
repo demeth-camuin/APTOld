@@ -437,6 +437,8 @@ public class ContractCostsDetailsPage extends Base {
 	}
 	
 	public void clickConfigurationDetailsSectionEditConfigurationButton() throws Exception {
+		CommonFunctions.clickKeys(Keys.chord(Keys.HOME));
+		CommonFunctions.pause(2500, false);
 		CommonFunctions.clickElement(button_ConfigurationDetailsSection_EditConfiguration);
 		CommonFunctions.pause(5000, false);
 		CommonFunctions.switchFrameByXPath("//form[contains(@action, 'ConfigurationDetails')]//label[contains(@id, 'GuestConfiguration')]");
@@ -886,6 +888,8 @@ public class ContractCostsDetailsPage extends Base {
 	}
 	
 	public ContractDetailsPage clickTopCloseButton() throws Exception {
+		CommonFunctions.clickKeys(Keys.chord(Keys.HOME));
+		CommonFunctions.pause(2500, false);
 		CommonFunctions.clickElement(button_TopClose);
 		CommonFunctions.pause(10000, false);
 		

@@ -13,16 +13,15 @@ import cucumber.api.junit.Cucumber;
 	// tags = { "@Regression-Slow" },
 	// tags = { "@RegressionRerun" },
 	// tags = { "@WIP" },
-	// features = "src/main/resources/features/"
-	// features = "src/main/resources/features/Air.feature"
-	// features = "src/main/resources/features/Commissions.feature"
-	features = "src/main/resources/features/Contracts.feature"
-// features = "src/main/resources/features/Customers.feature"
-// features = "src/main/resources/features/HomePage.feature"
-// features = "src/main/resources/features/Promotions.feature"
-// features = "src/main/resources/features/Suppliers.feature"
-// features = "src/main/resources/features/Users.feature"
-)
+	// features = "src/main/resources/features/")
+	// features = "src/main/resources/features/Air.feature")
+	// features = "src/main/resources/features/Commissions.feature")
+	features = "src/main/resources/features/Contracts.feature")
+// features = "src/main/resources/features/Customers.feature")
+// features = "src/main/resources/features/HomePage.feature")
+// features = "src/main/resources/features/Promotions.feature")
+// features = "src/main/resources/features/Suppliers.feature")
+// features = "src/main/resources/features/Users.feature")
 
 public class Runner {
 	

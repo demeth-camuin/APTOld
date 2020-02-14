@@ -1020,7 +1020,7 @@ public class StepDefinitions extends Base {
 	
 	@When("^user provides comments$")
 	public void user_provides_comments() throws Throwable {
-		promotionDetailsPage.setInvoiceDescriptionInput(prop.getProperty("newPromotionInvoiceDescription"));
+		// promotionDetailsPage.setInvoiceDescriptionInput(prop.getProperty("newPromotionInvoiceDescription"));
 	}
 	
 	@When("^user saves the promotion$")
@@ -2822,7 +2822,7 @@ public class StepDefinitions extends Base {
 	
 	@When("^user enters an airline code$")
 	public void user_enters_an_airline_code() throws Throwable {
-		supplierDetailsPage.setAirlineSectionAirlineCodeInput("tst");
+		supplierDetailsPage.setAirlineSectionAirlineCodeInput("TST");
 		CommonFunctions.pause(2500, false);
 	}
 	
@@ -3217,6 +3217,7 @@ public class StepDefinitions extends Base {
 		CommonFunctions.pause(500, false);
 		CommonFunctions.clickKeys(Keys.chord(Keys.BACK_SPACE));
 		CommonFunctions.pause(2500, false);
+		CommonFunctions.clickKeys(Keys.chord(Keys.TAB));
 	}
 	
 	@Then("^user sees the airline class and pricing of the airline code removed$")

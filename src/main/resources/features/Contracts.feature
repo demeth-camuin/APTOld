@@ -87,7 +87,7 @@ Feature: APT - Contracts
     And user navigates to contracts page
     And user decides to add a new contract
     And user provides the contract dates in invalid format
-    Then user sees error message "Invalid format"
+    Then user sees error message "Unsupported Date Format"
     # Scenario for APT-1320:
     Given user is on "Contract Details" page
     When user adds a contract date range with the start date is greater than the end date
@@ -3510,7 +3510,7 @@ Feature: APT - Contracts
     And user puts "Test" as the booking end date for the final payment rule
     And user puts "Test" as the departure start date for the final payment rule
     And user puts "Test" as the departure end date for the final payment rule
-    Then user sees error message "Invalid format"
+    Then user sees error message "Unsupported Date Format"
     # Scenario 3: Re-validation of error messages – Date
     # And Scenario 4: Multiple date formats
     # And Scenario 5: Auto-correct date to preferred format
@@ -3519,7 +3519,7 @@ Feature: APT - Contracts
     And user puts "08 12 2020" as the booking end date for the final payment rule
     And user puts "09-12-2020" as the departure start date for the final payment rule
     And user puts "09-Dec-2021" as the departure end date for the final payment rule
-    Then user does not see the error message "Invalid format"
+    Then user does not see the error message "Unsupported Date Format"
     # Scenario 6: Start Date > End Date error message
     Given user is on "Contract Details" page
     When user puts "07 Dec 2019" as the booking end date for the final payment rule
@@ -3529,7 +3529,7 @@ Feature: APT - Contracts
     Given user is on "Contract Details" page
     When user puts "08 Dec 2020" as the booking end date for the final payment rule
     And user puts "09 Dec 2021" as the departure end date for the final payment rule
-    Then user does not see the error message "Invalid format"
+    Then user does not see the error message "Unsupported Date Format"
     # Scenario 8: Date falls outside of contract range error message
     Given user is on "Contract Details" page
     When user puts "01 Sep 2001" as the booking end date for the final payment rule
@@ -3539,7 +3539,7 @@ Feature: APT - Contracts
     Given user is on "Contract Details" page
     When user puts "08 Dec 2020" as the booking end date for the final payment rule
     And user puts "09 Dec 2021" as the departure end date for the final payment rule
-    Then user does not see the error message "Invalid format"
+    Then user does not see the error message "Unsupported Date Format"
 
   @Regression
   Scenario: APT-2355: 02d. Add new Final Payment rule to contract after validations
@@ -3593,24 +3593,24 @@ Feature: APT - Contracts
     And user puts "Test" as the booking end date for the final payment rule
     And user puts "Test" as the departure start date for the final payment rule
     And user puts "Test" as the departure end date for the final payment rule
-    Then user sees error message "Invalid format"
+    Then user sees error message "Unsupported Date Format"
     When user puts "08/12/2019" as the booking start date for the final payment rule
     And user puts "08 12 2020" as the booking end date for the final payment rule
     And user puts "09-12-2020" as the departure start date for the final payment rule
     And user puts "09-Dec-2021" as the departure end date for the final payment rule
-    Then user does not see the error message "Invalid format"
+    Then user does not see the error message "Unsupported Date Format"
     When user puts "07 Dec 2019" as the booking end date for the final payment rule
     And user puts "08 Dec 2020" as the departure end date for the final payment rule
     Then user sees error message "Start Date cannot be greater than End Date."
     When user puts "08 Dec 2020" as the booking end date for the final payment rule
     And user puts "09 Dec 2021" as the departure end date for the final payment rule
-    Then user does not see the error message "Invalid format"
+    Then user does not see the error message "Unsupported Date Format"
     When user puts "01 Sep 2001" as the booking end date for the final payment rule
     And user puts "31 Dec 2051" as the departure end date for the final payment rule
     Then user sees error message "Date falls outside the date range of the contract."
     When user puts "08 Dec 2020" as the booking end date for the final payment rule
     And user puts "09 Dec 2021" as the departure end date for the final payment rule
-    Then user does not see the error message "Invalid format"
+    Then user does not see the error message "Unsupported Date Format"
     When user selects due date as the option for the final payment rule
     Then user sees due date field is enabled and minimum days field is disabled
     When user selects minimum days as the option for the final payment rule

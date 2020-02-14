@@ -1,7 +1,7 @@
 Feature: APT - Users
   I want to use this feature file for testing APT - Users user stories
 
-  @WIP
+  @Regression
   Scenario: APT-78: As a User, I want to login to Oxy Admin portal so that I can access and use the portal
     # Scenario 1: Successful Login
     # And Scenario 2:
@@ -169,6 +169,6 @@ Feature: APT - Users
     Then user sees feedback message "Activation link has been successfully resent to the User"
     # Scenario 3:
     Given user is on "UserDetails" page
-    #When user closes add user page
+    When user closes add user page
     And user searches for a user that is already activated
     Then user does not see the reactivation email button
