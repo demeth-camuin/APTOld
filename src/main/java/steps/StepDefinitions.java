@@ -5825,7 +5825,7 @@ public class StepDefinitions extends Base {
 	@When("^user enables the option indicative pricing for the contract$")
 	public void user_enables_the_option_indicative_pricing_for_the_contract() throws Throwable {
 		contractDetailsPage.clickContractOptionsSectionIndicativePricingCheckbox();
-		CommonFunctions.pause(2500, false);
+		CommonFunctions.pause(5000, false);
 	}
 	
 	@Then("^user sees the min and max contract value fields enabled$")
