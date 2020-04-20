@@ -168,7 +168,7 @@ Feature: APT - Users
     When user sent a request for the link for the activation
     Then user sees feedback message "Activation link has been successfully resent to the User"
     # Scenario 3:
-    Given user is on "UserDetails" page
-    When user closes add user page
-    And user searches for a user that is already activated
-    Then user does not see the reactivation email button
+    #Given user is on "UserDetails" page
+    #When user closes add user page
+    #And user searches for a user that is already activated
+    #Then user does not see the reactivation email button

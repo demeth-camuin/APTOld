@@ -2540,7 +2540,7 @@ public class StepDefinitions extends Base {
 	@Then("^user sees the supplier in the table$")
 	public void user_sees_the_supplier_in_the_table() throws Throwable {
 		suppliersPage.containsValueTopRowDataId(prop.getProperty("searchSupplierId"));
-		suppliersPage.containsValueTopRowDataName(prop.getProperty("searchSupplierName"));
+		suppliersPage.containsValueTopRowDataName(prop.getProperty("paSupplierName"));
 		suppliersPage.containsValueTopRowDataCity(prop.getProperty("searchSupplierCity"));
 		suppliersPage.containsValueTopRowDataCountry(prop.getProperty("searchSupplierCountry"));
 		suppliersPage.containsValueTopRowDataThirdParty(prop.getProperty("searchSupplierThirdParty"));
@@ -2748,7 +2748,7 @@ public class StepDefinitions extends Base {
 	
 	@When("^user searches for a third party$")
 	public void user_searches_for_a_third_party() throws Throwable {
-		supplierDetailsPage.setThirdPartyPopupNameInput(prop.getProperty("searchSupplierName"));
+		supplierDetailsPage.setThirdPartyPopupNameInput(prop.getProperty("paSupplierName"));
 		supplierDetailsPage.setThirdPartyPopupCityInput(prop.getProperty("searchSupplierCity"));
 		supplierDetailsPage.clickThirdPartyPopupFindButton();
 	}
@@ -2756,7 +2756,7 @@ public class StepDefinitions extends Base {
 	@Then("^user sees the third party information in the table$")
 	public void user_sees_the_third_party_information_in_the_table() throws Throwable {
 		supplierDetailsPage.containsValueThirdPartyPopupTopRowDataId(prop.getProperty("searchSupplierId"));
-		supplierDetailsPage.containsValueThirdPartyPopupTopRowDataName(prop.getProperty("searchSupplierName"));
+		supplierDetailsPage.containsValueThirdPartyPopupTopRowDataName(prop.getProperty("paSupplierName"));
 		supplierDetailsPage.containsValueThirdPartyPopupTopRowDataCity(prop.getProperty("searchSupplierCity"));
 		supplierDetailsPage.containsValueThirdPartyPopupTopRowDataCountry(prop.getProperty("searchSupplierCountry"));
 	}
@@ -2775,7 +2775,7 @@ public class StepDefinitions extends Base {
 	
 	@Then("^user sees the third party under the supplier$")
 	public void user_sees_the_third_party_under_the_supplier() throws Throwable {
-		CommonFunctions.textVisibleInPage(prop.getProperty("searchSupplierName"));
+		CommonFunctions.textVisibleInPage(prop.getProperty("paSupplierName"));
 	}
 	
 	@Then("^user sees third party check boxes where print voucher for third party is selected by default$")
@@ -3214,8 +3214,10 @@ public class StepDefinitions extends Base {
 	public void user_removes_the_airline_code() throws Throwable {
 		supplierDetailsPage.clickAirlineAccordion();
 		CommonFunctions.clickKeys(Keys.chord(Keys.TAB));
-		CommonFunctions.pause(500, false);
+		CommonFunctions.pause(1000, false);
 		CommonFunctions.clickKeys(Keys.chord(Keys.BACK_SPACE));
+		CommonFunctions.pause(1000, false);
+		CommonFunctions.clickOnPopUp("OK");
 		CommonFunctions.pause(2500, false);
 		CommonFunctions.clickKeys(Keys.chord(Keys.TAB));
 	}
@@ -5969,7 +5971,7 @@ public class StepDefinitions extends Base {
 	
 	@Then("^user sees the selected supplier for the contract in the supplier field$")
 	public void user_sees_the_selected_supplier_for_the_contract_in_the_supplier_field() throws Throwable {
-		contractDetailsPage.containsValueSupplierInput(prop.getProperty("searchSupplierName"));
+		contractDetailsPage.containsValueSupplierInput(prop.getProperty("paSupplierName"));
 	}
 	
 	@When("^user selects a city for the contract$")
